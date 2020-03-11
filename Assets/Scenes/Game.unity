@@ -423,13 +423,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4939a19894295884894ab130a648f023, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_actions: []
+  m_actions:
+  - id: 0
+  - id: 1
+  - id: 2
   m_input:
-    id: 0
+    id: 3
   references:
     version: 1
     00000000:
-      type: {class: , ns: , asm: }
+      type: {class: MoveAction, ns: CharacterSystem, asm: CS-Player}
+      data:
+        UnallowedStatus: 0
+        Speed: 50
+        InAirDrag: 0.5
+        InGroundDrag: 14
+    00000001:
+      type: {class: JumpAction, ns: CharacterSystem, asm: CS-Player}
+      data:
+        UnallowedStatus: 0
+        JumpForce: 0
+    00000002:
+      type: {class: JumpAction, ns: CharacterSystem, asm: CS-Player}
+      data:
+        UnallowedStatus: 0
+        JumpForce: 0
+    00000003:
+      type: {class: PlayerInput, ns: CharacterSystem, asm: CS-Player}
 --- !u!70 &1423644832
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
