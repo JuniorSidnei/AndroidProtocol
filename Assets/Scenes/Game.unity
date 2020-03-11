@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -150,21 +150,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0068c0a82f5a2494ebeb53d2ab3562ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fruits:
-  - id: 0
-  - id: 1
-  references:
-    version: 1
-    00000000:
-      type: {class: Apple, ns: , asm: Assembly-CSharp}
-      data:
-        fruitName: Apple
-        appleType: 0
-    00000001:
-      type: {class: Orange, ns: , asm: Assembly-CSharp}
-      data:
-        fruitName: Orange
-        orangeType: 1
 --- !u!4 &124549696
 Transform:
   m_ObjectHideFlags: 0
@@ -177,7 +162,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &534669902
 GameObject:
@@ -449,7 +434,7 @@ MonoBehaviour:
         UnallowedStatus: 0
         JumpForce: 0
     00000003:
-      type: {class: PlayerInput, ns: CharacterSystem, asm: CS-Player}
+      type: {class: , ns: , asm: }
 --- !u!70 &1423644832
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -528,5 +513,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
