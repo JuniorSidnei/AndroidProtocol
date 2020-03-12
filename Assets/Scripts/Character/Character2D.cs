@@ -5,7 +5,6 @@ using UnityEngine;
 
 namespace CharacterSystem {
 	
-	[RequireComponent(typeof(Rigidbody2D))]
 	public class Character2D : MonoBehaviour {
 
 		[Flags]
@@ -29,7 +28,6 @@ namespace CharacterSystem {
 		
 		public readonly QueuedEventDispatcher LocalDispatcher = new QueuedEventDispatcher();
 		
-		public Rigidbody2D Rigidbody { get; private set; }
 		public IInputSource Input => m_input;
 
 		public void SetStatus(Status status) {
@@ -45,7 +43,6 @@ namespace CharacterSystem {
 		}
 
 		private void Awake() {
-			Rigidbody = GetComponent<Rigidbody2D>();
 
 //			Bounds bounds = GetComponent<Collider2D>().bounds;
 //			m_bottomOffset = new Vector2(0, -bounds.extents.y);
