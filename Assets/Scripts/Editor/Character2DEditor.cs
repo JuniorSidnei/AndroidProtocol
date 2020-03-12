@@ -23,15 +23,17 @@ public class Character2DEditor : Editor {
     private void OnInputTypeSelected(Type type) {
         m_input.managedReferenceValue = Activator.CreateInstance(type);
         m_input.serializedObject.ApplyModifiedProperties();
-        Undo.RegisterCreatedObjectUndo(target, "Input type selected");
     }
 
     private void OnActionTypeSelected(Type type) {
-        m_actions.arraySize++;
-        var element = m_actions.GetArrayElementAtIndex(m_actions.arraySize - 1);
-        element.managedReferenceValue = Activator.CreateInstance(type);
+        AddElementToSerializedList(m_actions, Activator.CreateInstance(type));
         m_actions.serializedObject.ApplyModifiedProperties();
-        Undo.RegisterCreatedObjectUndo(target, "Action type selected");
+    }
+
+    private static void AddElementToSerializedList(SerializedProperty list, object value) {
+        list.arraySize++;
+        var element = list.GetArrayElementAtIndex(list.arraySize - 1);
+        element.managedReferenceValue = value;
     }
 
     public override void OnInspectorGUI() {
@@ -40,7 +42,12 @@ public class Character2DEditor : Editor {
         m_sourceRef.ApplyModifiedProperties();
     }
 
-    void DisplayProperties() {
+    private static void SwitchElements(SerializedProperty list, int src, int dst) {
+//        SerializedProperty aux = list.GetArrayElementAtIndex(src);
+        list.MoveArrayElement(src, dst);
+    }
+
+    private void DisplayProperties() {
 
         EditorGUILayout.BeginHorizontal();
         EditorGUILayout.LabelField(m_input.type);
@@ -48,9 +55,33 @@ public class Character2DEditor : Editor {
         EditorGUILayout.EndHorizontal();
         
         m_actionsButton.OnInspectorGUI();
+        EditorGUI.indentLevel++;
         for (int i = 0; i < m_actions.arraySize; i++) {
+            
             var element = m_actions.GetArrayElementAtIndex(i);
+            float width = EditorGUIUtility.currentViewWidth;
+            float height = EditorGUI.GetPropertyHeight(element);
+            EditorGUILayout.BeginHorizontal();
+            if (GUILayout.Button(new GUIContent("Remove"))) {
+                m_actions.DeleteArrayElementAtIndex(i);
+                break;
+            }
+
+            if (i > 0) {
+                if (GUILayout.Button(new GUIContent("Up"))) {
+                    m_actions.MoveArrayElement(i, i - 1);
+                }    
+            }
+
+            if (i < m_actions.arraySize - 1) {
+                if (GUILayout.Button(new GUIContent("Down"))) {
+                    m_actions.MoveArrayElement(i, i + 1);
+                }    
+            }
+            
+            EditorGUILayout.EndHorizontal();
             EditorGUILayout.PropertyField(element, new GUIContent(element.type), true);
         }
+        EditorGUI.indentLevel--;
     }
 }
