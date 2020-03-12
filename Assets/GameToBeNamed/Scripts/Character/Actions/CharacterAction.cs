@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace CharacterSystem {
+namespace GameToBeNamed.Character {
 
     public interface ICharacterAction {
         void Configure(Character2D character2D);

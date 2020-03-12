@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace CharacterSystem {
+namespace GameToBeNamed.Character {
     
     [Flags]
     public enum InputAction {

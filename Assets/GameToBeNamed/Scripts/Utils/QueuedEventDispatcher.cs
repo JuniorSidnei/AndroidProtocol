@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace CharacterSystem {
+namespace GameToBeNamed.Utils {
 	public class QueuedEventDispatcher {
 
 		//helper class definitions
