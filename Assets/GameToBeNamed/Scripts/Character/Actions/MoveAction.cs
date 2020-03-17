@@ -6,30 +6,39 @@ namespace GameToBeNamed.Character {
     public class MoveAction : CharacterAction {
         
         public Character2D.Status UnallowedStatus;
-        public float Speed = 50;
-        public float InAirDrag = 0.5f, InGroundDrag = 14;
-        
+        public float Speed = 200;
+        public float InAirDrag = 0.5f, InGroundDrag = 5;
+
         private IInputSource m_input;
-        private Rigidbody2D m_rb;
-        
+
         protected override void OnConfigure() {
             m_input = Character2D.Input;
             Character2D.LocalDispatcher.Subscribe<OnCharacterUpdate>(OnCharacterUpdate);
-            m_rb = Character2D.GetComponent<Rigidbody2D>();
         }
         
-        private void OnCharacterUpdate(OnCharacterUpdate ev) {
+        private void OnCharacterUpdate(OnCharacterUpdate ev)
+        {
+
             if (Character2D.HasStatus(UnallowedStatus)) {
                 return;
             }
+
+            if (Character2D.Controller2D.collisions.below) {
+                Character2D.Drag = InGroundDrag;
+            }
+            else if (!Character2D.Controller2D.collisions.below) {
+                Character2D.Drag = InAirDrag;
+            }
             
-            m_rb.drag = Character2D.HasStatus(Character2D.Status.OnGround) ? InGroundDrag : InAirDrag;
             
             if (m_input.HasAction(InputAction.Button2)) {//right
-                m_rb.AddForce(Speed * Time.deltaTime * Vector3.right);
+                Character2D.Velocity += new Vector2(Speed * Time.deltaTime, 0);
+                Character2D.SetStatus(Character2D.Status.Moving);
             }
+            
             if (m_input.HasAction(InputAction.Button3)) {//left
-                m_rb.AddForce(Speed * Time.deltaTime * Vector3.left);
+                Character2D.Velocity -= new Vector2(Speed * Time.deltaTime, 0);
+                Character2D.SetStatus(Character2D.Status.Moving);
             }
         }
     }

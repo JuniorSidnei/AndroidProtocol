@@ -16,7 +16,9 @@ namespace GameToBeNamed.Character {
         Button9 = 1 << 9,
     }
 
-    public interface IInputSource {
+    public interface IInputSource
+    {
+        void Configure();
         void Update();
         
         bool HasAction(InputAction action);
@@ -30,7 +32,9 @@ namespace GameToBeNamed.Character {
         protected InputAction Action { private get; set; }
         protected InputAction ActionDown { private get; set; }
         protected InputAction ActionUp { private get; set; }
-        
+
+        public abstract void Configure();
+
         public abstract void Update();
 
         public bool HasAction(InputAction action) {

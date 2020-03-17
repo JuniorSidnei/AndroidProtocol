@@ -7,20 +7,23 @@ namespace GameToBeNamed.Character {
         
         public Character2D.Status UnallowedStatus;
         public float JumpForce;
-        private Rigidbody2D m_rb;
-        
+        public float Gravity;
+
         protected override void OnConfigure() {
             Character2D.LocalDispatcher.Subscribe<OnCharacterUpdate>(OnCharacterUpdate);
-            m_rb = Character2D.GetComponent<Rigidbody2D>();
         }
 
         private void OnCharacterUpdate(OnCharacterUpdate ev) {
-            if (Character2D.HasStatus(UnallowedStatus) || !Character2D.HasStatus(Character2D.Status.OnGround)) {
+            
+            Character2D.Velocity += new Vector2(0, Gravity * Time.deltaTime);
+            
+            if (Character2D.HasStatus(UnallowedStatus) || !Character2D.Controller2D.collisions.below) {
                 return;
             }
             
             if (Character2D.Input.HasActionDown(InputAction.Button1)) {
-                m_rb.AddForce(Vector2.up * JumpForce, ForceMode2D.Impulse);
+                Character2D.Velocity += Vector2.up * JumpForce;
+                Character2D.SetStatus(Character2D.Status.Jumping);
             }
         }
     }

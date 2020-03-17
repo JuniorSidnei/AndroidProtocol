@@ -10,19 +10,23 @@ namespace GameToBeNamed.Character {
         public int PlayerID = 0;
         private Player m_player;
 
-        public PlayerInput() {
+
+        public override void Configure() {
             m_player = ReInput.players.GetPlayer(PlayerID);
         }
-        
+
         
         public override void Update() {
             CheckButtonDown("Jump", InputAction.Button1);
             CheckButton("MoveRight", InputAction.Button2);
-            CheckButton("MoveLeft", InputAction.Button3);           
+            CheckButton("MoveLeft", InputAction.Button3);
+            CheckButtonDown("Attack", InputAction.Button4);
+            CheckButtonDown("Blocking", InputAction.Button5);
         }
 
         
         private void CheckButton(string buttonName, InputAction actionValue) {
+            
             if (m_player.GetButton(buttonName)) {
                 SetAction(actionValue);
             }
@@ -32,6 +36,7 @@ namespace GameToBeNamed.Character {
         }
         
         private void CheckButtonDown(string buttonName, InputAction actionValue) {
+            
             if (m_player.GetButtonDown(buttonName)) {
                 SetActionDown(actionValue);
             }

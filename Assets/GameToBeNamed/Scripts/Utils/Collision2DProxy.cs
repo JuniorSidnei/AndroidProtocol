@@ -8,6 +8,7 @@ namespace GameToBeNamed.Utils{
     
     [RequireComponent(typeof(Collider2D))]
     public class Collision2DProxy : MonoBehaviour {
+        
         //Collisions
         public UnityEvent<Collision2D> OnCollision2DEnterCallback;
         public UnityEvent<Collision2D> OnCollision2DStayCallback;
@@ -17,6 +18,7 @@ namespace GameToBeNamed.Utils{
         public UnityEvent<Collider2D> OnTrigger2DEnterCallback;
         public UnityEvent<Collider2D> OnTrigger2DStayCallback;
         public UnityEvent<Collider2D> OnTrigger2DExitCallback;
+        
 
         //Collisions
         private void OnCollisionEnter2D(Collision2D other) {

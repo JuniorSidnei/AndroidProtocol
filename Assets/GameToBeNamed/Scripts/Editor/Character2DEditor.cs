@@ -11,13 +11,14 @@ namespace GameToBeNamed.Editor {
     public class Character2DEditor : UnityEditor.Editor {
 
         private SerializedObject m_sourceRef;
-        private SerializedProperty m_actions, m_input;
+        private SerializedProperty m_actions, m_input, m_animatorProxy;
         private TypeSelectorButton m_actionsButton, m_inputButton;
 
         private void OnEnable() {
             m_sourceRef = serializedObject;
             m_actions = m_sourceRef.FindProperty("m_actions");
             m_input = m_sourceRef.FindProperty("m_input");
+            m_animatorProxy = m_sourceRef.FindProperty("m_animatorProxy");
             m_actionsButton =
                 TypeSelectorButton.Of<CharacterAction>(new GUIContent("Add action"), OnActionTypeSelected);
             m_inputButton = TypeSelectorButton.Of<InputSource>(new GUIContent("Input source"), OnInputTypeSelected);
@@ -87,6 +88,8 @@ namespace GameToBeNamed.Editor {
             }
 
             EditorGUI.indentLevel--;
+
+            EditorGUILayout.PropertyField(m_animatorProxy, true);
         }
     }
 }
