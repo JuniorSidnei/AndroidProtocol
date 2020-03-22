@@ -1,11 +1,14 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using System.Linq;
+using GameToBeNamed.Utils;
+using UnityEngine;
 
 namespace GameToBeNamed.Character {
     
     [System.Serializable]
     public class MoveAction : CharacterAction {
-        
-        public Character2D.Status UnallowedStatus;
+
+        public readonly PropertyName[] UnallowedConditions = {ActionStates.Dead, ActionStates.Falling, JumpAction.Jumping};
         public float Speed = 50;
         public float InAirDrag = 0.5f, InGroundDrag = 14;
         
@@ -19,11 +22,11 @@ namespace GameToBeNamed.Character {
         }
         
         private void OnCharacterUpdate(OnCharacterUpdate ev) {
-            if (Character2D.HasStatus(UnallowedStatus)) {
+            if (Character2D.ActionStatus.AllNotDefault(UnallowedConditions).Any()) {
                 return;
             }
             
-            m_rb.drag = Character2D.HasStatus(Character2D.Status.OnGround) ? InGroundDrag : InAirDrag;
+            //m_rb.drag = Character2D.HasStatus(Character2D.Status.OnGround) ? InGroundDrag : InAirDrag;
             
             if (m_input.HasAction(InputAction.Button2)) {//right
                 m_rb.AddForce(Speed * Time.deltaTime * Vector3.right);
