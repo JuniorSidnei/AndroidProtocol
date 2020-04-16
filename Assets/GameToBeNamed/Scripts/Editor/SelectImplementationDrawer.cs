@@ -17,9 +17,9 @@ namespace GameToBeNamed.Editor {
 
         private float m_height;
         private Rect m_lastRect;
+        private bool m_expanded;
 
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
-            GUI.Box(position, "");
             m_property = property;
             if (m_selector == null) {
                 m_selector = new TypeSelectorPopupContent(
@@ -30,14 +30,20 @@ namespace GameToBeNamed.Editor {
                     ((SelectImplementation)attribute).FieldType
                 );
             }
-            EditorGUI.PropertyField(position, property, new GUIContent(property.managedReferenceFullTypename), true);
-            
-            if (Event.current.type == EventType.Repaint) {
-                m_lastRect = GUILayoutUtility.GetLastRect();
+
+            if (property.isExpanded) {
+                GUI.Box(position, "");
             }
             
-            if (GUI.Button(new Rect(position.x, position.yMax - 18, position.width, 18), "Select Implementation")) {
-                PopupWindow.Show(position, m_selector);          
+            EditorGUI.PropertyField(position, property, new GUIContent(FilterTypeName(property.managedReferenceFullTypename)), true); 
+            if (property.isExpanded) {
+                if (Event.current.type == EventType.Repaint) {
+                    m_lastRect = GUILayoutUtility.GetLastRect();
+                }
+            
+                if (GUI.Button(new Rect(position.x, position.yMax - 18, position.width, 18), "Select Implementation")) {
+                    PopupWindow.Show(position, m_selector);          
+                }    
             }
         }
 
@@ -46,8 +52,12 @@ namespace GameToBeNamed.Editor {
             m_property.serializedObject.ApplyModifiedProperties();
         }
 
+        private string FilterTypeName(string fullName) {
+            return fullName.Substring(fullName.LastIndexOf('.') + 1);
+        }
+
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label) {
-            m_height = EditorGUI.GetPropertyHeight(property, true) + 18;
+            m_height = EditorGUI.GetPropertyHeight(property, true) + (property.isExpanded ? 18 : 0);
             return m_height;
         }
     }
