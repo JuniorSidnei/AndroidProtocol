@@ -8,11 +8,11 @@ namespace GameToBeNamed.Character {
 	
 	public class Character2D : MonoBehaviour {
 
-		[SerializeReference] 
+		[SerializeReference, SelectImplementation(typeof(ICharacterAction))]
 		private List<ICharacterAction> m_actions = new List<ICharacterAction>();
 		
-		[SerializeReference]
-		private IInputSource m_input;
+		[SerializeReference, SelectImplementation(typeof(IInputSource))]
+		private IInputSource m_input = new PlayerInput();
 		
 		public readonly QueuedEventDispatcher LocalDispatcher = new QueuedEventDispatcher();
 		

@@ -368,16 +368,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_actions:
   - id: 0
-  - id: 0
-  - id: 0
-  - id: 0
-  - id: 0
+  - id: 1
+  Test:
+    id: 0
   m_input:
     id: 0
   references:
     version: 1
     00000000:
       type: {class: , ns: , asm: }
+    00000001:
+      type: {class: MoveAction, ns: GameToBeNamed.Character, asm: CS-Player}
+      data:
+        Speed: 50
+        InAirDrag: 0.5
+        InGroundDrag: 14
 --- !u!70 &1423644832
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -392,7 +397,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.8, y: 1}
+  m_Size: {x: 0.6, y: 1}
   m_Direction: 0
 --- !u!114 &1423644833
 MonoBehaviour:

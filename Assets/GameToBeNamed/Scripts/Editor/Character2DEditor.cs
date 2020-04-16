@@ -7,7 +7,7 @@ using Types = Lunari.Tsuki.Runtime.Types;
 
 namespace GameToBeNamed.Editor {
 
-    [CustomEditor(typeof(Character2D))]
+    //[CustomEditor(typeof(Character2D))]
     public class Character2DEditor : UnityEditor.Editor {
 
         private SerializedObject m_sourceRef;

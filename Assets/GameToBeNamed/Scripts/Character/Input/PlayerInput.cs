@@ -5,6 +5,8 @@ namespace GameToBeNamed.Character {
     [System.Serializable]
     public class PlayerInput : InputSource {
         
+        public int playerNumber;
+        
         public override void Update() {
             CheckButtonDown("Jump", InputAction.Button1);
             CheckButton("MoveRight", InputAction.Button2);
