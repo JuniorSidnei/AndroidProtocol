@@ -42,7 +42,6 @@ namespace GameToBeNamed.Character
 			
 			transform.Translate(moveAmount);
 			
-
 			if (standingOnPlatform)
 			{
 				collisions.below = true;
@@ -137,6 +136,10 @@ namespace GameToBeNamed.Character
 					{
 						moveAmount.x = moveAmount.y / Mathf.Tan(collisions.slopeAngle * Mathf.Deg2Rad) *
 						               Mathf.Sign(moveAmount.x);
+					}
+
+					if (moveAmount.y > 0 && collisions.above || moveAmount.y < 1 && collisions.below){
+						moveAmount.y = 0;
 					}
 
 					collisions.below = directionY == -1;

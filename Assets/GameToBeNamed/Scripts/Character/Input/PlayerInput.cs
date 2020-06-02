@@ -14,14 +14,18 @@ namespace GameToBeNamed.Character {
         public override void Configure() {
             m_player = ReInput.players.GetPlayer(PlayerID);
         }
-
         
+
         public override void Update() {
+            
             CheckButtonDown("Jump", InputAction.Button1);
+            CheckButton("Jump", InputAction.Button1);
             CheckButton("MoveRight", InputAction.Button2);
             CheckButton("MoveLeft", InputAction.Button3);
             CheckButtonDown("Attack", InputAction.Button4);
             CheckButtonDown("Blocking", InputAction.Button5);
+            CheckButtonDown("Dash", InputAction.Button6);
+            CheckButtonDown("ChangeClass", InputAction.Button7);
         }
 
         

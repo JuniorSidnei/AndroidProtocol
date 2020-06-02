@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ccb7f9a3baf4984ca3c371e693d82f1, type: 3}
+  m_Name: RogueStatus
+  m_EditorClassIdentifier: 
+  Currenthealth: 300
+  Maxhealth: 300
+  Money: 0
+  IconSplash: {fileID: 21300000, guid: 174e543738c29a24fa655146bed3c081, type: 3}
+  LifeSplash: {fileID: 21300000, guid: edf9c2b7269a50842a61bdc9c2753655, type: 3}

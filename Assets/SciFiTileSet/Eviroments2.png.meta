@@ -1,0 +1,1295 @@
+fileFormatVersion: 2
+guid: 4f1139375543e83428beccd89c807030
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6467911146624699862
+    second: Eviroments2_0
+  - first:
+      213: 2548679790132707788
+    second: Eviroments2_1
+  - first:
+      213: 4605999924372080922
+    second: Eviroments2_2
+  - first:
+      213: -1279668687758933209
+    second: Eviroments2_3
+  - first:
+      213: -3214533182100623309
+    second: Eviroments2_4
+  - first:
+      213: -6190182261358320531
+    second: Eviroments2_5
+  - first:
+      213: 7185249227797417000
+    second: Eviroments2_6
+  - first:
+      213: 4473207526482957442
+    second: Eviroments2_7
+  - first:
+      213: -5268876674031447858
+    second: Eviroments2_8
+  - first:
+      213: -3508421823591013619
+    second: Eviroments2_9
+  - first:
+      213: 3022074829085458879
+    second: Eviroments2_10
+  - first:
+      213: -1676492153441507906
+    second: Eviroments2_11
+  - first:
+      213: 5120646985152202431
+    second: Eviroments2_12
+  - first:
+      213: -4770691995895928807
+    second: Eviroments2_13
+  - first:
+      213: -4848964032043356227
+    second: Eviroments2_14
+  - first:
+      213: 5251918469673218564
+    second: Eviroments2_15
+  - first:
+      213: -3440257341408246667
+    second: Eviroments2_16
+  - first:
+      213: -7994107763636252533
+    second: Eviroments2_17
+  - first:
+      213: -65715728914082726
+    second: Eviroments2_18
+  - first:
+      213: 8464873688551224991
+    second: Eviroments2_19
+  - first:
+      213: -5662623899794134885
+    second: Eviroments2_20
+  - first:
+      213: -6196490434956855979
+    second: Eviroments2_21
+  - first:
+      213: -8383356310302503044
+    second: Eviroments2_22
+  - first:
+      213: -5392178079946509104
+    second: Eviroments2_23
+  - first:
+      213: 230593273757736364
+    second: Eviroments2_24
+  - first:
+      213: -4717540171209396886
+    second: Eviroments2_25
+  - first:
+      213: 2578396263763418963
+    second: Eviroments2_26
+  - first:
+      213: -9021550777219278976
+    second: Eviroments2_27
+  - first:
+      213: 6219500547481616577
+    second: Eviroments2_28
+  - first:
+      213: -8547857405862132962
+    second: Eviroments2_29
+  - first:
+      213: 3355966833895495624
+    second: Eviroments2_30
+  - first:
+      213: -5417022733945808843
+    second: Eviroments2_31
+  - first:
+      213: -5979214874008947018
+    second: Eviroments2_32
+  - first:
+      213: -6793274845216882970
+    second: Eviroments2_33
+  - first:
+      213: -8259442777437413945
+    second: Eviroments2_34
+  - first:
+      213: -7747647409195623078
+    second: Eviroments2_35
+  - first:
+      213: 3786624709171399343
+    second: Eviroments2_36
+  - first:
+      213: -6989935177483355716
+    second: Eviroments2_37
+  - first:
+      213: 3809070241362008889
+    second: Eviroments2_38
+  - first:
+      213: -2646768378852903704
+    second: Eviroments2_39
+  - first:
+      213: 7696482342815405754
+    second: Eviroments2_40
+  - first:
+      213: -2000525017638730975
+    second: Eviroments2_41
+  - first:
+      213: -4283281293605263709
+    second: Eviroments2_42
+  - first:
+      213: 7388528356441527019
+    second: Eviroments2_43
+  - first:
+      213: 1721621406641097983
+    second: Eviroments2_44
+  - first:
+      213: -2326017499087719524
+    second: Eviroments2_45
+  - first:
+      213: 1934754906844738866
+    second: Eviroments2_46
+  - first:
+      213: 9097854797726440484
+    second: Eviroments2_47
+  - first:
+      213: -5127818066304790522
+    second: Eviroments2_48
+  - first:
+      213: 3586237751643495679
+    second: Eviroments2_49
+  - first:
+      213: 5568719786078008623
+    second: Eviroments2_50
+  - first:
+      213: -2475709719104442389
+    second: Eviroments2_51
+  - first:
+      213: -4047566167771987603
+    second: Eviroments2_52
+  - first:
+      213: -2272782720043409633
+    second: Eviroments2_53
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 20
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Eviroments2_0
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 2959
+        width: 1242
+        height: 248
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2235a2a41d5d36a0800000000000000
+      internalID: -6467911146624699862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eviroments2_1
+      rect:
+        serializedVersion: 2
+        x: 1580
+        y: 2854
+        width: 1239
+        height: 381
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc1c31104cabe5320800000000000000
+      internalID: 2548679790132707788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eviroments2_2
+      rect:
+        serializedVersion: 2
+        x: 2975
+        y: 2713
+        width: 1123
+        height: 551
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a198caf078ccbef30800000000000000
+      internalID: 4605999924372080922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eviroments2_3
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 2665
+        width: 1242
+        height: 248
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72340f3cb14bd3ee0800000000000000
+      internalID: -1279668687758933209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eviroments2_4
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 2419
+        width: 1240
+        height: 201
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 330bf2a2a1fa363d0800000000000000
+      internalID: -3214533182100623309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eviroments2_7
+      rect:
+        serializedVersion: 2
+        x: 3647
+        y: 2354
+        width: 165
+        height: 272
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 284de969b86041e30800000000000000
+      internalID: 4473207526482957442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eviroments2_8
+      rect:
+        serializedVersion: 2
+        x: 3828
+        y: 2108
+        width: 258
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec09307a49031e6b0800000000000000
+      internalID: -5268876674031447858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eviroments2_10
+      rect:
+        serializedVersion: 2
+        x: 3537
+        y: 2177
+        width: 112
+        height: 448
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb1c940ab0190f920800000000000000
+      internalID: 3022074829085458879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eviroments2_12
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 2183
+        width: 1242
+        height: 201
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb60c2a7d41301740800000000000000
+      internalID: 5120646985152202431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eviroments2_13
+      rect:
+        serializedVersion: 2
+        x: 1911
+        y: 2173
+        width: 1193
+        height: 89
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 918e2dbe7e81bcdb0800000000000000
+      internalID: -4770691995895928807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eviroments2_14
+      rect:
+        serializedVersion: 2
+        x: 2479
+        y: 2268
+        width: 237
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbfe86d57e405bcb0800000000000000
+      internalID: -4848964032043356227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eviroments2_15
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 2268
+        width: 248
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4027f26b50092e840800000000000000
+      internalID: 5251918469673218564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eviroments2_16
+      rect:
+        serializedVersion: 2
+        x: 3264
+        y: 2268
+        width: 108
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5748e6ddc20c140d0800000000000000
+      internalID: -3440257341408246667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eviroments2_17
+      rect:
+        serializedVersion: 2
+        x: 3701
+        y: 2105
+        width: 55
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b80d444f7593f0190800000000000000
+      internalID: -7994107763636252533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eviroments2_19
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 1587
+        width: 1632
+        height: 568
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9675aa55c5497570800000000000000
+      internalID: 8464873688551224991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eviroments2_20
+      rect:
+        serializedVersion: 2
+        x: 1178
+        y: 2150
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b982224a0915a61b0800000000000000
+      internalID: -5662623899794134885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eviroments2_21
+      rect:
+        serializedVersion: 2
+        x: 1910
+        y: 1740
+        width: 439
+        height: 361
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5557a42a7c4a10aa0800000000000000
+      internalID: -6196490434956855979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eviroments2_22
+      rect:
+        serializedVersion: 2
+        x: 2456
+        y: 1777
+        width: 102
+        height: 287
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7fc3ea4ad558ab80800000000000000
+      internalID: -8383356310302503044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eviroments2_23
+      rect:
+        serializedVersion: 2
+        x: 2642
+        y: 1712
+        width: 232
+        height: 381
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d4f323fa922b25b0800000000000000
+      internalID: -5392178079946509104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eviroments2_24
+      rect:
+        serializedVersion: 2
+        x: 2956
+        y: 1574
+        width: 240
+        height: 533
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cad9ce95c5b333300800000000000000
+      internalID: 230593273757736364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eviroments2_25
+      rect:
+        serializedVersion: 2
+        x: 3315
+        y: 1570
+        width: 297
+        height: 527
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6dad69753ee78eb0800000000000000
+      internalID: -4717540171209396886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eviroments2_26
+      rect:
+        serializedVersion: 2
+        x: 3824
+        y: 1451
+        width: 100
+        height: 613
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35f10dfadbd48c320800000000000000
+      internalID: 2578396263763418963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eviroments2_27
+      rect:
+        serializedVersion: 2
+        x: 3969
+        y: 1451
+        width: 99
+        height: 613
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08712b8cd530dc280800000000000000
+      internalID: -9021550777219278976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eviroments2_28
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 988
+        width: 1627
+        height: 572
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c04dfcabca105650800000000000000
+      internalID: 6219500547481616577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eviroments2_29
+      rect:
+        serializedVersion: 2
+        x: 2085
+        y: 1464
+        width: 523
+        height: 221
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1345e45af8ef5980800000000000000
+      internalID: -8547857405862132962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eviroments2_30
+      rect:
+        serializedVersion: 2
+        x: 1882
+        y: 1181
+        width: 412
+        height: 266
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c755540e0ac29e20800000000000000
+      internalID: 3355966833895495624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eviroments2_31
+      rect:
+        serializedVersion: 2
+        x: 2466
+        y: 1181
+        width: 445
+        height: 266
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 538d1fa268ed2d4b0800000000000000
+      internalID: -5417022733945808843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eviroments2_32
+      rect:
+        serializedVersion: 2
+        x: 3139
+        y: 1068
+        width: 157
+        height: 198
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b6f6f650cf850da0800000000000000
+      internalID: -5979214874008947018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eviroments2_33
+      rect:
+        serializedVersion: 2
+        x: 3362
+        y: 1043
+        width: 476
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ee3045458079b1a0800000000000000
+      internalID: -6793274845216882970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eviroments2_34
+      rect:
+        serializedVersion: 2
+        x: 1958
+        y: 670
+        width: 1019
+        height: 463
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cd5d28ed80906d80800000000000000
+      internalID: -8259442777437413945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eviroments2_35
+      rect:
+        serializedVersion: 2
+        x: 3906
+        y: 1051
+        width: 96
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5d5be9eab3da7490800000000000000
+      internalID: -7747647409195623078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eviroments2_36
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 458
+        width: 1634
+        height: 421
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: faac0ef4c1bcc8430800000000000000
+      internalID: 3786624709171399343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eviroments2_37
+      rect:
+        serializedVersion: 2
+        x: 3122
+        y: 770
+        width: 107
+        height: 168
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb9f8178df2cefe90800000000000000
+      internalID: -6989935177483355716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eviroments2_38
+      rect:
+        serializedVersion: 2
+        x: 3366
+        y: 746
+        width: 349
+        height: 223
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93bd4e404398cd430800000000000000
+      internalID: 3809070241362008889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eviroments2_39
+      rect:
+        serializedVersion: 2
+        x: 3805
+        y: 701
+        width: 207
+        height: 264
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e47cbfbe2ac44bd0800000000000000
+      internalID: -2646768378852903704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eviroments2_40
+      rect:
+        serializedVersion: 2
+        x: 2037
+        y: 112
+        width: 940
+        height: 408
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab6149fb9e56fca60800000000000000
+      internalID: 7696482342815405754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eviroments2_41
+      rect:
+        serializedVersion: 2
+        x: 3223
+        y: 391
+        width: 182
+        height: 268
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1238c5f7815bc34e0800000000000000
+      internalID: -2000525017638730975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eviroments2_42
+      rect:
+        serializedVersion: 2
+        x: 3524
+        y: 391
+        width: 181
+        height: 268
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a625957b5abe84c0800000000000000
+      internalID: -4283281293605263709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eviroments2_43
+      rect:
+        serializedVersion: 2
+        x: 3824
+        y: 315
+        width: 254
+        height: 273
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be21992e463598660800000000000000
+      internalID: 7388528356441527019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eviroments2_44
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 171
+        width: 457
+        height: 148
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffc0d8c3c8d64e710800000000000000
+      internalID: 1721621406641097983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eviroments2_45
+      rect:
+        serializedVersion: 2
+        x: 629
+        y: 173
+        width: 457
+        height: 144
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c93b889886358bfd0800000000000000
+      internalID: -2326017499087719524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eviroments2_46
+      rect:
+        serializedVersion: 2
+        x: 1215
+        y: 186
+        width: 459
+        height: 155
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 235bce54651a9da10800000000000000
+      internalID: 1934754906844738866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eviroments2_47
+      rect:
+        serializedVersion: 2
+        x: 3227
+        y: 87
+        width: 182
+        height: 269
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42c519c6cb2124e70800000000000000
+      internalID: 9097854797726440484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eviroments2_48
+      rect:
+        serializedVersion: 2
+        x: 3535
+        y: 54
+        width: 250
+        height: 261
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 600921513a456d8b0800000000000000
+      internalID: -5127818066304790522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eviroments2_49
+      rect:
+        serializedVersion: 2
+        x: 3813
+        y: 57
+        width: 255
+        height: 260
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffc5ec20c30e4c130800000000000000
+      internalID: 3586237751643495679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eviroments2_50
+      rect:
+        serializedVersion: 2
+        x: 1580
+        y: 2421
+        width: 1236
+        height: 374
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f257ede1421184d40800000000000000
+      internalID: 5568719786078008623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eviroments2_51
+      rect:
+        serializedVersion: 2
+        x: 1921
+        y: 2261
+        width: 186
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bef2cc9902384add0800000000000000
+      internalID: -2475709719104442389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eviroments2_52
+      rect:
+        serializedVersion: 2
+        x: 2127
+        y: 2272
+        width: 293
+        height: 132
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d61cf0de30824d7c0800000000000000
+      internalID: -4047566167771987603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eviroments2_53
+      rect:
+        serializedVersion: 2
+        x: 2723
+        y: 2273
+        width: 169
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1f9a2868247570e0800000000000000
+      internalID: -2272782720043409633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

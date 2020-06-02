@@ -1,13 +1,12 @@
-﻿using System;
+﻿#if UNITY_EDITOR
+using System;
 using GameToBeNamed.Character;
 using Lunari.Tsuki.Editor.Extenders;
 using UnityEditor;
 using UnityEngine;
-using Types = Lunari.Tsuki.Runtime.Types;
 
 namespace GameToBeNamed.Editor {
-
-    [CustomEditor(typeof(Character2D))]
+    
     public class Character2DEditor : UnityEditor.Editor {
 
         private SerializedObject m_sourceRef;
@@ -17,7 +16,7 @@ namespace GameToBeNamed.Editor {
         private void OnEnable() {
             m_sourceRef = serializedObject;
             m_actions = m_sourceRef.FindProperty("m_actions");
-            m_input = m_sourceRef.FindProperty("m_input");
+            m_input = m_sourceRef.FindProperty("m_inputSource");
             m_animatorProxy = m_sourceRef.FindProperty("m_animatorProxy");
             m_actionsButton =
                 TypeSelectorButton.Of<CharacterAction>(new GUIContent("Add action"), OnActionTypeSelected);
@@ -44,11 +43,6 @@ namespace GameToBeNamed.Editor {
 
             DisplayProperties();
             m_sourceRef.ApplyModifiedProperties();
-        }
-
-        private static void SwitchElements(SerializedProperty list, int src, int dst) {
-//        SerializedProperty aux = list.GetArrayElementAtIndex(src);
-            list.MoveArrayElement(src, dst);
         }
 
         private void DisplayProperties() {
@@ -93,3 +87,4 @@ namespace GameToBeNamed.Editor {
         }
     }
 }
+#endif

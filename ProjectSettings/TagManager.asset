@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Warrior
+  - Rogue
   layers:
   - Default
   - TransparentFX
@@ -14,9 +16,9 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - 
-  - 
-  - 
+  - Mob
+  - Ground
+  - Player
   - 
   - 
   - 
@@ -40,4 +42,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: BackGround
+    uniqueID: 4282234709
+    locked: 0
+  - name: MiddleGround
+    uniqueID: 3418829901
+    locked: 0
+  - name: ForeGround
+    uniqueID: 2187624531
     locked: 0

@@ -9,16 +9,22 @@ namespace GameToBeNamed.Utils{
     [RequireComponent(typeof(Collider2D))]
     public class Collision2DProxy : MonoBehaviour {
         
+        public class TriggerEvent : UnityEvent<Collider2D> { }
+        public class CollisionEvent : UnityEvent<Collision2D> { }
+        
         //Collisions
-        public UnityEvent<Collision2D> OnCollision2DEnterCallback;
-        public UnityEvent<Collision2D> OnCollision2DStayCallback;
-        public UnityEvent<Collision2D> OnCollision2DExitCallback;
+        public CollisionEvent OnCollision2DEnterCallback = new CollisionEvent();
+        public CollisionEvent OnCollision2DStayCallback = new CollisionEvent();
+        public CollisionEvent OnCollision2DExitCallback = new CollisionEvent();
 
         //Triggers
-        public UnityEvent<Collider2D> OnTrigger2DEnterCallback;
-        public UnityEvent<Collider2D> OnTrigger2DStayCallback;
-        public UnityEvent<Collider2D> OnTrigger2DExitCallback;
-        
+        public TriggerEvent OnTrigger2DEnterCallback = new TriggerEvent();
+        public TriggerEvent OnTrigger2DStayCallback = new TriggerEvent();
+        public TriggerEvent OnTrigger2DExitCallback = new TriggerEvent();
+
+        public Collider2D Collider => m_collider2D != null ? m_collider2D : (m_collider2D = GetComponent<Collider2D>());
+
+        private Collider2D m_collider2D;
 
         //Collisions
         private void OnCollisionEnter2D(Collision2D other) {

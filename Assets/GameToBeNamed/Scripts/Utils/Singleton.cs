@@ -5,6 +5,7 @@ using UnityEngine;
 namespace GameToBeNamed.Utils
 {
     public class Singleton<T> : MonoBehaviour  where T : Singleton<T> {
+        
         private static T s_instance;
 
         public static T Instance
