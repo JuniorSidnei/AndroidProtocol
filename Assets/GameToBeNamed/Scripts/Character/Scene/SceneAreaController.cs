@@ -13,6 +13,7 @@ namespace GameToBeNamed.Character {
         [SerializeField] private SceneField m_lastScene;
 
         private bool m_loaded;
+        [SerializeField] private bool m_hasLastScene;
 
         private void Awake() {
             GameManager.Instance.GlobalDispatcher.Subscribe<OnValidadeScene>(OnLoadNextScene);
@@ -24,7 +25,10 @@ namespace GameToBeNamed.Character {
             //next scene to load, unload last
             if (ev.SceneField.SceneName == m_nextScene.SceneName && !m_loaded) {
                 SceneManager.LoadSceneAsync(ev.SceneField, LoadSceneMode.Additive);
-                SceneManager.UnloadSceneAsync(m_lastScene);
+                
+                if (m_hasLastScene) {
+                    SceneManager.UnloadSceneAsync(m_lastScene);
+                }
                 m_loaded = true;
             }
             //load last, unload next

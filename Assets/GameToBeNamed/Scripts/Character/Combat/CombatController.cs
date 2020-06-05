@@ -12,8 +12,8 @@ namespace GameToBeNamed.Character {
         [Header("Layers")]
         public LayerMask MobLayer;
         public LayerMask PlayerLayer;
-        
-       
+
+
         private Character2D m_char;
         [SerializeField] private List<Character2D> m_mobs;
         
@@ -22,7 +22,7 @@ namespace GameToBeNamed.Character {
             
             if (((1 << ev.AttackInfo.Receiver.layer) & MobLayer) != 0) { //mob
                 
-                var attackedMob =  m_mobs.Find(mob => mob.gameObject == ev.AttackInfo.Receiver); //retorna o mob atigindo
+                var attackedMob =  m_mobs.Find(mob => mob.gameObject == ev.AttackInfo.Receiver);
                 attackedMob.LocalDispatcher.Emit(new OnReceivedAttack(ev.Damage, ev.DamageContact, ev.AttackInfo));
             }
             else if(((1 << ev.AttackInfo.Receiver.gameObject.layer) & PlayerLayer) != 0) {//player

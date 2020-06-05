@@ -37,7 +37,6 @@ namespace GameToBeNamed.Character {
         
         private void OnCollision2DEnterCallback(Collision2D ev) {
             
-            
             var info = new OnAttackTriggerEnter.Info {
                     Emiter = m_char, Receiver = ev.gameObject };
             GameManager.Instance.GlobalDispatcher.Emit(new OnAttackTriggerEnter(info, m_damageColision, ev.contacts[0].point));
@@ -45,26 +44,27 @@ namespace GameToBeNamed.Character {
 
         private void OnReceivedAttack(OnReceivedAttack ev) {
 
-            if (m_damageCooldownTimer > Time.time) {
+            if (m_damageCooldownTimer > Time.time || ev.OnBlocking) {
                 return;
             }
-
+            
             m_damageCooldownTimer = Time.time + m_damageCooldown;
             m_life -= ev.Damage;
             m_lifeSplashImage.fillAmount = (float) m_life / m_maxLife;
+
+            GameManager.Instance.GlobalDispatcher.Emit(new OnCharacterDamage(ev.Damage, m_char.transform.position,
+                m_life, m_maxLife, false));
             
-            GameManager.Instance.GlobalDispatcher.Emit(new OnCharacterDamage(ev.Damage, m_char.transform.position, m_life, m_maxLife, false));
 
-            if (m_life <= 0) {
-                
-                InstantiateController.Instance.InstantiateEffect(ExplosionEffect, m_char.transform.position);
+            if (m_life > 0) return;
+            
+            InstantiateController.Instance.InstantiateEffect(ExplosionEffect, m_char.transform.position);
 
-                for (var i = 0; i < 5; i++) {
-                    InstantiateController.Instance.InstantiateEffect(MoneyBox, m_char.transform.position);
-                }
-                
-                GameManager.Instance.GlobalDispatcher.Emit(new OnCharacterDeath(m_char));
+            for (var i = 0; i < 5; i++) {
+                InstantiateController.Instance.InstantiateEffect(MoneyBox, m_char.transform.position);
             }
+                
+            GameManager.Instance.GlobalDispatcher.Emit(new OnCharacterDeath(m_char));
         }
     }
 }

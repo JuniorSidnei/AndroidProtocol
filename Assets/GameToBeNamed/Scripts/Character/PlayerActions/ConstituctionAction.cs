@@ -33,7 +33,7 @@ namespace GameToBeNamed.Character {
 
         private void OnReceivedAttack(OnReceivedAttack ev) {
             
-            if (m_damageCooldownTimer > Time.time) {
+            if (m_damageCooldownTimer > Time.time ||  m_char.ActionStatus[ActionStates.Blocking]) {
                 return;
             }
 

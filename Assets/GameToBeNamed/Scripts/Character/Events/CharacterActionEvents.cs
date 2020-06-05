@@ -28,13 +28,15 @@ namespace GameToBeNamed.Character {
     public class OnJumpAttack { }
 
     public class OnReceivedAttack {
-        public OnReceivedAttack(int damage, Vector2 damageContact, OnAttackTriggerEnter.Info attackInfo) {
+        public OnReceivedAttack(int damage, Vector2 damageContact, OnAttackTriggerEnter.Info attackInfo, bool onBlocking = false) {
             Damage = damage;
+            OnBlocking = onBlocking;
             DamageContact = damageContact;
             AttackInfo = attackInfo;
         }
         
         public int Damage;
+        public bool OnBlocking;
         public Vector2 DamageContact;
         public OnAttackTriggerEnter.Info AttackInfo;
     }

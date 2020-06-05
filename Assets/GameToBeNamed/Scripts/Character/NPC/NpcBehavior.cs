@@ -29,13 +29,14 @@ public class NpcBehavior : MonoBehaviour
     private Action m_finishTalkingCallback, m_startTalkingCallback;
 
     [field: SerializeField]
-    private int Count { get; set; }
-    
+    protected int Count { get; set; }
+
+    [field: SerializeField] protected bool OnConversationActive { get; set; }
     
 
     //Player input
     public int PlayerID = 0;
-    private Player m_player;
+    protected Player m_player;
 
     private void Awake() {
         m_player = ReInput.players.GetPlayer(PlayerID);
@@ -134,11 +135,15 @@ public class NpcBehavior : MonoBehaviour
     }
     
     //mudar essa função de update para receber o evento da hud de proxima ação para o npc
-    protected virtual void Update() {
-        
-        if (m_player.GetButtonDown("Jump") && m_npcState != NPCstates.None) {
-            ChangeNPCState();
-        }
+    public virtual void Update() {
+
+//        if (m_player.GetButtonDown("Action") && OnConversationActive) {
+//            
+//        }
+//        
+//        if (m_player.GetButtonDown("Jump") && m_npcState != NPCstates.None) {
+//            ChangeNPCState();
+//        }
         
     }
 }
