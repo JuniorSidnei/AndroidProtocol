@@ -6,10 +6,6 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace GameToBeNamed.Character {
-
-    /// <summary>
-    /// This class allows smooth sine movement
-    /// </summary>
     
     [Serializable]
     public class OscilateAction : CharacterAction {

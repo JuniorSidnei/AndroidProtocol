@@ -49,7 +49,7 @@ namespace GameToBeNamed.Character {
 			}
 			
 			m_controller2D = GetComponent<Controller2D>();
-			m_inputSource.Configure();
+			m_inputSource.Configure(this);
 		}
 
 		

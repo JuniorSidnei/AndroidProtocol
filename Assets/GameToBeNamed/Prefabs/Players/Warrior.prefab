@@ -65,15 +65,14 @@ MonoBehaviour:
   - id: 7
   - id: 8
   - id: 9
-  - id: 10
   m_inputSource:
-    id: 11
+    id: 10
   references:
     version: 1
     00000000:
       type: {class: JumpAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
-        JumpForce: {x: 50, y: 150}
+        JumpForce: {x: 50, y: 100}
         m_lowJumpMultiplier: 4
         m_fallMultiplier: 6
         m_jumpEffect: {fileID: 4541717697892416001, guid: ecc8f19ff25b48c46b44e0258a411c28,
@@ -82,39 +81,34 @@ MonoBehaviour:
     00000001:
       type: {class: MoveAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
-        Speed: 200
+        Speed: 130
         InAirDrag: 4
         InGroundDrag: 6
         Sprite: {fileID: 3201174525823821392}
     00000002:
-      type: {class: BlockAction, ns: GameToBeNamed.Character, asm: CS-Player}
-      data:
-        Block: {fileID: 3201174526351283389}
-        BlockBoxPosition: 4
-    00000003:
       type: {class: ConstituctionAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
         characterStatusLife: {fileID: 11400000, guid: 488ac927f0e65484d9a804c5d3ba120e,
           type: 2}
         m_damageCooldown: 0.5
         m_armorDefense: 30
-    00000004:
+    00000003:
       type: {class: TransitionAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
         m_rend: {fileID: 3201174525823821392}
-    00000005:
+    00000004:
       type: {class: WarriorAttackAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
         m_damage: 80
         m_attackBox: {fileID: 3325466396227432078}
         m_velocityAttackForce: 20
-    00000006:
+    00000005:
       type: {class: WarriorJumpAttackAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
         Damage: 80
         m_attackBox: {fileID: 3065491513361988160}
         m_spriteRenderer: {fileID: 3201174525823821392}
-    00000007:
+    00000006:
       type: {class: DashAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
         DashEffect: {fileID: 5462726724862216830, guid: 1e1aec2aa305e22488e7da5a54084647,
@@ -122,22 +116,22 @@ MonoBehaviour:
         m_dashPositionEffect: {fileID: 7297325523716540212}
         DashForce: 60
         DashDrag: 5
-    00000008:
+    00000007:
       type: {class: ProcessDamageAction, ns: GameToBeNamed.Utils, asm: CS-Player}
       data:
         m_knockBackForce: 20
         m_hitEffect: {fileID: 8252051896981874538, guid: de3c69e3409cb734590546c334f1b2a6,
           type: 3}
-    00000009:
+    00000008:
       type: {class: CollectableAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
         m_statusMoney: {fileID: 11400000, guid: c2264366975c87b4481dd6eda9d9c60b,
           type: 2}
-    0000000A:
+    00000009:
       type: {class: TalkingAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
         OnTalkingNpc: 0
-    0000000B:
+    0000000A:
       type: {class: PlayerInput, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
         PlayerID: 0
@@ -239,7 +233,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 0.05
   m_LightVolumeOpacity: 0.1
-  m_ApplyToSortingLayers: 538064824d34c7cb55b73dff
+  m_ApplyToSortingLayers: 4d34c7cb55b73dff
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0

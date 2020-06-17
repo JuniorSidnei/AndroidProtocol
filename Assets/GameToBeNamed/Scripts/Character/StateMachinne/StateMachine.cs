@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.VersionControl;
 using UnityEditorInternal;
@@ -7,36 +8,72 @@ using UnityEngine;
 namespace GameToBeNamed.Character {
 
 
-    [CreateAssetMenu(fileName = "GameToBeNamed/StateMachine")]
-    public class StateMachine : ScriptableObject {
+    [Serializable]
+    public class StateMachine {
 
-        private Character2D m_char;
-        private CharacterState<Character2D> m_currentState, m_lastState;
-
-        public void ChanceState(CharacterState<Character2D> nextState) {
-
-            m_lastState = m_currentState;
-
-            m_currentState?.Exit(m_char);
-
-            m_currentState = nextState;
-            m_currentState.Enter(m_char);
+        class CharacterState {
+            
+            public IState CurrentState, LastState;
         }
 
-        public CharacterState<Character2D> GetCurrentState() {
-            return m_currentState;
+        public int id;
+        [SerializeReference, SelectImplementation(typeof(IState))]
+        private List<IState> m_states = new List<IState>();
+
+        private Dictionary<PropertyName, IState> m_stateMap = new Dictionary<PropertyName, IState>();
+
+        public void OnConfigure() {
+        
+            foreach (var t in m_states) {
+                var property = new PropertyName(t.GetType().Name);
+                m_stateMap[property] = t;
+            }
+        }
+        
+        public void ChangeState<T>(Character2D character, BotInput input) {
+            
+            var property = new PropertyName(typeof(T).Name);
+            
+            if (!m_stateMap.ContainsKey(property)) { 
+                throw new Exception("Não contem o tipo: " + typeof(T).Name);
+            }
+            
+            ChangeState(character, m_stateMap[property], input);
+            
         }
 
-        public CharacterState<Character2D> GetLastState() {
-            return m_lastState;
+        public void ChangeState(Character2D character, IState state, BotInput input) {
+            
+            var charState = DataHolder.Instance.GetDataOrCreateForCharacter<CharacterState>(character);
+            
+            charState.CurrentState?.Exit(character, input);
+            charState.LastState = charState.CurrentState;
+
+            charState.CurrentState = state;
+            
+            charState.CurrentState.Enter(character, input);
         }
 
-        public void RevertToPreviousState() {
-            ChanceState(m_lastState);
+        public IState GetCurrentState(Character2D character) {
+            
+            var charState = DataHolder.Instance.GetDataOrCreateForCharacter<CharacterState>(character);
+            return charState.CurrentState;
         }
 
-        private void Update(Character2D character) {
-           m_currentState.Update(character);
+        public IState GetLastState(Character2D character) {
+            var charState = DataHolder.Instance.GetDataOrCreateForCharacter<CharacterState>(character);
+            return charState.LastState;
+        }
+
+        public void RevertToPreviousState(Character2D character, BotInput input) {
+            var charState = DataHolder.Instance.GetDataOrCreateForCharacter<CharacterState>(character);
+            ChangeState(character, charState.LastState, input);
+        }
+
+        public void OnUpdate(Character2D character, BotInput input) {
+            var charState = DataHolder.Instance.GetDataOrCreateForCharacter<CharacterState>(character);
+            
+            charState.CurrentState.Run(character, input);
         }
     }
 }

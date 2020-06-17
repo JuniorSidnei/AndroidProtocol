@@ -10,11 +10,9 @@ namespace GameToBeNamed.Character {
         public int PlayerID = 0;
         private Player m_player;
 
-
-        public override void Configure() {
+        public override void Configure(Character2D character) {
             m_player = ReInput.players.GetPlayer(PlayerID);
         }
-        
 
         public override void Update() {
             

@@ -36,15 +36,16 @@ namespace GameToBeNamed.Editor {
             }
             
             EditorGUI.PropertyField(position, property, new GUIContent(FilterTypeName(property.managedReferenceFullTypename)), true); 
+           
             if (property.isExpanded) {
                 if (Event.current.type == EventType.Repaint) {
                     m_lastRect = GUILayoutUtility.GetLastRect();
                 }
-            
-                if (GUI.Button(new Rect(position.x, position.yMax - 18, position.width, 18), "Select Implementation")) {
-                    PopupWindow.Show(position, m_selector);          
-                }    
             }
+            
+            if (GUI.Button(new Rect(position.x, position.yMax - 18, position.width, 18), "Select Implementation")) {
+                PopupWindow.Show(position, m_selector);          
+            } 
         }
 
         private void OnActionTypeSelected(Type obj) {

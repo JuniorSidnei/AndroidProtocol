@@ -18,7 +18,7 @@ namespace GameToBeNamed.Character {
     }
 
     public interface IInputSource {
-        void Configure();
+        void Configure(Character2D character);
         void Update();
 
         bool HasAction(InputAction action);
@@ -27,14 +27,13 @@ namespace GameToBeNamed.Character {
     }
 
     public abstract class InputSource : IInputSource {
-
-        public Character2D m_char;
+        
         protected InputAction Action { private get; set; }
         protected InputAction ActionDown { private get; set; }
         protected InputAction ActionUp { private get; set; }
 
-        public abstract void Configure();
-
+        public abstract void Configure(Character2D character);
+        
         public abstract void Update();
 
         public bool HasAction(InputAction action) {
@@ -49,27 +48,27 @@ namespace GameToBeNamed.Character {
             return (ActionUp & action) != 0;
         }
 
-        protected void SetAction(InputAction action) {
+        public void SetAction(InputAction action) {
             Action |= action;
         }
 
-        protected void UnsetAction(InputAction action) {
+        public void UnsetAction(InputAction action) {
             Action &= ~action;
         }
 
-        protected void SetActionDown(InputAction action) {
+        public void SetActionDown(InputAction action) {
             ActionDown |= action;
         }
 
-        protected void UnsetActionDown(InputAction action) {
+        public void UnsetActionDown(InputAction action) {
             ActionDown &= ~action;
         }
 
-        protected void SetActionUp(InputAction action) {
+        public void SetActionUp(InputAction action) {
             ActionUp |= action;
         }
 
-        protected void UnsetActionUp(InputAction action) {
+        public void UnsetActionUp(InputAction action) {
             ActionUp &= ~action;
         }
     }

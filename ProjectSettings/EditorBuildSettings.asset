@@ -6,15 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/GameToBeNamed/Scenes/DarkFlorest_1.unity
+    path: Assets/GameToBeNamed/Scenes/Game/Laboratory/Laboratory.unity
+    guid: fff5cc9d0d47c5541b7ad48f30de471f
+  - enabled: 1
+    path: Assets/GameToBeNamed/Scenes/Game/DarkFlorest/DarkFlorest_1.unity
     guid: d38e9b94bf7477f4fbba727136e6681e
   - enabled: 1
-    path: Assets/GameToBeNamed/Scenes/Game.unity
+    path: Assets/GameToBeNamed/Scenes/Game/DarkFlorest/Game.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/GameToBeNamed/Scenes/Game2.unity
+    path: Assets/GameToBeNamed/Scenes/Game/DarkFlorest/Game2.unity
     guid: e63efd90583cfdc40852620440901e4d
   - enabled: 1
-    path: Assets/GameToBeNamed/Scenes/HUD.unity
+    path: Assets/GameToBeNamed/Scenes/UI/HUD.unity
     guid: 465c89d0bdebb2942985bb491f02f618
   m_configObjects: {}

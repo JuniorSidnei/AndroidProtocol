@@ -382,14 +382,14 @@ MonoBehaviour:
     00000000:
       type: {class: MoveAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
-        Speed: 230
+        Speed: 150
         InAirDrag: 4
         InGroundDrag: 5
         Sprite: {fileID: 7054123030057230247}
     00000001:
       type: {class: JumpAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
-        JumpForce: {x: 50, y: 150}
+        JumpForce: {x: 50, y: 110}
         m_lowJumpMultiplier: 4
         m_fallMultiplier: 6
         m_jumpEffect: {fileID: 4541717697892416001, guid: ecc8f19ff25b48c46b44e0258a411c28,
