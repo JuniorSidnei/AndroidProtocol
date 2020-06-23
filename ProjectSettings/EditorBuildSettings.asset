@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/GameToBeNamed/Scenes/Game/DarkFlorest/DarkFlorest_1.unity
     guid: d38e9b94bf7477f4fbba727136e6681e
   - enabled: 1
-    path: Assets/GameToBeNamed/Scenes/Game/DarkFlorest/Game.unity
+    path: Assets/GameToBeNamed/Scenes/Game/DarkFlorest/DarkFlorest_2.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
     path: Assets/GameToBeNamed/Scenes/Game/DarkFlorest/Game2.unity

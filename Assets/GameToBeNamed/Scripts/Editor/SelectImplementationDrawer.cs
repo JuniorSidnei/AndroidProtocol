@@ -19,6 +19,10 @@ namespace GameToBeNamed.Editor {
         private Rect m_lastRect;
         private bool m_expanded;
 
+        private bool isReferenceValid(SerializedProperty property) {
+            return !property.managedReferenceFullTypename.IsNullOrEmpty();
+        }
+
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
             m_property = property;
             if (m_selector == null) {
@@ -31,24 +35,45 @@ namespace GameToBeNamed.Editor {
                 );
             }
 
+            if (isReferenceValid(property)) {
+                DrawProperty(position, property);
+            }
+            else {
+                //property.isExpanded = EditorGUI.Foldout (position, property.isExpanded, new GUIContent("Empty"));
+
+                //if (property.isExpanded) {
+                    DrawImplementationButton(position, "Select Implementation");
+                //}
+            }
+        }
+
+        private void DrawProperty(Rect position, SerializedProperty property) {
+
             if (property.isExpanded) {
                 GUI.Box(position, "");
             }
-            
-            EditorGUI.PropertyField(position, property, new GUIContent(FilterTypeName(property.managedReferenceFullTypename)), true); 
-           
+
+            EditorGUI.PropertyField(position, property,
+                new GUIContent(FilterTypeName(property.managedReferenceFullTypename)), true);
+
             if (property.isExpanded) {
-                if (Event.current.type == EventType.Repaint) {
-                    m_lastRect = GUILayoutUtility.GetLastRect();
-                }
+                DrawImplementationButton(position, "Change Implementation");
             }
-            
-            if (GUI.Button(new Rect(position.x, position.yMax - 18, position.width, 18), "Select Implementation")) {
-                PopupWindow.Show(position, m_selector);          
-            } 
         }
 
+        private void DrawImplementationButton(Rect position, string name) {
+            
+            if (Event.current.type == EventType.Repaint) {
+                m_lastRect = GUILayoutUtility.GetLastRect();
+            }
+            
+            if (GUI.Button(new Rect(position.x, position.yMax - 18, position.width, 18), name)) {
+                PopupWindow.Show(m_lastRect, m_selector);          
+            }    
+        }
+        
         private void OnActionTypeSelected(Type obj) {
+            m_property.serializedObject.Update();
             m_property.managedReferenceValue = Activator.CreateInstance(obj);
             m_property.serializedObject.ApplyModifiedProperties();
         }
@@ -58,7 +83,18 @@ namespace GameToBeNamed.Editor {
         }
 
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label) {
-            m_height = EditorGUI.GetPropertyHeight(property, true) + (property.isExpanded ? 18 : 0);
+
+           // if (isReferenceValid(property)) {
+                m_height = EditorGUI.GetPropertyHeight(property, true) + (property.isExpanded ? 24 : 0);
+            //}
+//            else {
+//                
+//                m_height = EditorGUI.GetPropertyHeight(property, true);
+//                
+//                if (property.isExpanded) {
+//                    m_height += 18;
+//                }
+//            }
             return m_height;
         }
     }

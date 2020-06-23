@@ -14,7 +14,7 @@ namespace GameToBeNamed.Character
         private Character2D m_char;
         private IInputSource m_input;
         private List<PropertyName> m_unallowedStatus;
-
+        public int id;
 
         protected override void OnConfigure() {
             m_char = Character2D;
@@ -31,17 +31,16 @@ namespace GameToBeNamed.Character
 
         private void OnCharacterUpdate(OnCharacterUpdate ev) {
 
-            if (m_char.ActionStatus.AllNotDefault(m_unallowedStatus).Any()) {
+            if (m_char.ActionStatus.AllNotDefault(m_unallowedStatus).Any() || id == 1) {
                 return;
             }
 
             if (m_input.HasActionDown(InputAction.Button5)) {
-               ActiveBlockBox();
+                ActiveBlockBox();
             }
         }
 
         private void ActiveBlockBox() {
-
             m_char.ActionStatus[ActionStates.Blocking] = true;
             m_char.LocalDispatcher.Emit(new OnBlocking());
         }

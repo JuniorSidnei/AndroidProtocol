@@ -495,7 +495,7 @@ MonoBehaviour:
     00000000:
       type: {class: MobConstituctionAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
-        m_collisionBox: {fileID: 954528887747561706}
+        m_collisionBox: {fileID: 0}
         m_maxLife: 500
         m_damageCooldown: 0.2
         m_damageColision: 50
@@ -528,7 +528,9 @@ MonoBehaviour:
     00000004:
       type: {class: BotInput, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
-        BotID: 0
+        m_stateMachine:
+          id: 0
+          m_states: []
 --- !u!114 &954528887747561706
 MonoBehaviour:
   m_ObjectHideFlags: 0

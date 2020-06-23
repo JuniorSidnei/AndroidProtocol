@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.VersionControl;
-using UnityEditorInternal;
 using UnityEngine;
 
 namespace GameToBeNamed.Character {
