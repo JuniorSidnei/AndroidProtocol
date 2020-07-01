@@ -40,11 +40,7 @@ namespace GameToBeNamed.Character {
         public Vector2 DamageContact;
         public OnAttackTriggerEnter.Info AttackInfo;
     }
-    
-    public class OnHit { }
-    
-    public class OnMobHit { }
-    
+
     //Animator events
     public class OnBlockFinish { }
     public  class OnAttack { }

@@ -32,9 +32,22 @@ namespace GameToBeNamed.Character
 	private void Awake(){
 		GameManager.Instance.GlobalDispatcher.Subscribe<OnCharacterChangeClass>(OnCharacterChangeClass);
 		GameManager.Instance.GlobalDispatcher.Subscribe<OnCameraScreenshake>(OnCameraScreenshake);
+		GameManager.Instance.GlobalDispatcher.Subscribe<OnCameraLookPosition>(OnCameraLookPosition);
 	}
 
-	
+	private void OnCameraLookPosition(OnCameraLookPosition ev) {
+		if (ev.OffsetOrientation == 0) {
+			m_verticalOffset = ev.OriginalOffset;
+		}
+		else if (ev.OffsetOrientation == 1) {
+			m_verticalOffset = ev.OffsetUp;
+		}
+		else if (ev.OffsetOrientation == 2) {
+			m_verticalOffset = ev.OffsetDown;
+		}
+	}
+
+
 	private void OnCameraScreenshake(OnCameraScreenshake ev) {
 		Time.timeScale = 0.8f;
 		transform.DOShakeRotation(ev.ShakeDuration, m_screenShakeForceRotation, ev.Shakeforce,5);
@@ -48,7 +61,7 @@ namespace GameToBeNamed.Character
 	
 	private void FixedUpdate() {
 
-		if (target == null){
+		if (target == null) {
 			return;
 		}
 		focusArea.Update (target.Controller2D.collider.bounds);

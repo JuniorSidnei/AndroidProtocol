@@ -390,7 +390,7 @@ MonoBehaviour:
     00000001:
       type: {class: JumpAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
-        JumpForce: {x: 50, y: 110}
+        JumpForce: {x: 50, y: 100}
         m_lowJumpMultiplier: 4
         m_fallMultiplier: 6
         m_jumpEffect: {fileID: 4541717697892416001, guid: ecc8f19ff25b48c46b44e0258a411c28,
@@ -438,6 +438,7 @@ MonoBehaviour:
         DashEffect: {fileID: 5462726724862216830, guid: 1e1aec2aa305e22488e7da5a54084647,
           type: 3}
         m_dashPositionEffect: {fileID: 5139864945406988081}
+        m_dashCooldown: 0.3
         DashForce: 60
         DashDrag: 5
     00000008:

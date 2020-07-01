@@ -13,8 +13,10 @@ namespace GameToBeNamed.Character {
         Button5 = 1 << 5, //Block
         Button6 = 1 << 6, //Dash
         Button7 = 1 << 7, //change class
-        Button8 = 1 << 8, //interacte with npc
-        Button9 = 1 << 9,
+        Button8 = 1 << 8, //talk with npc
+        Button9 = 1 << 9, //cancel talk with npc
+        Button10 = 1 << 10, //Look up
+        Button11 = 1 << 11, //Look down
     }
 
     public interface IInputSource {

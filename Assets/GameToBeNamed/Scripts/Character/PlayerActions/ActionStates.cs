@@ -8,5 +8,6 @@ namespace GameToBeNamed.Character {
         public static PropertyName ReceivingDamage = new PropertyName("ReceivingDamage");
         public static PropertyName Jumping = new PropertyName("Jumping");
         public static PropertyName Talking = new PropertyName("Talking");
+        public static PropertyName Dashing = new PropertyName("Dashing");
     }
 }

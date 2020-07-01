@@ -350,7 +350,7 @@ MonoBehaviour:
     00000000:
       type: {class: MoveAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
-        Speed: 200
+        Speed: 80
         InAirDrag: 0.5
         InGroundDrag: 5
         Sprite: {fileID: 5955829786628665579}
@@ -381,20 +381,21 @@ MonoBehaviour:
         UnallowedStatus: []
         m_onHitEffect: {fileID: 8252051896981874538, guid: de3c69e3409cb734590546c334f1b2a6,
           type: 3}
-        m_knockbackForce: {x: 30, y: 10}
+        m_knockbackForce: {x: 20, y: 10}
     00000004:
-      type: {class: BotInput, ns: GameToBeNamed.Character, asm: CS-Player}
+      type: {class: MechaReptileInput, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
         m_stateMachine:
           id: 0
           m_states:
           - id: 5
+        m_wayPoints:
+        - {x: -440, y: -5.6, z: 0}
+        - {x: -520, y: -5.6, z: 0}
     00000005:
-      type: {class: MechaReptileIddleState, ns: GameToBeNamed.Character, asm: CS-Player}
+      type: {class: PatrolState, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
-        wayPoints:
-        - wayPoint: {x: 480, y: 0, z: 0}
-        - wayPoint: {x: -520, y: 0, z: 0}
+        id: 0
 --- !u!61 &5955829787421557624
 BoxCollider2D:
   m_ObjectHideFlags: 0

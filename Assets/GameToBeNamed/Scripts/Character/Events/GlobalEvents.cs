@@ -20,6 +20,20 @@ namespace GameToBeNamed.Utils {
         public float ShakeDuration;
     }
 
+    public class OnCameraLookPosition {
+
+        public OnCameraLookPosition(int offsetOrientation, float offsetUp, float offsetDown, float originalOffset) {
+            OffsetOrientation = offsetOrientation;
+            OffsetUp = offsetUp;
+            OffsetDown = offsetDown;
+            OriginalOffset = originalOffset;
+        }
+        public int OffsetOrientation;
+        public float OffsetUp;
+        public float OffsetDown;
+        public float OriginalOffset;
+    }
+    
     //Change char class
     public class OnCharacterChangeClass {
         public OnCharacterChangeClass(Character2D currentCharacter, Vector2 velocity, float changeClassCooldown) {
@@ -148,4 +162,5 @@ namespace GameToBeNamed.Utils {
         public NpcBehavior Npc;
         public bool OnTalkingNpc;
     }
+    
 }

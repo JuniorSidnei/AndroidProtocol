@@ -24,6 +24,10 @@ namespace GameToBeNamed.Character {
             CheckButtonDown("Blocking", InputAction.Button5);
             CheckButtonDown("Dash", InputAction.Button6);
             CheckButtonDown("ChangeClass", InputAction.Button7);
+            CheckButtonDown("Action", InputAction.Button8);
+            CheckButtonDown("CancelAction", InputAction.Button9);
+            CheckButtonDown("LookUp", InputAction.Button10);
+            CheckButtonDown("LookDown", InputAction.Button11);
         }
 
         

@@ -23,10 +23,10 @@ namespace GameToBeNamed.Character {
             m_char = Character2D;
             m_char.LocalDispatcher.Subscribe<OnReceivedAttack>(OnReceivedAttack);
             m_char.LocalDispatcher.Subscribe<OnReceiveDamageFinish>(OnReceiveDamageFinish);
-            
+
             GameManager.Instance.GlobalDispatcher.Emit(new OnCharacterConfigureConstitution(characterStatusLife.MaxHealth, characterStatusLife.CurrentHealth, characterStatusLife.IconSplash, characterStatusLife.LifeSplash));
         }
-
+        
         private void OnReceiveDamageFinish(OnReceiveDamageFinish ev) {
             m_char.ActionStatus.Remove(ActionStates.ReceivingDamage);
         }
@@ -38,10 +38,8 @@ namespace GameToBeNamed.Character {
             }
 
             m_char.ActionStatus[ActionStates.ReceivingDamage] = true;
-            
-            m_damageCooldownTimer = Time.time + m_damageCooldown;
             characterStatusLife.CurrentHealth -= ev.Damage - m_armorDefense;
-            
+            m_damageCooldownTimer = Time.time + m_damageCooldown;
             GameManager.Instance.GlobalDispatcher.Emit(new OnCharacterDamage(ev.Damage - m_armorDefense, m_char.transform.position, characterStatusLife.CurrentHealth, characterStatusLife.MaxHealth));
 
             if (characterStatusLife.CurrentHealth <= 0) {

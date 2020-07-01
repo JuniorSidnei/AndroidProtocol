@@ -253,7 +253,7 @@ namespace GameToBeNamed.Character
 		{
 			collisions.fallingThroughPlatform = false;
 		}
-
+		
 		public struct CollisionInfo
 		{
 			public bool above, below;
