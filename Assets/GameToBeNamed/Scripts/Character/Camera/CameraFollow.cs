@@ -28,28 +28,29 @@ namespace GameToBeNamed.Character
 	private float smoothVelocityY;
 
 	bool lookAheadStopped;
-
+	
 	private void Awake(){
 		GameManager.Instance.GlobalDispatcher.Subscribe<OnCharacterChangeClass>(OnCharacterChangeClass);
 		GameManager.Instance.GlobalDispatcher.Subscribe<OnCameraScreenshake>(OnCameraScreenshake);
-		GameManager.Instance.GlobalDispatcher.Subscribe<OnCameraLookPosition>(OnCameraLookPosition);
+		GameManager.Instance.GlobalDispatcher.Subscribe<OnCameraConfigureOffset>(OnCameraLookPosition);
 	}
 
-	private void OnCameraLookPosition(OnCameraLookPosition ev) {
+	private void OnCameraLookPosition(OnCameraConfigureOffset ev) {
+
 		if (ev.OffsetOrientation == 0) {
-			m_verticalOffset = ev.OriginalOffset;
+			m_verticalOffset = ev.OriginalOffsetValue;
 		}
 		else if (ev.OffsetOrientation == 1) {
-			m_verticalOffset = ev.OffsetUp;
+			m_verticalOffset = ev.OffsetUpValue;
 		}
 		else if (ev.OffsetOrientation == 2) {
-			m_verticalOffset = ev.OffsetDown;
+			m_verticalOffset = ev.OffsetDownValue;
 		}
 	}
 
 
 	private void OnCameraScreenshake(OnCameraScreenshake ev) {
-		Time.timeScale = 0.8f;
+		Time.timeScale = 0.6f;
 		transform.DOShakeRotation(ev.ShakeDuration, m_screenShakeForceRotation, ev.Shakeforce,5);
 		transform.DOShakePosition(ev.ShakeDuration, m_screenShakeForcePosition, ev.Shakeforce, 5).OnComplete(() => { Time.timeScale = 1; });
 	}
@@ -60,12 +61,12 @@ namespace GameToBeNamed.Character
 	}
 	
 	private void FixedUpdate() {
-
+		
 		if (target == null) {
 			return;
 		}
 		focusArea.Update (target.Controller2D.collider.bounds);
-
+		
 		Vector2 focusPosition = focusArea.centre + Vector2.up * m_verticalOffset;
 
 		if (focusArea.velocity.x != 0) {
@@ -81,15 +82,12 @@ namespace GameToBeNamed.Character
 				}
 			}
 		}
-
-
+		
 		currentLookAheadX = Mathf.SmoothDamp (currentLookAheadX, targetLookAheadX, ref smoothLookVelocityX, m_lookSmoothTimeX);
 
 		focusPosition.y = Mathf.SmoothDamp (transform.position.y, focusPosition.y, ref smoothVelocityY, m_verticalSmoothTime);
 		focusPosition += Vector2.right * currentLookAheadX;
 		transform.position = (Vector3)focusPosition + Vector3.forward * -10;
-		
-		
 	}
 
 	private void OnDrawGizmos() {

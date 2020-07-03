@@ -20,18 +20,18 @@ namespace GameToBeNamed.Utils {
         public float ShakeDuration;
     }
 
-    public class OnCameraLookPosition {
+    public class OnCameraConfigureOffset {
 
-        public OnCameraLookPosition(int offsetOrientation, float offsetUp, float offsetDown, float originalOffset) {
+        public OnCameraConfigureOffset(int offsetOrientation, float offsetUpValue, float offsetDownValue, float originalOffsetValue) {
             OffsetOrientation = offsetOrientation;
-            OffsetUp = offsetUp;
-            OffsetDown = offsetDown;
-            OriginalOffset = originalOffset;
+            OffsetUpValue = offsetUpValue;
+            OffsetDownValue = offsetDownValue;
+            OriginalOffsetValue = originalOffsetValue;
         }
         public int OffsetOrientation;
-        public float OffsetUp;
-        public float OffsetDown;
-        public float OriginalOffset;
+        public float OffsetUpValue;
+        public float OffsetDownValue;
+        public float OriginalOffsetValue;
     }
     
     //Change char class

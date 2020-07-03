@@ -16,6 +16,7 @@ namespace GameToBeNamed.Character {
 
         public override void Update() {
             
+            //Pressed buttons
             CheckButtonDown("Jump", InputAction.Button1);
             CheckButton("Jump", InputAction.Button1);
             CheckButton("MoveRight", InputAction.Button2);
@@ -28,6 +29,10 @@ namespace GameToBeNamed.Character {
             CheckButtonDown("CancelAction", InputAction.Button9);
             CheckButtonDown("LookUp", InputAction.Button10);
             CheckButtonDown("LookDown", InputAction.Button11);
+            
+            //Released buttons
+            CheckButtonUp("LookUp", InputAction.Button10);
+            CheckButtonUp("LookDown", InputAction.Button11);
         }
 
         

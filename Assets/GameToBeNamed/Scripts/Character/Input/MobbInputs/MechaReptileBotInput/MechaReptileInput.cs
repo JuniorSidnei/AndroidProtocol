@@ -36,14 +36,14 @@ namespace GameToBeNamed.Character {
         //o role do bot vai ser tudo aqui nessa função
         public override void MoveToDestination() {
             
-            Debug.Log("my index awypoint: " + currentWayPointIndex);
+            //Debug.Log("my index awypoint: " + currentWayPointIndex);
             if (m_char.transform.position.x < currentWayPoint.x) {
-                Debug.Log("indo pra direita");
+                //Debug.Log("indo pra direita");
                 UnsetAction(InputAction.Button3);
                 SetAction(InputAction.Button2);
             }
             else if(m_char.transform.position.x > currentWayPoint.x) {
-                Debug.Log("indo pra esquerda");
+                //Debug.Log("indo pra esquerda");
                 UnsetAction(InputAction.Button2);
                 SetAction(InputAction.Button3);
             }
@@ -55,7 +55,7 @@ namespace GameToBeNamed.Character {
         }
 
         public override bool IsDestinationReached() {
-            Debug.Log("Cheguei no destino, meu destino: " + currentWayPoint);
+            //Debug.Log("Cheguei no destino, meu destino: " + currentWayPoint);
             if (Vector3.Distance(m_char.transform.position, currentWayPoint) < .3f) {
                 return true;
             }

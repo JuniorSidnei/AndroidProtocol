@@ -14,25 +14,25 @@ namespace GameToBeNamed.Character {
 
         [SerializeField] private float m_lookUp;
         [SerializeField] private float m_lookDown;
-        [SerializeField] private float m_originalOffset;
+        [SerializeField] private float m_defaultOffset;
         
         protected override void OnConfigure() {
             m_char = Character2D;
             m_input = m_char.Input;
             
-            m_char.LocalDispatcher.Subscribe<OnCharacterFixedUpdate>(OnCharacterFixedUpdate);
+            m_char.LocalDispatcher.Subscribe<OnCharacterUpdate>(OnCharacterUpdate);
         }
 
-        private void OnCharacterFixedUpdate(OnCharacterFixedUpdate ev) {
-            
-            if (m_input.HasActionDown(InputAction.Button10)) {
-                GameManager.Instance.GlobalDispatcher.Emit(new OnCameraLookPosition(1, m_lookUp, m_lookDown, m_originalOffset));
+        private void OnCharacterUpdate(OnCharacterUpdate ev) {
+
+            if (m_input.HasActionDown(InputAction.Button10) || m_input.HasAction(InputAction.Button10)) {
+                GameManager.Instance.GlobalDispatcher.Emit(new OnCameraConfigureOffset(1, m_lookUp, m_lookDown, m_defaultOffset));
             }
-            else if (m_input.HasActionDown(InputAction.Button11)) {
-                GameManager.Instance.GlobalDispatcher.Emit(new OnCameraLookPosition(2, m_lookUp, m_lookDown, m_originalOffset));
+            else if (m_input.HasActionDown(InputAction.Button11) || m_input.HasAction(InputAction.Button11)) {
+                GameManager.Instance.GlobalDispatcher.Emit(new OnCameraConfigureOffset(2, m_lookUp, m_lookDown, m_defaultOffset));
             }
-            else if(m_input.HasActionUp(InputAction.Button10) || m_input.HasActionUp(InputAction.Button11)){
-                GameManager.Instance.GlobalDispatcher.Emit(new OnCameraLookPosition(0, m_lookUp, m_lookDown, m_originalOffset));
+            else if(m_input.HasActionUp(InputAction.Button10) || m_input.HasActionUp(InputAction.Button11)) {
+                GameManager.Instance.GlobalDispatcher.Emit(new OnCameraConfigureOffset(0, m_lookUp, m_lookDown, m_defaultOffset));
             }
         }
     }

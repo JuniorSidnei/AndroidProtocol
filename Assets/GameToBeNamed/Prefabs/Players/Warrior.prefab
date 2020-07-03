@@ -142,7 +142,7 @@ MonoBehaviour:
       data:
         m_lookUp: 20
         m_lookDown: -6
-        m_originalOffset: 8
+        m_defaultOffset: 8
     0000000C:
       type: {class: PlayerInput, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
