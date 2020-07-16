@@ -1120,9 +1120,12 @@ MonoBehaviour:
   PlayerLayer:
     serializedVersion: 2
     m_Bits: 2048
-  m_nextScene:
+  m_sceneToLoad:
     m_SceneAsset: {fileID: 102900000, guid: d38e9b94bf7477f4fbba727136e6681e, type: 3}
     m_SceneName: DarkFlorest_1
+  m_sceneToUnload:
+    m_SceneAsset: {fileID: 0}
+    m_SceneName: 
 --- !u!114 &147928573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1135,13 +1138,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e4ac48667e275e4eb290a84eb2df14e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_nextScene:
-    m_SceneAsset: {fileID: 102900000, guid: d38e9b94bf7477f4fbba727136e6681e, type: 3}
-    m_SceneName: DarkFlorest_1
-  m_lastScene:
-    m_SceneAsset: {fileID: 102900000, guid: e63efd90583cfdc40852620440901e4d, type: 3}
-    m_SceneName: Game2
-  m_hasLastScene: 0
 --- !u!4 &147928574
 Transform:
   m_ObjectHideFlags: 0
@@ -1150,7 +1146,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 147928571}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -268.3, y: 6.5, z: 0}
+  m_LocalPosition: {x: -360.3, y: 8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -13536,7 +13532,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534669902}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.42, z: -10}
+  m_LocalPosition: {x: -451, y: -0.42, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -18686,7 +18682,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 893922761}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -644, y: 0.66, z: 0}
+  m_LocalPosition: {x: -613, y: 8.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 708744913}

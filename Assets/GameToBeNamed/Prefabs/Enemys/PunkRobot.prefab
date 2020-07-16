@@ -507,30 +507,38 @@ MonoBehaviour:
     00000001:
       type: {class: MobProcessDamageAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
-        UnallowedStatus:
-        - ReceivingDamage
         m_onHitEffect: {fileID: 8252051896981874538, guid: de3c69e3409cb734590546c334f1b2a6,
           type: 3}
         m_knockbackForce: {x: 30, y: 10}
     00000002:
-      type: {class: MobGravityAction, ns: GameToBeNamed.Character, asm: CS-Player}
+      type: {class: JumpAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
-        BotID: 0
+        JumpForce: {x: 0, y: 0}
+        m_lowJumpMultiplier: 4
+        m_fallMultiplier: 6
+        m_jumpEffect: {fileID: 0}
+        m_jumpEffectPosition: {fileID: 0}
     00000003:
-      type: {class: OscilateAction, ns: GameToBeNamed.Character, asm: CS-Player}
+      type: {class: MoveAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
-        UnallowedStatus: []
-        m_sprt: {fileID: 4624111264368823645}
-        m_speed: 20
-        MaxRange: 20
-        MinRange: 20
-        Offset: 0
+        Speed: 100
+        InAirDrag: 0.5
+        InGroundDrag: 5
+        Sprite: {fileID: 4624111264368823645}
     00000004:
-      type: {class: BotInput, ns: GameToBeNamed.Character, asm: CS-Player}
+      type: {class: PunkRobotInput, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
         m_stateMachine:
           id: 0
-          m_states: []
+          m_states:
+          - id: 5
+        m_wayPoints:
+        - {x: 0, y: 0, z: 0}
+        - {x: 0, y: 0, z: 0}
+    00000005:
+      type: {class: PatrolState, ns: GameToBeNamed.Character, asm: CS-Player}
+      data:
+        id: 0
 --- !u!114 &954528887747561706
 MonoBehaviour:
   m_ObjectHideFlags: 0

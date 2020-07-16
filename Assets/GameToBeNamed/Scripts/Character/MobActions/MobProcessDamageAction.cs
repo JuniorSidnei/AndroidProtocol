@@ -11,7 +11,7 @@ namespace GameToBeNamed.Character {
     public class MobProcessDamageAction : CharacterAction {
 
         private Character2D m_char;
-        public List<PropertyName> UnallowedStatus;
+        private List<PropertyName> m_unallowedStatus;
         [SerializeField] private GameObject m_onHitEffect;
         [SerializeField] private Vector2 m_knockbackForce;
         
@@ -19,6 +19,11 @@ namespace GameToBeNamed.Character {
             m_char = Character2D;
             
             m_char.LocalDispatcher.Subscribe<OnReceivedAttack>(OnReceivedAttack);
+            
+            m_unallowedStatus = new List<PropertyName>() {
+                ActionStates.Dead
+            };
+            
         }
 
         private void OnReceivedAttack(OnReceivedAttack ev) {
@@ -36,7 +41,10 @@ namespace GameToBeNamed.Character {
             }
             
             var to = m_char.Velocity;
-            DOTween.To(() => Character2D.Velocity, x => Character2D.Velocity = x, to, .2f).SetEase(Ease.Linear);
+            DOTween.To(() => m_char.Velocity, x => m_char.Velocity = to, to, .2f).SetEase(Ease.Linear).OnComplete(()=> {
+                m_char.ActionStatus[ActionStates.ReceivingDamage] = false;
+            });
+            
         }
     }
 }

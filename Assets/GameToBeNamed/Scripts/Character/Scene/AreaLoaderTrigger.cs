@@ -5,16 +5,16 @@ using UnityEngine;
 
 namespace GameToBeNamed.Utils {
 
-    public class NextSceneAreaManager : MonoBehaviour {
+    public class AreaLoaderTrigger : MonoBehaviour {
 
         public LayerMask PlayerLayer;
-        [SerializeField] private SceneField m_nextScene;
-
+        [SerializeField] private SceneField m_sceneToLoad;
+        [SerializeField] private SceneField m_sceneToUnload;
 
         private void OnTriggerEnter2D(Collider2D other) {
             
             if (((1 << other.gameObject.layer) & PlayerLayer) != 0) {
-                GameManager.Instance.GlobalDispatcher.Emit(new OnValidadeScene(m_nextScene));   
+                GameManager.Instance.GlobalDispatcher.Emit(new OnValidateScene(m_sceneToLoad, m_sceneToUnload));   
             }
         }
     }

@@ -5,8 +5,8 @@ using UnityEngine;
 namespace GameToBeNamed.Character {
 
     [System.Serializable]
-    public class MechaReptileInput : BotInput {
-        
+    public class PunkRobotInput : BotInput {
+       
         [SerializeField] private StateMachine m_stateMachine;
 
         private Character2D m_char;
@@ -33,7 +33,6 @@ namespace GameToBeNamed.Character {
             throw new System.NotImplementedException();
         }
 
-        //o role do bot vai ser tudo aqui nessa função
         public override void MoveToDestination() {
             
             if (m_char.transform.position.x < currentWayPoint.x) {

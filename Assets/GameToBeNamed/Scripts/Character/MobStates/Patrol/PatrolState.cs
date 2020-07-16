@@ -19,9 +19,11 @@ namespace GameToBeNamed.Character {
 
         public override void Run(Character2D character, BotInput input) {
             
+            Debug.Log("to na run");
             input.MoveToDestination();
             
             if (input.IsDestinationReached()) {
+                Debug.Log("troca destino");
                 input.SetNextDestination();
             }
         }

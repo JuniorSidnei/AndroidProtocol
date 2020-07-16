@@ -126,13 +126,15 @@ namespace GameToBeNamed.Utils {
     }
     
     //load scene
-    public class OnValidadeScene {
+    public class OnValidateScene {
 
-        public OnValidadeScene(SceneField sceneField) {
-            SceneField = sceneField;
+        public OnValidateScene(SceneField sceneToLoad, SceneField sceneToUnload) {
+            SceneToLoad = sceneToLoad;
+            SceneToUnload = sceneToUnload;
         }
 
-        public SceneField SceneField;
+        public SceneField SceneToLoad;
+        public SceneField SceneToUnload;
     }
     
     //on collect
