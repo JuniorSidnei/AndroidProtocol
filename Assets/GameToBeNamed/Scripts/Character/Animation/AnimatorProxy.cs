@@ -62,16 +62,16 @@ namespace GameToBeNamed.Character
             m_anim.SetTrigger("OnHit");
         }
         
-        private void Update() {
+        private void FixedUpdate() {
             
             //OnGround
             m_anim.SetBool("OnGround", m_char2D.Controller2D.collisions.below);
             
             //Iddle
-            m_anim.SetFloat("VelX", Mathf.Abs(m_char2D.Velocity.x));
+            m_anim.SetFloat("VelX", Mathf.Abs(m_char2D.PositionDelta.x));
             
             //Jump
-            m_anim.SetFloat("VelY", m_char2D.Velocity.y);
+            m_anim.SetFloat("VelY", m_char2D.PositionDelta.y);
         }
 
         

@@ -41,7 +41,7 @@ namespace GameToBeNamed.Character {
 
         private void OnCharacterFixedUpdate(OnCharacterFixedUpdate ev) {
 
-            if (m_char.ActionStatus.AllNotDefault(UnallowedStatus).Any()) {
+            if (m_char.ActionStates.AllNotDefault(UnallowedStatus).Any()) {
                 return;
             }
             

@@ -36,26 +36,27 @@ namespace GameToBeNamed.Character
             m_attackBoxPosition = m_attackBox.transform.localPosition;
             
             m_unallowedStatus = new List<PropertyName>() {
-                ActionStates.Dead, ActionStates.Talking, ActionStates.ReceivingDamage    
+                ActionStates.Dead, ActionStates.Talking, ActionStates.ReceivingDamage  
             };
         }
 
         private void OnCharacterUpdate(OnCharacterUpdate ev) {
             
-            if (m_char.ActionStatus.AllNotDefault(m_unallowedStatus).Any() || !m_char.Controller2D.collisions.below) {
+            if (m_char.ActionStates.AllNotDefault(m_unallowedStatus).Any() || !m_char.Controller2D.collisions.below) {
                 return;
             }
 
             m_direction = m_char.Velocity.x > 0 ? 1 : -1;
             
-            if (m_input.HasActionDown(InputAction.Button4) && (m_comboStep == 0  || m_comboIntervalTimer < 0)) {
+            if (m_input.HasActionDown(InputAction.Button4) && (m_comboStep == 0  && m_comboIntervalTimer < 0)) {
                 
+                m_char.ActionStates[ActionStates.Attacking] = true;
                 m_char.LocalDispatcher.Emit(new OnFirstAttack());
                 m_comboStep = 1;
                 m_comboIntervalTimer = 1;
             }
-            else if (m_input.HasActionDown(InputAction.Button4) && m_comboStep == 1 && m_comboIntervalTimer >= 0) {
-                
+            else if (m_input.HasActionDown(InputAction.Button4) && (m_comboStep == 1 && m_comboIntervalTimer >= 0)) {
+                m_char.ActionStates[ActionStates.Attacking] = true;
                 m_char.LocalDispatcher.Emit(new OnSecondAttack());
                 m_comboStep = 0;
             }
@@ -84,6 +85,7 @@ namespace GameToBeNamed.Character
 
         private void OnAttackFinish(OnAttackFinish ev) {
             m_attackBox.Collider.enabled = false;
+            m_char.ActionStates[ActionStates.Attacking] = false;
         }
         
     }

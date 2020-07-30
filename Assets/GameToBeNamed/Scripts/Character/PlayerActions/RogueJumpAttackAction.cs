@@ -36,7 +36,7 @@ namespace GameToBeNamed.Character {
 
         private void OnCharacterUpdate(OnCharacterUpdate ev) {
             
-            if (Character2D.ActionStatus.AllNotDefault(m_unallowedStatus).Any() || m_char.Controller2D.collisions.below || m_char.Controller2D.collisions.left
+            if (m_char.ActionStates.AllNotDefault(m_unallowedStatus).Any() || m_char.Controller2D.collisions.below || m_char.Controller2D.collisions.left
                 || m_char.Controller2D.collisions.right) {
                 return;
             }
@@ -44,7 +44,7 @@ namespace GameToBeNamed.Character {
             m_direction = m_char.Velocity.x > 0 ? 1 : -1;
             
             if (m_input.HasActionDown(InputAction.Button4) && !m_char.Controller2D.collisions.below &&
-                m_char.Velocity.y > 5) {
+                m_char.Velocity.y > 2) {
                 
                 m_char.LocalDispatcher.Emit(new OnJumpAttack());
             }

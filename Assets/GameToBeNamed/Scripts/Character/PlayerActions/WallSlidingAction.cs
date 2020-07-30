@@ -19,7 +19,7 @@ namespace GameToBeNamed.Character
 
         private void OnCharacterFixedUpdate(OnCharacterFixedUpdate ev)
         {
-            if (Character2D.ActionStatus.AllNotDefault(UnallowedStatus).Any() || Character2D.Controller2D.collisions.below) {
+            if (Character2D.ActionStates.AllNotDefault(UnallowedStatus).Any() || Character2D.Controller2D.collisions.below) {
                 return;
             }
 

@@ -9,8 +9,7 @@ using UnityEngine.Events;
 
 namespace GameToBeNamed.Character {
 	
-	public class Character2D : MonoBehaviour
-	{
+	public class Character2D : MonoBehaviour {
 
 		[HideInInspector]
 		public Vector2 Velocity;
@@ -30,7 +29,12 @@ namespace GameToBeNamed.Character {
 			set { m_drag = value; }
 		}
 		
-		public readonly Dictionary<PropertyName, bool> ActionStatus = new Dictionary<PropertyName, bool>();
+		public Vector2 PositionDelta {
+			get;
+			private set;
+		}
+		
+		public readonly Dictionary<PropertyName, bool> ActionStates = new Dictionary<PropertyName, bool>();
 		
 		[SerializeReference, SelectImplementation(typeof(ICharacterAction))]
 		private List<ICharacterAction> m_actions = new List<ICharacterAction>();
@@ -61,8 +65,10 @@ namespace GameToBeNamed.Character {
 
 		private void FixedUpdate() {
 			LocalDispatcher.EmitImmediate(new OnCharacterFixedUpdate());
-			
+
+			var oldPos = transform.position;
 			m_controller2D.Move(Velocity * Time.deltaTime);
+			PositionDelta = transform.position - oldPos;
 			Velocity *= (1 - Time.deltaTime * m_drag);
 		}
 

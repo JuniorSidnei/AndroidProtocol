@@ -52,7 +52,7 @@ namespace GameToBeNamed.Character{
         
         private void OnCharacterUpdate(OnCharacterUpdate ev) {
             
-            if (Character2D.ActionStatus.AllNotDefault(m_unallowedStatus).Any() || !m_char.Controller2D.collisions.below) {
+            if (Character2D.ActionStates.AllNotDefault(m_unallowedStatus).Any() || !m_char.Controller2D.collisions.below) {
                 return;
             }
 

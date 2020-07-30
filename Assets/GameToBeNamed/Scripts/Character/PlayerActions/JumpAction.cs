@@ -27,14 +27,14 @@ namespace GameToBeNamed.Character {
             m_char.LocalDispatcher.Subscribe<OnCharacterFixedUpdate>(OnCharacterFixedUpdate);
             
             m_unallowedStatus = new List<PropertyName>() {
-                ActionStates.Dead, ActionStates.Talking, ActionStates.ReceivingDamage , ActionStates.Talking   
+                ActionStates.Dead, ActionStates.Talking, ActionStates.ReceivingDamage   
             };
         }
 
         
         private void OnCharacterFixedUpdate(OnCharacterFixedUpdate ev) {
             
-            if (m_char.ActionStatus.AllNotDefault(m_unallowedStatus).Any()) {
+            if (m_char.ActionStates.AllNotDefault(m_unallowedStatus).Any()) {
                 return;
             }
             
@@ -42,7 +42,7 @@ namespace GameToBeNamed.Character {
             var inputDir = m_input.HasAction(InputAction.Button3) ? -1 : m_input.HasAction(InputAction.Button2) ? 1 : 0;
             
             if (m_char.Controller2D.collisions.above || m_char.Controller2D.collisions.below) {
-                m_char.ActionStatus[ActionStates.Jumping] = false;
+                m_char.ActionStates[ActionStates.Jumping] = false;
                 m_char.Velocity.y = 0;
             }
 
@@ -62,7 +62,7 @@ namespace GameToBeNamed.Character {
 
             if ((m_input.HasActionDown(InputAction.Button1) || m_input.HasAction(InputAction.Button1)) && m_char.Controller2D.collisions.below) {
                 
-                m_char.ActionStatus[ActionStates.Jumping] = true;
+                m_char.ActionStates[ActionStates.Jumping] = true;
                 InstantiateController.Instance.InstantiateEffect(m_jumpEffect, m_jumpEffectPosition.position);
                 
                 if (inputDir == 0) {

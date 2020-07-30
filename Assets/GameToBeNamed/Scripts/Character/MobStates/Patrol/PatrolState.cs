@@ -14,16 +14,13 @@ namespace GameToBeNamed.Character {
 
         public override void Enter(Character2D character, BotInput input) {
             input.SetInitialDestination();
-            Debug.Log("Entrei, já é to patrulhando");
         }
 
         public override void Run(Character2D character, BotInput input) {
             
-            Debug.Log("to na run");
             input.MoveToDestination();
             
             if (input.IsDestinationReached()) {
-                Debug.Log("troca destino");
                 input.SetNextDestination();
             }
         }

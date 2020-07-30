@@ -28,16 +28,16 @@ namespace GameToBeNamed.Character {
         }
         
         private void OnReceiveDamageFinish(OnReceiveDamageFinish ev) {
-            m_char.ActionStatus.Remove(ActionStates.ReceivingDamage);
+            m_char.ActionStates.Remove(ActionStates.ReceivingDamage);
         }
 
         private void OnReceivedAttack(OnReceivedAttack ev) {
             
-            if (m_damageCooldownTimer > Time.time ||  m_char.ActionStatus[ActionStates.Blocking]) {
+            if (m_damageCooldownTimer > Time.time ||  m_char.ActionStates[ActionStates.Blocking]) {
                 return;
             }
 
-            m_char.ActionStatus[ActionStates.ReceivingDamage] = true;
+            m_char.ActionStates[ActionStates.ReceivingDamage] = true;
             characterStatusLife.CurrentHealth -= ev.Damage - m_armorDefense;
             m_damageCooldownTimer = Time.time + m_damageCooldown;
             GameManager.Instance.GlobalDispatcher.Emit(new OnCharacterDamage(ev.Damage - m_armorDefense, m_char.transform.position, characterStatusLife.CurrentHealth, characterStatusLife.MaxHealth));

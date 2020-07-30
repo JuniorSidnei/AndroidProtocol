@@ -28,7 +28,7 @@ namespace GameToBeNamed.Character {
 
         private void OnReceivedAttack(OnReceivedAttack ev) {
 
-            m_char.ActionStatus[ActionStates.ReceivingDamage] = true;
+            m_char.ActionStates[ActionStates.ReceivingDamage] = true;
             
             InstantiateController.Instance.InstantiateEffect(m_onHitEffect, ev.DamageContact);
             GameManager.Instance.GlobalDispatcher.Emit(new OnCameraScreenshake(3, .1f));
@@ -42,7 +42,7 @@ namespace GameToBeNamed.Character {
             
             var to = m_char.Velocity;
             DOTween.To(() => m_char.Velocity, x => m_char.Velocity = to, to, .2f).SetEase(Ease.Linear).OnComplete(()=> {
-                m_char.ActionStatus[ActionStates.ReceivingDamage] = false;
+                m_char.ActionStates[ActionStates.ReceivingDamage] = false;
             });
             
         }

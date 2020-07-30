@@ -34,7 +34,7 @@ namespace GameToBeNamed.Character
                 return;
             }
             
-            if (Character2D.ActionStatus.AllNotDefault(UnallowedStatus).Any()) {
+            if (Character2D.ActionStates.AllNotDefault(UnallowedStatus).Any()) {
                 return;
             }
 

@@ -27,7 +27,7 @@ namespace GameToBeNamed.Character
             m_input = Character2D.Input;
             m_char = Character2D;
             m_char.LocalDispatcher.Subscribe<OnCharacterUpdate>(OnCharacterUpdate);
-            m_char.ActionStatus[ActionStates.Dashing] = false;
+            m_char.ActionStates[ActionStates.Dashing] = false;
             m_unallowedStatus = new List<PropertyName>() {
                 ActionStates.Dead, ActionStates.Talking, ActionStates.ReceivingDamage   
             };
@@ -36,7 +36,7 @@ namespace GameToBeNamed.Character
         private void OnCharacterUpdate(OnCharacterUpdate ev) {
 
            
-            if (m_char.ActionStatus.AllNotDefault(m_unallowedStatus).Any()) {
+            if (m_char.ActionStates.AllNotDefault(m_unallowedStatus).Any()) {
                 return;
             }
             
@@ -51,7 +51,7 @@ namespace GameToBeNamed.Character
             
             if (m_input.HasActionDown(InputAction.Button6) && m_dashCooldownTimer <= 0) {
 
-                m_char.ActionStatus[ActionStates.Dashing] = true;
+                m_char.ActionStates[ActionStates.Dashing] = true;
                 m_char.LocalDispatcher.Emit(new OnDashing());
                 m_char.Velocity.x = DashForce * m_dir;
                 m_char.Drag = DashDrag;
@@ -59,7 +59,7 @@ namespace GameToBeNamed.Character
                 m_dashCooldownTimer = m_dashCooldown;
                 var to = m_char.Velocity.x;
                 DOTween.To(() => Character2D.Velocity.x, x => Character2D.Velocity.x = to, to, .2f).SetEase(Ease.Linear).OnComplete(() => {
-                    m_char.ActionStatus[ActionStates.Dashing] = false;
+                    m_char.ActionStates[ActionStates.Dashing] = false;
                 });
             }
         }

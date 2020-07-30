@@ -22,9 +22,9 @@ namespace GameToBeNamed.Character {
 
         private void OnTalking(OnTalking ev) {
             
-            m_char.ActionStatus[ActionStates.Talking] = ev.OnTalkingNpc;
+            m_char.ActionStates[ActionStates.Talking] = ev.OnTalkingNpc;
             m_char.Velocity = Vector2.zero;
-            Debug.Log("falando? " +  m_char.ActionStatus[ActionStates.Talking]);
+            Debug.Log("falando? " +  m_char.ActionStates[ActionStates.Talking]);
         }
     }
 }
