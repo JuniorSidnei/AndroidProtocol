@@ -42,7 +42,7 @@ namespace GameToBeNamed.Character
 		{
 			float directionX = collisions.faceHor;
 			float rayLength = Mathf.Abs(moveAmount.x) + skinWidth;
-			Debug.Log("ray horizontal lenght: " + rayLength + "direction horizontal: " + directionX);
+			//Debug.Log("ray horizontal lenght: " + rayLength + "direction horizontal: " + directionX);
 			if (Mathf.Abs(moveAmount.x) < skinWidth)
 			{
 				rayLength = 2 * skinWidth;
@@ -110,7 +110,7 @@ namespace GameToBeNamed.Character
 			
 			float directionY = collisions.faceVert;
 			float rayLength = Mathf.Abs(moveAmount.y) + skinWidth;
-			Debug.Log("ray vertical lenght: " + rayLength+ "direction vertical: " + directionY);
+			//Debug.Log("ray vertical lenght: " + rayLength+ "direction vertical: " + directionY);
 			if (Mathf.Abs(moveAmount.y) < skinWidth) {
 				rayLength = 2 * skinWidth;
 			}

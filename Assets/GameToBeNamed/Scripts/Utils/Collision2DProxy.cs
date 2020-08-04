@@ -8,7 +8,8 @@ namespace GameToBeNamed.Utils{
     
     [RequireComponent(typeof(Collider2D))]
     public class Collision2DProxy : MonoBehaviour {
-        
+
+        public float LineOfSite;
         public class TriggerEvent : UnityEvent<Collider2D> { }
         public class CollisionEvent : UnityEvent<Collision2D> { }
         
@@ -22,9 +23,11 @@ namespace GameToBeNamed.Utils{
         public TriggerEvent OnTrigger2DStayCallback = new TriggerEvent();
         public TriggerEvent OnTrigger2DExitCallback = new TriggerEvent();
 
-        public Collider2D Collider => m_collider2D != null ? m_collider2D : (m_collider2D = GetComponent<Collider2D>());
+        public Collider2D BoxCollider => m_boxCollider2D != null ? m_boxCollider2D : (m_boxCollider2D = GetComponent<BoxCollider2D>());
+        public Collider2D CircleCollider => m_circleCollider2D != null ? m_circleCollider2D : (m_circleCollider2D = GetComponent<CircleCollider2D>());
 
-        private Collider2D m_collider2D;
+        private BoxCollider2D m_boxCollider2D;
+        private CircleCollider2D m_circleCollider2D;
 
         //Collisions
         private void OnCollisionEnter2D(Collision2D other) {
@@ -50,6 +53,11 @@ namespace GameToBeNamed.Utils{
 
         private void OnTriggerExit2D(Collider2D other) {
             OnTrigger2DExitCallback?.Invoke(other);
+        }
+
+        private void OnDrawGizmos() {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, LineOfSite);
         }
     }
 }

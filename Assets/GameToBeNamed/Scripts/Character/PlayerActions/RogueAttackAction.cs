@@ -81,12 +81,12 @@ namespace GameToBeNamed.Character{
         }
 
         private void OnAttack(OnAttack ev) {
-            m_attackBox.Collider.enabled = true;
+            m_attackBox.BoxCollider.enabled = true;
             m_attackBox.transform.localPosition = new Vector3(m_direction * m_attackBoxPosition.x, m_attackBoxPosition.y,0);
         }
 
         private void OnAttackFinish(OnAttackFinish ev) {
-            m_attackBox.Collider.enabled = false;
+            m_attackBox.BoxCollider.enabled = false;
         }
 
     }

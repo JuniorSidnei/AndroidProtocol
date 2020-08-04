@@ -25,21 +25,25 @@ namespace GameToBeNamed.Character {
             m_stateMachine.OnUpdate(m_char, this);
         }
 
-        public override void SetDestination(out Transform target) {
+        public override void SetTarget(GameObject target) {
             throw new System.NotImplementedException();
+        }
+
+        public override Vector3 GetDestinationPosition() {
+            return currentWayPoint;
         }
 
         public override bool SearchDestination() {
             throw new System.NotImplementedException();
         }
 
-        public override void MoveToDestination() {
+        public override void MoveToDestination(Vector3 destination) {
             
-            if (m_char.transform.position.x < currentWayPoint.x) {
+            if (m_char.transform.position.x < destination.x) {
                 UnsetAction(InputAction.Button3);
                 SetAction(InputAction.Button2);
             }
-            else if(m_char.transform.position.x > currentWayPoint.x) {
+            else if(m_char.transform.position.x > destination.x) {
                 UnsetAction(InputAction.Button2);
                 SetAction(InputAction.Button3);
             }
@@ -50,11 +54,15 @@ namespace GameToBeNamed.Character {
             currentWayPoint = m_wayPoints[currentWayPointIndex];
         }
 
-        public override bool IsDestinationReached() {
-            if (Vector3.Distance(m_char.transform.position, currentWayPoint) < 1f) {
+        public override bool IsDestinationReached(Vector3 target) {
+            if (Vector3.Distance(m_char.transform.position, target) < 1f) {
                 return true;
             }
             return false;
+        }
+
+        public override bool IsTargetSet() {
+            throw new System.NotImplementedException();
         }
 
         public override void SetNextDestination() {

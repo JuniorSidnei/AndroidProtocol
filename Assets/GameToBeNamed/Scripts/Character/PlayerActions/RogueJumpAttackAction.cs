@@ -52,14 +52,14 @@ namespace GameToBeNamed.Character {
         
         private void OnAttackFinish(OnAttackFinish ev) {
             foreach (var boxes in m_attackBoxes) {
-                boxes.Collider.enabled = false;
+                boxes.BoxCollider.enabled = false;
             }
         }
 
         private void OnRogueAirAttack(OnRogueAirAttack ev) {
 
             for (var i = 0; i < m_attackBoxes.Length; i++) {
-                m_attackBoxes[i].Collider.enabled = true;
+                m_attackBoxes[i].BoxCollider.enabled = true;
                 m_attackBoxes[i].transform.localPosition = new Vector3(m_direction * m_attackBoxesPositions[i].x, m_attackBoxesPositions[i].y,0);
             }
         }

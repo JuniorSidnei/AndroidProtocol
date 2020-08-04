@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using Rewired;
 
 
@@ -14,17 +15,21 @@ namespace GameToBeNamed.Character {
         
         public abstract override void Update();
         
-
-        public abstract void SetDestination(out Transform target);
+        public abstract void SetTarget(GameObject target);
         
+        public abstract Vector3 GetDestinationPosition();
+
         public abstract bool SearchDestination();
 
-        public abstract void MoveToDestination();
+        public abstract void MoveToDestination(Vector3 destination);
 
         public abstract void SetInitialDestination();
 
-        public abstract bool IsDestinationReached();
+        public abstract bool IsDestinationReached(Vector3 target);
+
+        public abstract bool IsTargetSet();
 
         public abstract void SetNextDestination();
+        
     }
 }

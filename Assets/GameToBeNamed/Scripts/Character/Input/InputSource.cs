@@ -2,8 +2,7 @@
 using UnityEngine;
 
 namespace GameToBeNamed.Character {
-
-    //fazer receber o character2D
+    
     [Flags]
     public enum InputAction {
         Button1 = 1 << 1, //Jump

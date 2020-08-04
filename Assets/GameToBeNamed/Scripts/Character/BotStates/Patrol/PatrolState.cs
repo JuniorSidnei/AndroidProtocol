@@ -18,9 +18,9 @@ namespace GameToBeNamed.Character {
 
         public override void Run(Character2D character, BotInput input) {
             
-            input.MoveToDestination();
+            input.MoveToDestination(input.GetDestinationPosition());
             
-            if (input.IsDestinationReached()) {
+            if (input.IsDestinationReached(input.GetDestinationPosition())) {
                 input.SetNextDestination();
             }
         }

@@ -277,6 +277,7 @@ GameObject:
   - component: {fileID: 5955829787421557607}
   - component: {fileID: 5955829787421557606}
   - component: {fileID: 5955829787421557624}
+  - component: {fileID: 1842119450}
   - component: {fileID: 5955829787421557627}
   - component: {fileID: 5955829787421557626}
   m_Layer: 9
@@ -384,17 +385,26 @@ MonoBehaviour:
     00000004:
       type: {class: MechaReptileInput, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
+        m_targetLayer:
+          serializedVersion: 2
+          m_Bits: 2048
         m_stateMachine:
           id: 0
           m_states:
           - id: 5
+          - id: 6
         m_wayPoints:
-        - {x: -530, y: -3.94, z: 0}
-        - {x: -440, y: -3.94, z: 0}
+        - {x: -420, y: -3.96, z: 0}
+        - {x: -550, y: -3.96, z: 0}
+        m_triggerProxy: {fileID: 5955829787421557626}
     00000005:
       type: {class: PatrolState, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
         id: 0
+    00000006:
+      type: {class: PursuitState, ns: GameToBeNamed.Character, asm: CS-Player}
+      data:
+        m_lineOfSite: 40
 --- !u!61 &5955829787421557624
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -421,6 +431,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 8, y: 12}
   m_EdgeRadius: 0
+--- !u!58 &1842119450
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5955829787421557629}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 80
 --- !u!50 &5955829787421557627
 Rigidbody2D:
   serializedVersion: 4
@@ -454,6 +480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 675b012eebff32746a4412ac139a6509, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LineOfSite: 40
 --- !u!1 &6354219361926161176
 GameObject:
   m_ObjectHideFlags: 0
