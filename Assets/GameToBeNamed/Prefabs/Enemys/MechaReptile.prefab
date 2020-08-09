@@ -388,6 +388,7 @@ MonoBehaviour:
         m_targetLayer:
           serializedVersion: 2
           m_Bits: 2048
+        m_attackSpeed: 2
         m_stateMachine:
           id: 0
           m_states:
@@ -446,7 +447,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 80
+  m_Radius: 40
 --- !u!50 &5955829787421557627
 Rigidbody2D:
   serializedVersion: 4

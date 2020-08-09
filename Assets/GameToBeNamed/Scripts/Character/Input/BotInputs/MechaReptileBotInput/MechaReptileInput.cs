@@ -9,6 +9,7 @@ namespace GameToBeNamed.Character {
     public class MechaReptileInput : BotInput {
         
         [SerializeField] private LayerMask m_targetLayer;
+        [SerializeField] private float m_attackSpeed = 2f;
         [SerializeField] private StateMachine m_stateMachine;
         [SerializeField] private List<Vector3> m_wayPoints;
         [SerializeField] private Collision2DProxy m_triggerProxy;
@@ -30,6 +31,8 @@ namespace GameToBeNamed.Character {
         
         public override void Update() {
             m_stateMachine.OnUpdate(Character, this);
+
+            m_attackSpeed -= Time.deltaTime;
         }
         
         public override void SetTarget(GameObject target) {
@@ -46,6 +49,12 @@ namespace GameToBeNamed.Character {
 
         //o role do bot vai ser tudo aqui nessa função
         public override void MoveToDestination(Vector3 destination) {
+
+            if (Vector2.Distance(Character.transform.position, destination) < 1f && m_target && m_attackSpeed <= 0) {
+                Debug.LogError("ataquei");
+                SetAction(InputAction.Button4);
+                m_attackSpeed = 2f;
+            }
             
             if (Character.transform.position.x < destination.x) {
                 UnsetAction(InputAction.Button3);
@@ -71,7 +80,6 @@ namespace GameToBeNamed.Character {
 
         public override bool IsTargetSet() {
             return m_target;
-            //return Physics2D.OverlapCircle(Character.transform.position,, m_targetLayer);
         }
 
         public override void SetNextDestination() {
