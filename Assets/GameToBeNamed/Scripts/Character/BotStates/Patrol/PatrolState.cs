@@ -26,8 +26,7 @@ namespace GameToBeNamed.Character {
         }
 
         public override void Exit(Character2D character, BotInput input) {
-            Debug.Log("Sai do iddle");
+            Debug.LogError("Sai da patrulha");
         }
-        
     }
 }
