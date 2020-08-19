@@ -23710,6 +23710,18 @@ PrefabInstance:
       propertyPath: m_inputSource.m_stateMachine.m_states.Array.data[1].m_lineOfSite
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 5955829787421557606, guid: 8c24c1ded26b3314c9d3e9cb002fb81d,
+        type: 3}
+      propertyPath: m_actions.Array.data[1].m_downJumpEffect
+      value: 
+      objectReference: {fileID: 4541717697892416001, guid: ecc8f19ff25b48c46b44e0258a411c28,
+        type: 3}
+    - target: {fileID: 5955829787421557606, guid: 8c24c1ded26b3314c9d3e9cb002fb81d,
+        type: 3}
+      propertyPath: m_actions.Array.data[1].m_upJumpEffect
+      value: 
+      objectReference: {fileID: 4541717697892416001, guid: 2f5886722ef11e647913fae8526c0308,
+        type: 3}
     - target: {fileID: 5955829787421557624, guid: 8c24c1ded26b3314c9d3e9cb002fb81d,
         type: 3}
       propertyPath: m_Offset.y

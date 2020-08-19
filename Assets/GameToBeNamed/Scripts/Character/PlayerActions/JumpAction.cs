@@ -14,7 +14,8 @@ namespace GameToBeNamed.Character {
         public Vector2 JumpForce;
         [SerializeField] private float m_lowJumpMultiplier; 
         [SerializeField] private float m_fallMultiplier; 
-        [SerializeField] private GameObject m_jumpEffect; 
+        [SerializeField] private GameObject m_downJumpEffect; 
+        [SerializeField] private GameObject m_upJumpEffect; 
         [SerializeField] private Transform m_jumpEffectPosition; 
         private IInputSource m_input;
         private Character2D m_char;
@@ -47,7 +48,7 @@ namespace GameToBeNamed.Character {
             }
 
             if (m_char.Controller2D.collisions.below && m_landJump) {
-                InstantiateController.Instance.InstantiateEffect(m_jumpEffect, m_jumpEffectPosition.position);
+                InstantiateController.Instance.InstantiateEffect(m_downJumpEffect, m_jumpEffectPosition.position);
                 m_landJump = false;
             }
             
@@ -63,7 +64,8 @@ namespace GameToBeNamed.Character {
             if ((m_input.HasActionDown(InputAction.Button1) || m_input.HasAction(InputAction.Button1)) && m_char.Controller2D.collisions.below) {
                 
                 m_char.ActionStates[ActionStates.Jumping] = true;
-                InstantiateController.Instance.InstantiateEffect(m_jumpEffect, m_jumpEffectPosition.position);
+                InstantiateController.Instance.InstantiateEffect(m_upJumpEffect, m_jumpEffectPosition.position);
+                m_landJump = true;
                 
                 if (inputDir == 0) {
                     m_char.Velocity =  JumpForce * Vector2.up;
@@ -71,8 +73,6 @@ namespace GameToBeNamed.Character {
                 else {
                     m_char.Velocity = new Vector2(inputDir * JumpForce.x, JumpForce.y);
                 }
-
-                m_landJump = true;
             }
         }
     }

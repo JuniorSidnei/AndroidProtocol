@@ -75,13 +75,16 @@ MonoBehaviour:
         JumpForce: {x: 50, y: 90}
         m_lowJumpMultiplier: 4
         m_fallMultiplier: 6
-        m_jumpEffect: {fileID: 4541717697892416001, guid: ecc8f19ff25b48c46b44e0258a411c28,
+        m_downJumpEffect: {fileID: 4541717697892416001, guid: ecc8f19ff25b48c46b44e0258a411c28,
+          type: 3}
+        m_upJumpEffect: {fileID: 4541717697892416001, guid: 2f5886722ef11e647913fae8526c0308,
           type: 3}
         m_jumpEffectPosition: {fileID: 7297325523716540212}
     00000001:
       type: {class: MoveAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
         Speed: 160
+        SpeedSprint: 0
         InAirDrag: 3
         InGroundDrag: 4
         Sprite: {fileID: 3201174525823821392}
@@ -220,6 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 675b012eebff32746a4412ac139a6509, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LineOfSite: 0
 --- !u!114 &3166552554661104126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -401,7 +405,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4801947224864706851}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.2, y: -4.6, z: 0}
+  m_LocalPosition: {x: 0.25, y: -4.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3201174525415516839}
@@ -478,6 +482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 675b012eebff32746a4412ac139a6509, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LineOfSite: 0
 --- !u!50 &5305782135610183450
 Rigidbody2D:
   serializedVersion: 4
