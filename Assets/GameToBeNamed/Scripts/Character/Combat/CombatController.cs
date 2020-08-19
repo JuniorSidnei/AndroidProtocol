@@ -20,13 +20,15 @@ namespace GameToBeNamed.Character {
         
         private void OnAttackTriggerEnter(OnAttackTriggerEnter ev) {
             
+            if(ev.AttackInfo.Receiver.layer == ev.AttackInfo.Emiter.gameObject.layer) {
+               return; 
+            }
+            
             if (((1 << ev.AttackInfo.Receiver.layer) & MobLayer) != 0) { //mob
-                
                 var attackedMob =  m_mobs.Find(mob => mob.gameObject == ev.AttackInfo.Receiver);
                 attackedMob.LocalDispatcher.Emit(new OnReceivedAttack(ev.Damage, ev.DamageContact, ev.AttackInfo));
             }
-            else if(((1 << ev.AttackInfo.Receiver.gameObject.layer) & PlayerLayer) != 0) {//player
-                
+            else if(((1 << ev.AttackInfo.Receiver.layer) & PlayerLayer) != 0) {//player
                 GameManager.Instance.GlobalDispatcher.Emit(new OnCameraScreenshake(8, .2f));
                 m_char.LocalDispatcher.Emit(new OnReceivedAttack(ev.Damage, ev.DamageContact, ev.AttackInfo));
             }

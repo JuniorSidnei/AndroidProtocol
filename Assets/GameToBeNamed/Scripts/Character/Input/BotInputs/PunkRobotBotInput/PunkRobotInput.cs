@@ -21,21 +21,13 @@ namespace GameToBeNamed.Character {
             m_stateMachine.ChangeState<PatrolState>(m_char, this);
         }
 
-        public override void Update() {
-            m_stateMachine.OnUpdate(m_char, this);
-        }
+        public override void Update() { m_stateMachine.OnUpdate(m_char, this); }
 
-        public override void SetTarget(GameObject target) {
-            throw new System.NotImplementedException();
-        }
+        public override void SetTarget(GameObject target) { throw new System.NotImplementedException(); }
 
-        public override Vector3 GetDestinationPosition() {
-            return currentWayPoint;
-        }
+        public override Vector3 GetDestinationPosition() { return currentWayPoint; }
 
-        public override bool SearchDestination() {
-            throw new System.NotImplementedException();
-        }
+        public override bool SearchDestination() { throw new System.NotImplementedException(); }
 
         public override void MoveToDestination(Vector3 destination) {
             
@@ -61,12 +53,13 @@ namespace GameToBeNamed.Character {
             return false;
         }
 
-        public override bool IsTargetSet() {
-            throw new System.NotImplementedException();
+        public override bool IsTargetSet() { throw new System.NotImplementedException(); }
+
+        public override void SetNextMovement() {
+            currentWayPoint = m_wayPoints[++currentWayPointIndex % m_wayPoints.Count];
         }
 
-        public override void SetNextDestination() {
-            currentWayPoint = m_wayPoints[++currentWayPointIndex % m_wayPoints.Count];
+        public override void SetAttackAction() { throw new System.NotImplementedException();
         }
     }
 }

@@ -16,6 +16,7 @@ namespace GameToBeNamed.Character {
         Button9 = 1 << 9, //cancel talk with npc
         Button10 = 1 << 10, //Look up
         Button11 = 1 << 11, //Look down
+        Button12 = 1 << 12, //Sprint
     }
 
     public interface IInputSource {

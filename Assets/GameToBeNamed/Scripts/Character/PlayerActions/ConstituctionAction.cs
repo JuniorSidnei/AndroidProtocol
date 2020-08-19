@@ -28,7 +28,7 @@ namespace GameToBeNamed.Character {
         }
         
         private void OnReceiveDamageFinish(OnReceiveDamageFinish ev) {
-            m_char.ActionStates.Remove(ActionStates.ReceivingDamage);
+            m_char.ActionStates[ActionStates.ReceivingDamage] = false;
         }
 
         private void OnReceivedAttack(OnReceivedAttack ev) {

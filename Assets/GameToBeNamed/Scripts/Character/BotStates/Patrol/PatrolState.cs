@@ -21,7 +21,7 @@ namespace GameToBeNamed.Character {
             input.MoveToDestination(input.GetDestinationPosition());
             
             if (input.IsDestinationReached(input.GetDestinationPosition())) {
-                input.SetNextDestination();
+                input.SetNextMovement();
             }
         }
 

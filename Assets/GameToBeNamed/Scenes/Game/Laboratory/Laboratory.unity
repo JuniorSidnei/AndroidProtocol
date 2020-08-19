@@ -12701,6 +12701,15 @@ MonoBehaviour:
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 0
+    - _id: 12
+      _name: Sprint
+      _type: 1
+      _descriptiveName: Action0
+      _positiveDescriptiveName: 
+      _negativeDescriptiveName: 
+      _behaviorId: 0
+      _userAssignable: 1
+      _categoryId: 0
     actionCategories:
     - _name: Default
       _descriptiveName: Default
@@ -12710,7 +12719,7 @@ MonoBehaviour:
     actionCategoryMap:
       list:
       - categoryId: 0
-        actionIds: 0000000002000000030000000400000005000000060000000700000008000000090000000a0000000b000000
+        actionIds: 0000000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c000000
     inputBehaviors:
     - _id: 0
       _name: Default
@@ -12910,6 +12919,17 @@ MonoBehaviour:
         _modifierKey1: 0
         _modifierKey2: 0
         _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 12
+        _elementType: 1
+        _elementIdentifierId: 15
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
     - id: 1
       categoryId: 0
       layoutId: 0
@@ -13042,6 +13062,17 @@ MonoBehaviour:
         _actionId: 11
         _elementType: 1
         _elementIdentifierId: 18
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 12
+        _elementType: 1
+        _elementIdentifierId: 12
         _axisRange: 0
         _invert: 0
         _axisContribution: 0
@@ -13182,7 +13213,7 @@ MonoBehaviour:
     customControllerMaps: []
     customControllers: []
     playerIdCounter: 6
-    actionIdCounter: 12
+    actionIdCounter: 13
     actionCategoryIdCounter: 1
     inputBehaviorIdCounter: 1
     mapCategoryIdCounter: 1
@@ -23580,15 +23611,24 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 594831936}
     m_Modifications:
+    - target: {fileID: 1842119450, guid: 8c24c1ded26b3314c9d3e9cb002fb81d, type: 3}
+      propertyPath: m_Radius
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789293500008537359, guid: 8c24c1ded26b3314c9d3e9cb002fb81d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5955829787421557604, guid: 8c24c1ded26b3314c9d3e9cb002fb81d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -75.8
+      value: -75.79999
       objectReference: {fileID: 0}
     - target: {fileID: 5955829787421557604, guid: 8c24c1ded26b3314c9d3e9cb002fb81d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -25.7
+      value: -23.800003
       objectReference: {fileID: 0}
     - target: {fileID: 5955829787421557604, guid: 8c24c1ded26b3314c9d3e9cb002fb81d,
         type: 3}
@@ -23634,6 +23674,56 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5955829787421557606, guid: 8c24c1ded26b3314c9d3e9cb002fb81d,
+        type: 3}
+      propertyPath: m_actions.Array.data[0].Speed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5955829787421557606, guid: 8c24c1ded26b3314c9d3e9cb002fb81d,
+        type: 3}
+      propertyPath: m_inputSource.m_wayPoints.Array.data[0].y
+      value: -3.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5955829787421557606, guid: 8c24c1ded26b3314c9d3e9cb002fb81d,
+        type: 3}
+      propertyPath: m_inputSource.m_wayPoints.Array.data[1].y
+      value: -3.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5955829787421557606, guid: 8c24c1ded26b3314c9d3e9cb002fb81d,
+        type: 3}
+      propertyPath: m_actions.Array.data[0].SpeedSprint
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 5955829787421557606, guid: 8c24c1ded26b3314c9d3e9cb002fb81d,
+        type: 3}
+      propertyPath: m_actions.Array.data[4].m_attackCooldown
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5955829787421557606, guid: 8c24c1ded26b3314c9d3e9cb002fb81d,
+        type: 3}
+      propertyPath: m_actions.Array.data[4].m_damage
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5955829787421557606, guid: 8c24c1ded26b3314c9d3e9cb002fb81d,
+        type: 3}
+      propertyPath: m_inputSource.m_stateMachine.m_states.Array.data[1].m_lineOfSite
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5955829787421557624, guid: 8c24c1ded26b3314c9d3e9cb002fb81d,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5955829787421557624, guid: 8c24c1ded26b3314c9d3e9cb002fb81d,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 12.06599
+      objectReference: {fileID: 0}
+    - target: {fileID: 5955829787421557626, guid: 8c24c1ded26b3314c9d3e9cb002fb81d,
+        type: 3}
+      propertyPath: LineOfSite
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5955829787421557629, guid: 8c24c1ded26b3314c9d3e9cb002fb81d,
         type: 3}

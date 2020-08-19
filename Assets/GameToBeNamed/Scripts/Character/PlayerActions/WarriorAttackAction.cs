@@ -36,20 +36,24 @@ namespace GameToBeNamed.Character
             m_attackBoxPosition = m_attackBox.transform.localPosition;
             
             m_unallowedStatus = new List<PropertyName>() {
-                ActionStates.Dead, ActionStates.Talking, ActionStates.ReceivingDamage  
+                ActionStates.Dead, ActionStates.Talking, ActionStates.ReceivingDamage, ActionStates.Jumping  
             };
         }
 
         private void OnCharacterUpdate(OnCharacterUpdate ev) {
             
-            if (m_char.ActionStates.AllNotDefault(m_unallowedStatus).Any() || !m_char.Controller2D.collisions.below) {
+            if (m_char.ActionStates.AllNotDefault(m_unallowedStatus).Any()) {
                 return;
             }
 
             m_direction = m_char.Velocity.x > 0 ? 1 : -1;
+            m_comboIntervalTimer -= Time.deltaTime;
+
+            if (m_comboIntervalTimer <= 0) {
+                m_comboStep = 0;
+            }
             
             if (m_input.HasActionDown(InputAction.Button4) && (m_comboStep == 0  && m_comboIntervalTimer < 0)) {
-                
                 m_char.ActionStates[ActionStates.Attacking] = true;
                 m_char.LocalDispatcher.Emit(new OnFirstAttack());
                 m_comboStep = 1;
@@ -60,8 +64,6 @@ namespace GameToBeNamed.Character
                 m_char.LocalDispatcher.Emit(new OnSecondAttack());
                 m_comboStep = 0;
             }
-
-            m_comboIntervalTimer -= Time.deltaTime;
         }
         
         private void OnTrigger2DEnterCallback(Collider2D collider) {

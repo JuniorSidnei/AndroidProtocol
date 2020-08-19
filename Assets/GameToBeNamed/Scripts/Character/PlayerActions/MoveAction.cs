@@ -10,7 +10,9 @@ namespace GameToBeNamed.Character {
 
         private List<PropertyName> m_unallowedStatus;
         
-        [SerializeField] private float Speed = 200;
+        [SerializeField] private float Speed;
+        [SerializeField] private float SpeedSprint;
+        private float m_originalSpeed;
         [SerializeField] private float InAirDrag = 0.5f, InGroundDrag = 5;
         [SerializeField] private SpriteRenderer Sprite;
         
@@ -25,6 +27,7 @@ namespace GameToBeNamed.Character {
             m_unallowedStatus = new List<PropertyName>() {
                 ActionStates.Dead, ActionStates.Talking, ActionStates.ReceivingDamage
             };
+            m_originalSpeed = Speed;
         }
 
         private void OnCharacterChangeClass(OnCharacterChangeClass ev) {
@@ -45,6 +48,13 @@ namespace GameToBeNamed.Character {
             }
             else if (!m_char.Controller2D.collisions.below) {
                 m_char.Drag = InAirDrag;
+            }
+
+            if (m_input.HasActionDown(InputAction.Button12)) {
+                Speed = SpeedSprint;
+            }
+            else if(!m_input.HasActionDown(InputAction.Button12)) {
+                Speed = m_originalSpeed;
             }
             
             if (m_input.HasAction(InputAction.Button2)) {//right

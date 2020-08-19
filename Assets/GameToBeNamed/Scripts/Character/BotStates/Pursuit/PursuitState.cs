@@ -18,10 +18,17 @@ namespace GameToBeNamed.Character {
         public override void Run(Character2D character, BotInput input) {
 
             m_targetDistance = Vector2.Distance(character.transform.position, input.GetDestinationPosition());
-
-            if (!(m_targetDistance < m_lineOfSite) || !input.IsTargetSet()) return;
             
-            input.MoveToDestination(input.GetDestinationPosition());
+            if ((m_targetDistance < m_lineOfSite) || input.IsTargetSet()) {
+                input.MoveToDestination(input.GetDestinationPosition());
+            }
+            
+            if (input.IsDestinationReached(input.GetDestinationPosition())) {
+                input.SetAttackAction();
+            }
+            else {
+                input.MoveToDestination(input.GetDestinationPosition());
+            }
         }
 
         public override void Exit(Character2D character, BotInput input) {

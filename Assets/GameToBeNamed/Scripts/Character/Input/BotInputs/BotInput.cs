@@ -29,7 +29,9 @@ namespace GameToBeNamed.Character {
 
         public abstract bool IsTargetSet();
 
-        public abstract void SetNextDestination();
-        
+        public abstract void SetNextMovement();
+
+        public abstract void SetAttackAction();
+
     }
 }

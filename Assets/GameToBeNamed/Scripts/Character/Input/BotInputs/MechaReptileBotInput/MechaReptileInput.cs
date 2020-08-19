@@ -9,7 +9,6 @@ namespace GameToBeNamed.Character {
     public class MechaReptileInput : BotInput {
         
         [SerializeField] private LayerMask m_targetLayer;
-        [SerializeField] private float m_attackSpeed = 2f;
         [SerializeField] private StateMachine m_stateMachine;
         [SerializeField] private List<Vector3> m_wayPoints;
         [SerializeField] private Collision2DProxy m_triggerProxy;
@@ -19,7 +18,7 @@ namespace GameToBeNamed.Character {
         private Vector3 currentWayPoint;
         private int currentWayPointIndex;
         private GameObject m_target;
-        
+
         public override void Configure(Character2D character) {
             Character = character;
             m_stateMachine.OnConfigure();
@@ -31,8 +30,20 @@ namespace GameToBeNamed.Character {
         
         public override void Update() {
             m_stateMachine.OnUpdate(Character, this);
+            
+            if (IsTargetSet()) {
+                SetActionDown(InputAction.Button12);    
+            }
+            else {
+                UnsetActionDown(InputAction.Button12);
+            }
 
-            m_attackSpeed -= Time.deltaTime;
+            if (Character.Controller2D.collisions.left || Character.Controller2D.collisions.right) {
+                SetActionDown(InputAction.Button1);
+            }
+            else if (!Character.Controller2D.collisions.left || !Character.Controller2D.collisions.right) {
+                UnsetActionDown(InputAction.Button1);
+            }
         }
         
         public override void SetTarget(GameObject target) {
@@ -43,17 +54,13 @@ namespace GameToBeNamed.Character {
             return m_target ? m_target.transform.position : currentWayPoint;
         }
 
-        public override bool SearchDestination() {
-            throw new System.NotImplementedException();
-        }
+        public override bool SearchDestination() { throw new System.NotImplementedException(); }
 
         //o role do bot vai ser tudo aqui nessa função
         public override void MoveToDestination(Vector3 destination) {
 
-            if (Vector2.Distance(Character.transform.position, destination) < 1f && m_target && m_attackSpeed <= 0) {
-                Debug.LogError("ataquei");
-                SetAction(InputAction.Button4);
-                m_attackSpeed = 2f;
+            if (!IsTargetSet()) {
+                UnsetActionDown(InputAction.Button4);
             }
             
             if (Character.transform.position.x < destination.x) {
@@ -72,9 +79,19 @@ namespace GameToBeNamed.Character {
         }
 
         public override bool IsDestinationReached(Vector3 target) {
-            if (Vector3.Distance(Character.transform.position, target) < 1f) {
-                return true;
+            if (IsTargetSet()) {
+                if (Vector3.Distance(Character.transform.position, target) < 15f) {
+                    UnsetAction(InputAction.Button3);
+                    UnsetAction(InputAction.Button2);
+                    return true;
+                }
             }
+            else {
+                if (Vector3.Distance(Character.transform.position, target) < 1f) {
+                    return true;
+                }
+            }
+
             return false;
         }
 
@@ -82,11 +99,14 @@ namespace GameToBeNamed.Character {
             return m_target;
         }
 
-        public override void SetNextDestination() {
+        public override void SetNextMovement() {
             currentWayPoint = m_wayPoints[++currentWayPointIndex % m_wayPoints.Count];
         }
 
-       
+        public override void SetAttackAction() {
+            SetActionDown(InputAction.Button4);
+        }
+
         private void OnTrigger2DEnterCallback(Collider2D ev) {
             if (((1 << ev.gameObject.layer) & m_targetLayer) == 0) return;
             
