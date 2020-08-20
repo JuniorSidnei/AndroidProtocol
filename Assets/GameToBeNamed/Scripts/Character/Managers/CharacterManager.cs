@@ -68,7 +68,7 @@ namespace GameToBeNamed.Character{
         private void InstantiateCharacter(Vector3 spawnPosition) {
             
             m_currentCharacter = Instantiate(m_characters[++m_characterIndex % m_characters.Count],
-                new Vector3(spawnPosition.x, spawnPosition.y +2, spawnPosition.z), Quaternion.identity, transform);
+                new Vector3(spawnPosition.x, spawnPosition.y +5, spawnPosition.z), Quaternion.identity, transform);
             
             
             GameManager.Instance.GlobalDispatcher.Emit(new OnCharacterChangeClass(m_currentCharacter, m_currentCharacter.Velocity, m_changeClassCooldown));

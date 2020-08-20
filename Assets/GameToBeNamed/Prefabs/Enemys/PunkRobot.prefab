@@ -495,8 +495,8 @@ MonoBehaviour:
     00000000:
       type: {class: MobConstituctionAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
-        m_collisionBox: {fileID: 0}
-        m_maxLife: 500
+        m_collisionBox: {fileID: 954528887747561706}
+        m_maxLife: 200
         m_damageCooldown: 0.2
         m_damageColision: 50
         m_lifeSplashImage: {fileID: 1181116430}
@@ -509,19 +509,21 @@ MonoBehaviour:
       data:
         m_onHitEffect: {fileID: 8252051896981874538, guid: de3c69e3409cb734590546c334f1b2a6,
           type: 3}
-        m_knockbackForce: {x: 30, y: 10}
+        m_knockbackForce: {x: 20, y: 20}
     00000002:
       type: {class: JumpAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
         JumpForce: {x: 0, y: 0}
         m_lowJumpMultiplier: 4
         m_fallMultiplier: 6
-        m_jumpEffect: {fileID: 0}
+        m_downJumpEffect: {fileID: 0}
+        m_upJumpEffect: {fileID: 0}
         m_jumpEffectPosition: {fileID: 0}
     00000003:
       type: {class: MoveAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
         Speed: 100
+        SpeedSprint: 0
         InAirDrag: 0.5
         InGroundDrag: 5
         Sprite: {fileID: 4624111264368823645}
@@ -533,8 +535,8 @@ MonoBehaviour:
           m_states:
           - id: 5
         m_wayPoints:
-        - {x: 0, y: 0, z: 0}
-        - {x: 0, y: 0, z: 0}
+        - {x: -550, y: -5.7, z: 0}
+        - {x: -420, y: -5.7, z: 0}
     00000005:
       type: {class: PatrolState, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
@@ -551,3 +553,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 675b012eebff32746a4412ac139a6509, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LineOfSite: 0
+  CircleCollider2D: {fileID: 0}

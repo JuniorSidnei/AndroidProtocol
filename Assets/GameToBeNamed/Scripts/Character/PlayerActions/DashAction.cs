@@ -5,7 +5,6 @@ using UnityEngine;
 using DG.Tweening;
 using GameToBeNamed.Utils;
 using JetBrains.Annotations;
-using UnityEditor.UIElements;
 
 namespace GameToBeNamed.Character
 {
