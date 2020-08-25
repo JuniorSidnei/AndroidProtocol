@@ -25,6 +25,8 @@ namespace GameToBeNamed.Character{
             GameManager.Instance.GlobalDispatcher.Subscribe<OnTalking>(OnTalking);
             
             m_player = ReInput.players.GetPlayer(PlayerID);
+            m_changeClassCooldown = ChangeClassCooldown;
+            
             SpawnCharacter();
         }
 
@@ -34,13 +36,14 @@ namespace GameToBeNamed.Character{
 
         public void Update() {
 
-            m_changeClassCooldown -= Time.deltaTime;
             
-            if (m_changeClassCooldown <= 0) {
-                m_changeClassCooldown = 0;
+            m_changeClassCooldown += Time.deltaTime;
+            
+            if (m_changeClassCooldown >= ChangeClassCooldown) {
+                m_changeClassCooldown = ChangeClassCooldown;
             }
-           
-            if (m_player.GetButtonDown("ChangeClass") && m_changeClassCooldown <= 0 &&
+            
+            if (m_player.GetButtonDown("ChangeClass") && m_changeClassCooldown >= ChangeClassCooldown &&
                 !(m_currentCharacter.Controller2D.collisions.left || m_currentCharacter.Controller2D.collisions.right) && !m_onTalkingNpc) {
                 SpawnCharacter();
             }
@@ -48,7 +51,7 @@ namespace GameToBeNamed.Character{
 
         private void SpawnCharacter() {
 
-            m_changeClassCooldown = ChangeClassCooldown;
+            m_changeClassCooldown = 0;
            
             Vector3 spawnPosition = transform.position;
             
@@ -69,9 +72,7 @@ namespace GameToBeNamed.Character{
             
             m_currentCharacter = Instantiate(m_characters[++m_characterIndex % m_characters.Count],
                 new Vector3(spawnPosition.x, spawnPosition.y +5, spawnPosition.z), Quaternion.identity, transform);
-            
-            
-            GameManager.Instance.GlobalDispatcher.Emit(new OnCharacterChangeClass(m_currentCharacter, m_currentCharacter.Velocity, m_changeClassCooldown));
+            GameManager.Instance.GlobalDispatcher.Emit(new OnCharacterChangeClass(m_currentCharacter, m_currentCharacter.Velocity));
         }
     }
 }

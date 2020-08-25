@@ -25,7 +25,7 @@ namespace GameToBeNamed.Character {
             m_char.LocalDispatcher.Subscribe<OnCharacterUpdate>(OnCharacterUpdate);
             
             m_unallowedStatus = new List<PropertyName>() {
-                ActionStates.Dead, ActionStates.Talking, ActionStates.ReceivingDamage
+                ActionStates.Dead, ActionStates.Talking, ActionStates.ReceivingDamage, ActionStates.Blocking
             };
             m_originalSpeed = Speed;
         }

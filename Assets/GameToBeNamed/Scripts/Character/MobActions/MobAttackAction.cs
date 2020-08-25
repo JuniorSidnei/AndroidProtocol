@@ -25,8 +25,8 @@ namespace GameToBeNamed.Character {
             m_char = Character2D;
 
             m_char.LocalDispatcher.Subscribe<OnCharacterUpdate>(OnCharacterUpdate);
-            m_char.LocalDispatcher.Subscribe<OnAttack>(OnAttack);
-            m_char.LocalDispatcher.Subscribe<OnAttackFinish>(OnAttackFinish);
+            m_char.LocalDispatcher.Subscribe<OnExecuteAttack>(OnAttack);
+            m_char.LocalDispatcher.Subscribe<OnSecondAttackFinish>(OnAttackFinish);
             m_attackBox.OnTrigger2DEnterCallback.AddListener(OnTrigger2DEnterCallback);
             m_attackBoxPosition = m_attackBox.transform.localPosition;
 
@@ -52,19 +52,19 @@ namespace GameToBeNamed.Character {
             }
         }
 
-        private void OnAttack(OnAttack ev) {
+        private void OnAttack(OnExecuteAttack ev) {
             m_attackBox.BoxCollider.enabled = true;
             m_attackBox.transform.localPosition = new Vector3(m_direction * m_attackBoxPosition.x, m_attackBoxPosition.y, 0);
         }
 
-        private void OnAttackFinish(OnAttackFinish ev) {
+        private void OnAttackFinish(OnSecondAttackFinish ev) {
             m_attackBox.BoxCollider.enabled = false;
             m_char.ActionStates[ActionStates.Attacking] = false;
         }
 
         private void OnTrigger2DEnterCallback(Collider2D ev) {
             var info = new OnAttackTriggerEnter.Info {
-                Emiter = m_char, Receiver = ev.gameObject
+                Emiter = m_char.gameObject, Receiver = ev.gameObject
             };
             GameManager.Instance.GlobalDispatcher.Emit(new OnAttackTriggerEnter(info, m_damage, ev.bounds.center));
         }

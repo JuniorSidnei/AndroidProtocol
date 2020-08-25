@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using GameToBeNamed.Utils;
 using TMPro;
 using UnityEngine;
@@ -25,10 +26,16 @@ namespace GameToBeNamed.Character {
             GameManager.Instance.GlobalDispatcher.Subscribe<OnCharacterConfigureConstitution>(OnCharacterConfigureConstitution);
             GameManager.Instance.GlobalDispatcher.Subscribe<OnUpdateCollectable>(OnUpdateCollectable);
             GameManager.Instance.GlobalDispatcher.Subscribe<OnCharacterChangeClass>(OnCharacterChangeClass);
+            GameManager.Instance.GlobalDispatcher.Subscribe<OnCharacterUpdateClassCooldown>(OnCharacterUpdateClassCooldown);
+        }
+
+        private void OnCharacterUpdateClassCooldown(OnCharacterUpdateClassCooldown ev) {
+           
         }
 
         private void OnCharacterChangeClass(OnCharacterChangeClass ev) {
-            m_changeClassCooldownSplashImage.fillAmount = (ev.ChangeClassCooldown);
+            m_changeClassCooldownSplashImage.DOFillAmount(0, .01f).SetEase(Ease.Linear);
+            m_changeClassCooldownSplashImage.DOFillAmount(1, 10f).SetEase(Ease.Linear);
         }
 
 
@@ -53,7 +60,7 @@ namespace GameToBeNamed.Character {
             }
             
             m_lifeText.text = $"{ev.CurrentHealth.ToString()} / {ev.MaxHealth}";
-            m_lifeSplashImage.fillAmount = (float)ev.CurrentHealth / ev.MaxHealth;
+            m_lifeSplashImage.DOFillAmount((float)ev.CurrentHealth / ev.MaxHealth, .2f);
         }
         
         public  override void HandlePlayingMode() {

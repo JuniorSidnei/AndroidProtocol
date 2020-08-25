@@ -24,7 +24,6 @@ namespace GameToBeNamed.Utils{
         public TriggerEvent OnTrigger2DExitCallback = new TriggerEvent();
 
         public Collider2D BoxCollider => m_boxCollider2D != null ? m_boxCollider2D : (m_boxCollider2D = GetComponent<BoxCollider2D>());
-        //public Collider2D CircleCollider => m_circleCollider2D != null ? m_circleCollider2D : (m_circleCollider2D = GetComponent<CircleCollider2D>());
 
         private BoxCollider2D m_boxCollider2D;
         public CircleCollider2D CircleCollider2D;

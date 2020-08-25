@@ -12,7 +12,7 @@ namespace GameToBeNamed.Utils {
 
         private Character2D m_char;
         [SerializeField] private float m_knockBackForce;
-        [SerializeField] private GameObject m_hitEffect;
+        
         private int m_dir;
         
         protected override void OnConfigure() {
@@ -25,9 +25,9 @@ namespace GameToBeNamed.Utils {
             
             m_dir = m_char.Velocity.x > 0 ? -1 : 1;
             m_char.Velocity = Vector2.zero;
-            InstantiateController.Instance.InstantiateEffect(m_hitEffect, ev.DamageContact);
             var to = m_knockBackForce * m_dir;
-            DOTween.To(() => Character2D.Velocity.x, x => Character2D.Velocity.x = x, to, .2f).SetEase(Ease.Linear);
+            DOTween.To(() => m_char.Velocity.x, x => m_char.Velocity.x = x, to, .2f).SetEase(Ease.Linear);
+            
         }
     }
 }

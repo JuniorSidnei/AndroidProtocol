@@ -54,7 +54,7 @@ namespace GameToBeNamed.Character
                 m_char.LocalDispatcher.Emit(new OnDashing());
                 m_char.Velocity.x = DashForce * m_dir;
                 m_char.Drag = DashDrag;
-                InstantiateController.Instance.InstantiateDirectionalEffect(DashEffect, m_dashPositionEffect.position, m_dir);
+                //InstantiateController.Instance.InstantiateDirectionalEffect(DashEffect, m_dashPositionEffect.position, m_dir);
                 m_dashCooldownTimer = m_dashCooldown;
                 var to = m_char.Velocity.x;
                 DOTween.To(() => Character2D.Velocity.x, x => Character2D.Velocity.x = to, to, .2f).SetEase(Ease.Linear).OnComplete(() => {

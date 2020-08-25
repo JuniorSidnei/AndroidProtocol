@@ -43,11 +43,11 @@ namespace GameToBeNamed.Character {
 
     //Animator events
     public class OnBlockFinish { }
-    public  class OnAttack { }
+    public  class OnExecuteAttack { }
     public  class OnWarriorAirAttack { }
     public  class OnRogueAirAttack { }
     
-    public  class OnAttackFinish { }
-    public  class OnStrike { }
+    public  class OnFirstAttackFinish { }
+    public  class OnSecondAttackFinish { }
     public  class OnReceiveDamageFinish { }
 }

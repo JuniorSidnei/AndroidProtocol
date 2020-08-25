@@ -10,6 +10,8 @@ namespace GameToBeNamed.Character
 {
     public class AnimatorProxy : BaseAnimatorProxy
     {
+        private static readonly int ComboStep = Animator.StringToHash("ComboStep");
+
         private void Awake() {
             
             m_char2D.LocalDispatcher.Subscribe<OnFirstAttack>(OnFirstAttack);
@@ -44,6 +46,7 @@ namespace GameToBeNamed.Character
 
         //First attack
         private void OnFirstAttack(OnFirstAttack ev) {
+            //m_anim.SetInteger(ComboStep, ev.ComboStep);
             m_anim.SetTrigger("FirstAttack");
         }
 
@@ -72,35 +75,35 @@ namespace GameToBeNamed.Character
             
             //Jump
             m_anim.SetFloat("VelY", m_char2D.PositionDelta.y);
+            
+            //cancel trigger air attack
+            if (m_char2D.Controller2D.collisions.below) {
+                m_anim.ResetTrigger("JumpAttack");
+            }
         }
 
         
-        public void DeactiveBlockBox() {
+        public void FinishBlock() {
             m_char2D.LocalDispatcher.Emit(new OnBlockFinish());
         }
 
         public void ExecuteAttack() {
-            m_char2D.LocalDispatcher.Emit(new OnAttack());
-        }
-        
-        public void ExecuteWarriorAirAttack() {
-            m_char2D.LocalDispatcher.Emit(new OnWarriorAirAttack());
+            m_char2D.LocalDispatcher.Emit(new OnExecuteAttack());
         }
         
         public void ExecuteRogueAirAttack() {
             m_char2D.LocalDispatcher.Emit(new OnRogueAirAttack());
         }
         
-        public void OnStrikePush() {
-            m_char2D.LocalDispatcher.Emit(new OnStrike());
+        public void ExecuteWarriorAirAttack() {
+            m_char2D.LocalDispatcher.Emit(new OnWarriorAirAttack());
+        }
+        public void FinishFirstAttack() {
+            m_char2D.LocalDispatcher.Emit(new OnFirstAttackFinish());
         }
         
-        public void FinishAttack() {
-            m_char2D.LocalDispatcher.Emit(new OnAttackFinish());
-        }
-
-        public void OnFinishReceiveDamage() {
-            m_char2D.LocalDispatcher.Emit(new OnReceiveDamageFinish());
+        public void FinishSecondAttack() {
+            m_char2D.LocalDispatcher.Emit(new OnSecondAttackFinish());
         }
     }
 }

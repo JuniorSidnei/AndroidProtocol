@@ -22,8 +22,6 @@ namespace GameToBeNamed.Character
             m_char.LocalDispatcher.Subscribe<OnCharacterUpdate>(OnCharacterUpdate);
             m_char.LocalDispatcher.Subscribe<OnBlockFinish>(OnBlockFinish);
             
-            m_char.ActionStates.Add(ActionStates.Blocking, false);
-            
             m_unallowedStatus  = new List<PropertyName>() {
                 ActionStates.Dead, ActionStates.Talking, ActionStates.ReceivingDamage    
             };
@@ -31,7 +29,7 @@ namespace GameToBeNamed.Character
 
         private void OnCharacterUpdate(OnCharacterUpdate ev) {
 
-            if (m_char.ActionStates.AllNotDefault(m_unallowedStatus).Any() || id == 1) {
+            if (m_char.ActionStates.AllNotDefault(m_unallowedStatus).Any()) {
                 return;
             }
 

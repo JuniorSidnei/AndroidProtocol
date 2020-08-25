@@ -36,17 +36,23 @@ namespace GameToBeNamed.Utils {
     
     //Change char class
     public class OnCharacterChangeClass {
-        public OnCharacterChangeClass(Character2D currentCharacter, Vector2 velocity, float changeClassCooldown) {
+        public OnCharacterChangeClass(Character2D currentCharacter, Vector2 velocity) {
             CurrentCharacter = currentCharacter;
             Velocity = velocity;
-            ChangeClassCooldown = changeClassCooldown;
         }
 
         public Character2D CurrentCharacter;
         public Vector2 Velocity;
-        public float ChangeClassCooldown;
     }
 
+    public class OnCharacterUpdateClassCooldown {
+        public OnCharacterUpdateClassCooldown(float classCooldown) {
+            ClassCooldown = classCooldown;
+        }
+
+        public float ClassCooldown;
+    }
+    
     //Do transition
     public class OnCharacterTransition {
         public OnCharacterTransition(Action onTransitionCallBack) {
@@ -121,7 +127,7 @@ namespace GameToBeNamed.Utils {
         public struct Info {
             
             public GameObject Receiver;
-            public Character2D Emiter;
+            public GameObject Emiter;
         }
     }
     

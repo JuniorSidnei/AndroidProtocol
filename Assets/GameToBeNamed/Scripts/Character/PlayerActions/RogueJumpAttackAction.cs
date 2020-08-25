@@ -23,7 +23,7 @@ namespace GameToBeNamed.Character {
            
             m_char.LocalDispatcher.Subscribe<OnCharacterUpdate>(OnCharacterUpdate);
             m_char.LocalDispatcher.Subscribe<OnRogueAirAttack>(OnRogueAirAttack);
-            m_char.LocalDispatcher.Subscribe<OnAttackFinish>(OnAttackFinish);
+            m_char.LocalDispatcher.Subscribe<OnSecondAttackFinish>(OnAttackFinish);
 
             for (var i = 0; i < m_attackBoxes.Length; i++) {
                 m_attackBoxesPositions[i] = m_attackBoxes[i].transform.localPosition;
@@ -45,12 +45,13 @@ namespace GameToBeNamed.Character {
             
             if (m_input.HasActionDown(InputAction.Button4) && !m_char.Controller2D.collisions.below &&
                 m_char.Velocity.y > 2) {
-                
+                m_char.ActionStates[ActionStates.Attacking] = true;
                 m_char.LocalDispatcher.Emit(new OnJumpAttack());
             }
         }
         
-        private void OnAttackFinish(OnAttackFinish ev) {
+        private void OnAttackFinish(OnSecondAttackFinish ev) {
+            m_char.ActionStates[ActionStates.Attacking] = false;
             foreach (var boxes in m_attackBoxes) {
                 boxes.BoxCollider.enabled = false;
             }

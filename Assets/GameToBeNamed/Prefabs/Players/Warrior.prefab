@@ -30,8 +30,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3201174525415516825}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.42, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3201174525823821398}
   - {fileID: 6319261776078170543}
@@ -72,7 +72,7 @@ MonoBehaviour:
     00000000:
       type: {class: JumpAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
-        JumpForce: {x: 50, y: 90}
+        JumpForce: {x: 50, y: 80}
         m_lowJumpMultiplier: 4
         m_fallMultiplier: 6
         m_downJumpEffect: {fileID: 4541717697892416001, guid: ecc8f19ff25b48c46b44e0258a411c28,
@@ -83,7 +83,7 @@ MonoBehaviour:
     00000001:
       type: {class: MoveAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
-        Speed: 160
+        Speed: 120
         SpeedSprint: 0
         InAirDrag: 3
         InGroundDrag: 4
@@ -93,8 +93,11 @@ MonoBehaviour:
       data:
         characterStatusLife: {fileID: 11400000, guid: 488ac927f0e65484d9a804c5d3ba120e,
           type: 2}
+        m_knockbackForce: {x: 50, y: 0}
         m_damageCooldown: 0.5
         m_armorDefense: 30
+        m_hitEffect: {fileID: 8252051896981874538, guid: de3c69e3409cb734590546c334f1b2a6,
+          type: 3}
     00000003:
       type: {class: TransitionAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
@@ -104,7 +107,6 @@ MonoBehaviour:
       data:
         m_damage: 80
         m_attackBox: {fileID: 3325466396227432078}
-        m_velocityAttackForce: 20
     00000005:
       type: {class: DashAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
@@ -115,30 +117,30 @@ MonoBehaviour:
         DashForce: 60
         DashDrag: 5
     00000006:
-      type: {class: ProcessDamageAction, ns: GameToBeNamed.Utils, asm: CS-Player}
-      data:
-        m_knockBackForce: 20
-        m_hitEffect: {fileID: 8252051896981874538, guid: de3c69e3409cb734590546c334f1b2a6,
-          type: 3}
-    00000007:
       type: {class: CollectableAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
         m_statusMoney: {fileID: 11400000, guid: c2264366975c87b4481dd6eda9d9c60b,
           type: 2}
-    00000008:
+    00000007:
       type: {class: TalkingAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
         OnTalkingNpc: 0
-    00000009:
+    00000008:
       type: {class: BlockAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
         id: 0
-    0000000A:
+    00000009:
       type: {class: CameraController, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
         m_lookUp: 20
         m_lookDown: -6
         m_defaultOffset: 8
+    0000000A:
+      type: {class: WarriorJumpAttackAction, ns: GameToBeNamed.Character, asm: CS-Player}
+      data:
+        m_damage: 80
+        m_attackBox: {fileID: 3325466396227432078}
+        m_spriteRenderer: {fileID: 3201174525823821392}
     0000000B:
       type: {class: PlayerInput, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
@@ -177,7 +179,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.08096933, y: -2.1693225}
+  m_Offset: {x: -0.12472892, y: -0.37515545}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -188,7 +190,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.185412, y: 5.5093603}
+  m_Size: {x: 4.323175, y: 9.097694}
   m_EdgeRadius: 0
 --- !u!50 &8903071293105687355
 Rigidbody2D:
@@ -279,7 +281,7 @@ GameObject:
   - component: {fileID: 3201174525823821399}
   - component: {fileID: 3201174525823821393}
   m_Layer: 11
-  m_Name: sprite
+  m_Name: WarriorVfx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -338,7 +340,7 @@ SpriteRenderer:
   m_SortingLayerID: -783599303
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 84ce2f114ad12bd4ebafc77060220324, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ca6e8dae752a8b24184c971fbe64ae26, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -406,7 +408,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4801947224864706851}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.25, y: -4.6, z: 0}
+  m_LocalPosition: {x: 0, y: -5.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3201174525415516839}
@@ -439,7 +441,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5380601141586392581}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.27, y: -2.5, z: 0}
+  m_LocalPosition: {x: 10.04, y: -0.91, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3201174525415516839}
@@ -458,7 +460,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.07798481, y: -0.42890668}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -469,7 +471,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.0454707, y: 3.0332327}
+  m_Size: {x: 7.0730267, y: 5.996579}
   m_EdgeRadius: 0
 --- !u!114 &3325466396227432078
 MonoBehaviour:

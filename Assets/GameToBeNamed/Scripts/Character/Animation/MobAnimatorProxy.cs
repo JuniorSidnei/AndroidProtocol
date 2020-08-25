@@ -31,11 +31,11 @@ namespace GameToBeNamed.Character {
         
         
         public void ExecuteAttack() {
-            m_char2D.LocalDispatcher.Emit(new OnAttack());
+            m_char2D.LocalDispatcher.Emit(new OnExecuteAttack());
         }
         
         public void FinishAttack() {
-            m_char2D.LocalDispatcher.Emit(new OnAttackFinish());
+            m_char2D.LocalDispatcher.Emit(new OnSecondAttackFinish());
         }
     }
 }

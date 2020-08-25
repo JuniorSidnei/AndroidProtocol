@@ -15,7 +15,6 @@ namespace GameToBeNamed.Character
         private Character2D m_char;
         [SerializeField] private int m_damage;
         [SerializeField] private Collision2DProxy m_attackBox;
-        [SerializeField] private float m_velocityAttackForce;
         private Vector2 m_attackBoxPosition;
         private float m_direction;
 
@@ -29,9 +28,9 @@ namespace GameToBeNamed.Character
             m_char = Character2D;
             
             m_char.LocalDispatcher.Subscribe<OnCharacterUpdate>(OnCharacterUpdate);
-            m_char.LocalDispatcher.Subscribe<OnAttack>(OnAttack);
-            m_char.LocalDispatcher.Subscribe<OnStrike>(OnStrike);
-            m_char.LocalDispatcher.Subscribe<OnAttackFinish>(OnAttackFinish);
+            m_char.LocalDispatcher.Subscribe<OnExecuteAttack>(OnExecuteAttack);
+            m_char.LocalDispatcher.Subscribe<OnFirstAttackFinish>(OnFirstAttackFinish);
+            m_char.LocalDispatcher.Subscribe<OnSecondAttackFinish>(OnSecondAttackFinish);
             m_attackBox.OnTrigger2DEnterCallback.AddListener(OnTrigger2DEnterCallback);
             m_attackBoxPosition = m_attackBox.transform.localPosition;
             
@@ -39,7 +38,7 @@ namespace GameToBeNamed.Character
                 ActionStates.Dead, ActionStates.Talking, ActionStates.ReceivingDamage, ActionStates.Jumping  
             };
         }
-
+        
         private void OnCharacterUpdate(OnCharacterUpdate ev) {
             
             if (m_char.ActionStates.AllNotDefault(m_unallowedStatus).Any()) {
@@ -54,41 +53,39 @@ namespace GameToBeNamed.Character
             }
             
             if (m_input.HasActionDown(InputAction.Button4) && (m_comboStep == 0  && m_comboIntervalTimer < 0)) {
-                m_char.ActionStates[ActionStates.Attacking] = true;
-                m_char.LocalDispatcher.Emit(new OnFirstAttack());
                 m_comboStep = 1;
                 m_comboIntervalTimer = 1;
+                m_char.LocalDispatcher.Emit(new OnFirstAttack());
             }
             else if (m_input.HasActionDown(InputAction.Button4) && (m_comboStep == 1 && m_comboIntervalTimer >= 0)) {
-                m_char.ActionStates[ActionStates.Attacking] = true;
                 m_char.LocalDispatcher.Emit(new OnSecondAttack());
                 m_comboStep = 0;
             }
         }
         
         private void OnTrigger2DEnterCallback(Collider2D collider) {
-
-           
+            
             var info = new OnAttackTriggerEnter.Info {
-                Emiter = m_char, Receiver = collider.gameObject
+                Emiter = m_char.gameObject, Receiver = collider.gameObject
             };
             GameManager.Instance.GlobalDispatcher.Emit(new OnAttackTriggerEnter(info, m_damage, collider.bounds.center));
         }
 
-        private void OnAttack(OnAttack ev) {
-            
+        private void OnExecuteAttack(OnExecuteAttack ev) {
+            m_char.ActionStates[ActionStates.Attacking] = true;
             m_attackBox.BoxCollider.enabled = true;
             m_attackBox.transform.localPosition = new Vector3(m_direction * m_attackBoxPosition.x, m_attackBoxPosition.y,0);
         }
         
-        private void OnStrike(OnStrike ev) {
-            m_char.Velocity.x += m_velocityAttackForce * m_direction;
+        private void OnFirstAttackFinish(OnFirstAttackFinish ev) {
+            m_attackBox.BoxCollider.enabled = false;
+            m_char.ActionStates[ActionStates.Attacking] = false;
+            GameManager.Instance.GlobalDispatcher.Emit(new OnCameraScreenshake(1, .2f));
         }
-
-        private void OnAttackFinish(OnAttackFinish ev) {
+        
+        private void OnSecondAttackFinish(OnSecondAttackFinish ev) {
             m_attackBox.BoxCollider.enabled = false;
             m_char.ActionStates[ActionStates.Attacking] = false;
         }
-        
     }
 }

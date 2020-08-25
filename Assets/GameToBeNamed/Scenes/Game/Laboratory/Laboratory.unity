@@ -20341,7 +20341,7 @@ MonoBehaviour:
   - {fileID: 4093046324995149396, guid: 6de97ddd0dd5ced4e8c52a6ff25bb868, type: 3}
   - {fileID: 169090993916409873, guid: 49037f7e2b7c2f249b465304ddce6734, type: 3}
   PlayerID: 0
-  ChangeClassCooldown: 2
+  ChangeClassCooldown: 10
 --- !u!1 &1308296855
 GameObject:
   m_ObjectHideFlags: 0

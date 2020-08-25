@@ -38,7 +38,7 @@ namespace GameToBeNamed.Character {
         private void OnCollision2DEnterCallback(Collision2D ev) {
             
             var info = new OnAttackTriggerEnter.Info {
-                    Emiter = m_char, Receiver = ev.gameObject };
+                    Emiter = m_char.gameObject, Receiver = ev.gameObject };
             GameManager.Instance.GlobalDispatcher.Emit(new OnAttackTriggerEnter(info, m_damageColision, ev.contacts[0].point));
         }
 
