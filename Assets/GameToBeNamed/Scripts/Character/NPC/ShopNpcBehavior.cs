@@ -6,8 +6,7 @@ using GameToBeNamed.Utils;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 
-namespace GameToBeNamed.Character {
-
+namespace GameToBeNamed.Character.NPC {
     
     public class ShopNpcBehavior : NpcBehavior {
 
@@ -17,13 +16,7 @@ namespace GameToBeNamed.Character {
         [SerializeField]
         protected Animator m_animator;
 
-        public LayerMask PlayerLayer;
-
-        [Header("Canvas issues")]
-        [SerializeField]
-        private CanvasGroup m_canvas;
-
-        public override void Update () {
+        public void Update () {
             
             if (m_player.GetButtonDown("Action") && OnConversationActive) {
                 
@@ -48,8 +41,8 @@ namespace GameToBeNamed.Character {
                 OnConversationActive = false;
             }
         }
-        
-        public override bool Run(Action OnFinish) {
+
+        protected override bool Run(Action OnFinish) {
             
             m_canvas.DOFade(0, .5f);
             Debug.Log("to na Run");

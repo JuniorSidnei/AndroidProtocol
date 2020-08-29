@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using GameToBeNamed.Character;
+using GameToBeNamed.Character.NPC;
 using UnityEngine;
 
 namespace GameToBeNamed.Utils {
@@ -170,5 +171,6 @@ namespace GameToBeNamed.Utils {
         public NpcBehavior Npc;
         public bool OnTalkingNpc;
     }
-    
+ 
+    public class OnAddWallJumpAction { }
 }

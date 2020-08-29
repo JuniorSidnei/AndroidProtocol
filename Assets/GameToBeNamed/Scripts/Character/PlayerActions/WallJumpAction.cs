@@ -16,25 +16,35 @@ namespace GameToBeNamed.Character
         
         
         private IInputSource m_input;
-        public List<PropertyName> UnallowedStatus;
+        private List<PropertyName> m_unallowedStatus;
         
         public Vector2 WallClimbing;
         public Vector2 WallLeap;
         public Vector2 WallJumpOff;
-        
+        private bool m_isActionCollected;
         
         protected override void OnConfigure() {
+            
             m_input = Character2D.Input;
             Character2D.LocalDispatcher.Subscribe<OnCharacterUpdate>(OnCharacterUpdate);
+            GameManager.Instance.GlobalDispatcher.Subscribe<OnAddWallJumpAction>(OnAddWallJumpAction);
+            
+            m_unallowedStatus = new List<PropertyName>() {
+                ActionStates.Dead, ActionStates.ReceivingDamage
+            };
+        }
+
+        private void OnAddWallJumpAction(OnAddWallJumpAction ev) {
+            m_isActionCollected = true;
         }
 
         private void OnCharacterUpdate(OnCharacterUpdate ev) {
             
-            if (!Character2D.Controller2D.collisions.left && !Character2D.Controller2D.collisions.right) {
+            if (!Character2D.Controller2D.collisions.left && !Character2D.Controller2D.collisions.right || !m_isActionCollected) {
                 return;
             }
             
-            if (Character2D.ActionStates.AllNotDefault(UnallowedStatus).Any()) {
+            if (Character2D.ActionStates.AllNotDefault(m_unallowedStatus).Any()) {
                 return;
             }
 
