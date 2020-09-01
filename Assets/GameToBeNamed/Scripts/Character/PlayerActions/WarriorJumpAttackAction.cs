@@ -22,15 +22,25 @@ namespace GameToBeNamed.Character
         protected override void OnConfigure() {
             m_char = Character2D;
             m_input = m_char.Input;
-            m_char.LocalDispatcher.Subscribe<OnCharacterUpdate>(OnCharacterUpdate);
-            m_char.LocalDispatcher.Subscribe<OnWarriorAirAttack>(OnWarriorAirAttack);
-            m_char.LocalDispatcher.Subscribe<OnSecondAttackFinish>(OnAttackFinish);
-            m_attackBox.OnTrigger2DEnterCallback.AddListener(OnTrigger2DEnterCallback);
             m_attackBoxPosition = m_attackBox.transform.localPosition;
             
             m_unallowedStatus = new List<PropertyName>() {
                 ActionStates.Dead, ActionStates.Talking, ActionStates.ReceivingDamage   
             };
+        }
+
+        protected override void OnActivate() {
+            m_char.LocalDispatcher.Unsubscribe<OnCharacterUpdate>(OnCharacterUpdate);
+            m_char.LocalDispatcher.Unsubscribe<OnWarriorAirAttack>(OnWarriorAirAttack);
+            m_char.LocalDispatcher.Unsubscribe<OnSecondAttackFinish>(OnAttackFinish);
+            m_attackBox.OnTrigger2DEnterCallback.RemoveListener(OnTrigger2DEnterCallback);
+        }
+
+        protected override void OnDeactivate() {
+            m_char.LocalDispatcher.Unsubscribe<OnCharacterUpdate>(OnCharacterUpdate);
+            m_char.LocalDispatcher.Unsubscribe<OnWarriorAirAttack>(OnWarriorAirAttack);
+            m_char.LocalDispatcher.Unsubscribe<OnSecondAttackFinish>(OnAttackFinish);
+            m_attackBox.OnTrigger2DEnterCallback.RemoveListener(OnTrigger2DEnterCallback);
         }
 
         private void OnCharacterUpdate(OnCharacterUpdate ev) {

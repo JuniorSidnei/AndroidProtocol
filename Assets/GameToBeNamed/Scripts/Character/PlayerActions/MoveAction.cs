@@ -22,7 +22,6 @@ namespace GameToBeNamed.Character {
         protected override void OnConfigure() {
             m_input = Character2D.Input;
             m_char = Character2D;
-            m_char.LocalDispatcher.Subscribe<OnCharacterUpdate>(OnCharacterUpdate);
             
             m_unallowedStatus = new List<PropertyName>() {
                 ActionStates.Dead, ActionStates.Talking, ActionStates.ReceivingDamage, ActionStates.Blocking
@@ -30,12 +29,19 @@ namespace GameToBeNamed.Character {
             m_originalSpeed = Speed;
         }
 
+        protected override void OnActivate() {
+            m_char.LocalDispatcher.Subscribe<OnCharacterFixedUpdate>(OnCharacterFixedUpdate);
+        }
+
+        protected override void OnDeactivate() {
+            m_char.LocalDispatcher.Unsubscribe<OnCharacterFixedUpdate>(OnCharacterFixedUpdate);
+        }
+
         private void OnCharacterChangeClass(OnCharacterChangeClass ev) {
             m_char.Velocity = ev.Velocity;
         }
 
-        private void OnCharacterUpdate(OnCharacterUpdate ev)
-        {
+        private void OnCharacterFixedUpdate(OnCharacterFixedUpdate ev) {
             
             if (m_char.ActionStates.AllNotDefault(m_unallowedStatus).Any()) {
                 return;

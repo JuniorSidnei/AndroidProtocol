@@ -297,6 +297,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Velocity: {x: 0, y: 0}
   m_animatorProxy: {fileID: 7054123030057230249}
+  m_definitiveActionsData: {fileID: 11400000, guid: 7f3a520fec9073a429db60534474c773,
+    type: 2}
+  m_shiftingActionsData: {fileID: 11400000, guid: 6dff668d48a4a1744bf45e084b6b791e,
+    type: 2}
   m_actions:
   - id: 0
   - id: 1
@@ -313,10 +317,12 @@ MonoBehaviour:
     00000000:
       type: {class: TransitionAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
+        IsActionActive: 0
         m_rend: {fileID: 7054123030057230247}
     00000001:
       type: {class: ShooterAttackAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
+        IsActionActive: 0
         m_fireRate: 0.5
         m_bullet: {fileID: 8879324325392784300, guid: 3b7b016943b24f94fad22206899d948b,
           type: 3}
@@ -326,6 +332,7 @@ MonoBehaviour:
     00000002:
       type: {class: JumpAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
+        IsActionActive: 0
         JumpForce: {x: 20, y: 100}
         m_lowJumpMultiplier: 4
         m_fallMultiplier: 6
@@ -337,6 +344,7 @@ MonoBehaviour:
     00000003:
       type: {class: ConstituctionAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
+        IsActionActive: 0
         characterStatusLife: {fileID: 11400000, guid: a7992684fb4276e42b8119c0cddd9089,
           type: 2}
         m_knockbackForce: {x: 20, y: 0}
@@ -347,21 +355,25 @@ MonoBehaviour:
     00000004:
       type: {class: CollectableAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
+        IsActionActive: 0
         m_statusMoney: {fileID: 11400000, guid: c2264366975c87b4481dd6eda9d9c60b,
           type: 2}
     00000005:
       type: {class: CameraController, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
+        IsActionActive: 0
         m_lookUp: 20
         m_lookDown: -6
         m_defaultOffset: 8
     00000006:
       type: {class: TalkingAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
+        IsActionActive: 0
         OnTalkingNpc: 0
     00000007:
       type: {class: MoveAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
+        IsActionActive: 0
         Speed: 150
         SpeedSprint: 0
         InAirDrag: 0.5

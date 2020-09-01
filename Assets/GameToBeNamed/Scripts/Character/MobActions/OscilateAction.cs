@@ -39,6 +39,14 @@ namespace GameToBeNamed.Character {
 
         }
 
+        protected override void OnActivate() {
+            throw new NotImplementedException();
+        }
+
+        protected override void OnDeactivate() {
+            throw new NotImplementedException();
+        }
+
         private void OnCharacterFixedUpdate(OnCharacterFixedUpdate ev) {
 
             if (m_char.ActionStates.AllNotDefault(UnallowedStatus).Any()) {

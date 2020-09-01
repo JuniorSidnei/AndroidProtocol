@@ -20,11 +20,7 @@ namespace GameToBeNamed.Character {
         protected override void OnConfigure() {
             m_char = Character2D;
             m_input = m_char.Input;
-           
-            m_char.LocalDispatcher.Subscribe<OnCharacterUpdate>(OnCharacterUpdate);
-            m_char.LocalDispatcher.Subscribe<OnRogueAirAttack>(OnRogueAirAttack);
-            m_char.LocalDispatcher.Subscribe<OnSecondAttackFinish>(OnAttackFinish);
-
+            
             for (var i = 0; i < m_attackBoxes.Length; i++) {
                 m_attackBoxesPositions[i] = m_attackBoxes[i].transform.localPosition;
             }
@@ -32,6 +28,20 @@ namespace GameToBeNamed.Character {
             m_unallowedStatus = new List<PropertyName>() {
                 ActionStates.Dead, ActionStates.Talking, ActionStates.ReceivingDamage    
             };
+        }
+
+        protected override void OnActivate() {
+            m_char.LocalDispatcher.Subscribe<OnCharacterUpdate>(OnCharacterUpdate);
+            m_char.LocalDispatcher.Subscribe<OnRogueAirAttack>(OnRogueAirAttack);
+            m_char.LocalDispatcher.Subscribe<OnSecondAttackFinish>(OnAttackFinish);
+
+        }
+
+        protected override void OnDeactivate() {
+            m_char.LocalDispatcher.Unsubscribe<OnCharacterUpdate>(OnCharacterUpdate);
+            m_char.LocalDispatcher.Unsubscribe<OnRogueAirAttack>(OnRogueAirAttack);
+            m_char.LocalDispatcher.Unsubscribe<OnSecondAttackFinish>(OnAttackFinish);
+
         }
 
         private void OnCharacterUpdate(OnCharacterUpdate ev) {

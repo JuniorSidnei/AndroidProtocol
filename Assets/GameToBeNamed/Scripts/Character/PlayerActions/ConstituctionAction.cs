@@ -25,15 +25,22 @@ namespace GameToBeNamed.Character {
         protected override void OnConfigure() {
             
             m_char = Character2D;
-            m_char.LocalDispatcher.Subscribe<OnReceivedAttack>(OnReceivedAttack);
-            
+
             m_unallowedStatus  = new List<PropertyName>() {
                 ActionStates.Blocking
             };
             
             GameManager.Instance.GlobalDispatcher.Emit(new OnCharacterConfigureConstitution(characterStatusLife.MaxHealth, characterStatusLife.CurrentHealth, characterStatusLife.IconSplash, characterStatusLife.LifeSplash));
         }
-        
+
+        protected override void OnActivate() {
+            m_char.LocalDispatcher.Subscribe<OnReceivedAttack>(OnReceivedAttack);
+        }
+
+        protected override void OnDeactivate() {
+            m_char.LocalDispatcher.Unsubscribe<OnReceivedAttack>(OnReceivedAttack);
+        }
+
         private void OnReceivedAttack(OnReceivedAttack ev) {
             
             if (m_damageCooldownTimer > Time.time ||  m_char.ActionStates.AllNotDefault(m_unallowedStatus).Any()) {

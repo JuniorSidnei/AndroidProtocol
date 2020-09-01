@@ -23,19 +23,27 @@ namespace GameToBeNamed.Character {
         private bool m_landJump;
 
         protected override void OnConfigure() {
+            
             m_input = Character2D.Input;
             m_char = Character2D;
-            m_char.LocalDispatcher.Subscribe<OnCharacterFixedUpdate>(OnCharacterFixedUpdate);
-            
+
             m_unallowedStatus = new List<PropertyName>() {
-                ActionStates.Dead, ActionStates.Talking, ActionStates.ReceivingDamage   
+                ActionStates.Dead, ActionStates.Talking, ActionStates.ReceivingDamage
             };
         }
 
-        
+        protected override void OnActivate() {
+            m_char.LocalDispatcher.Subscribe<OnCharacterFixedUpdate>(OnCharacterFixedUpdate);
+        }
+
+        protected override void OnDeactivate() {
+            m_char.LocalDispatcher.Unsubscribe<OnCharacterFixedUpdate>(OnCharacterFixedUpdate);
+        }
+
         private void OnCharacterFixedUpdate(OnCharacterFixedUpdate ev) {
             
             if (m_char.ActionStates.AllNotDefault(m_unallowedStatus).Any()) {
+                Debug.Log("Não ativei essa habilidade ainda");
                 return;
             }
             

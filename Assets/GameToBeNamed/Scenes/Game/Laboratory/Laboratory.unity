@@ -19824,25 +19824,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   PlayerID: 0
-  m_actions:
-  - id: 0
-  - id: 1
+  m_playerData: {fileID: 0}
   IntroductionConversation: {fileID: 11400000, guid: e898dfcc36996e74b826b234affaad69,
     type: 2}
-  references:
-    version: 1
-    00000000:
-      type: {class: WallSlidingAction, ns: GameToBeNamed.Character, asm: CS-Player}
-      data:
-        UnallowedStatus: []
-        MaxWallSlideSpeed: 5
-    00000001:
-      type: {class: WallJumpAction, ns: GameToBeNamed.Character, asm: CS-Player}
-      data:
-        UnallowedStatus: []
-        WallClimbing: {x: 20, y: 100}
-        WallLeap: {x: 30, y: 50}
-        WallJumpOff: {x: 40, y: 110}
 --- !u!1 &1157597392
 GameObject:
   m_ObjectHideFlags: 0
@@ -20777,7 +20761,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1301845057}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -670, y: 12.3, z: 0}
+  m_LocalPosition: {x: -648, y: 6.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -20797,7 +20781,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_characters:
   - {fileID: 4093046324995149396, guid: 6de97ddd0dd5ced4e8c52a6ff25bb868, type: 3}
-  - {fileID: 169090993916409873, guid: 49037f7e2b7c2f249b465304ddce6734, type: 3}
   PlayerID: 0
   ChangeClassCooldown: 10
 --- !u!1 &1308296855
@@ -24074,7 +24057,7 @@ PrefabInstance:
     - target: {fileID: 5955829787421557604, guid: 8c24c1ded26b3314c9d3e9cb002fb81d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5955829787421557604, guid: 8c24c1ded26b3314c9d3e9cb002fb81d,
         type: 3}
@@ -24091,10 +24074,27 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5955829787421557606, guid: 8c24c1ded26b3314c9d3e9cb002fb81d,
+        type: 3}
+      propertyPath: m_definitiveActionsData
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f3a520fec9073a429db60534474c773,
+        type: 2}
+    - target: {fileID: 5955829787421557606, guid: 8c24c1ded26b3314c9d3e9cb002fb81d,
+        type: 3}
+      propertyPath: m_shiftingActionsData
+      value: 
+      objectReference: {fileID: 11400000, guid: 6dff668d48a4a1744bf45e084b6b791e,
+        type: 2}
     - target: {fileID: 5955829787421557629, guid: 8c24c1ded26b3314c9d3e9cb002fb81d,
         type: 3}
       propertyPath: m_Name
       value: MechaReptile
+      objectReference: {fileID: 0}
+    - target: {fileID: 5955829787421557629, guid: 8c24c1ded26b3314c9d3e9cb002fb81d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c24c1ded26b3314c9d3e9cb002fb81d, type: 3}

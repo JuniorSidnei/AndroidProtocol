@@ -17,8 +17,14 @@ namespace GameToBeNamed.Utils {
         
         protected override void OnConfigure() {
             m_char = Character2D;
-            
+        }
+
+        protected override void OnActivate() {
             m_char.LocalDispatcher.Subscribe<OnReceivedAttack>(OnReceivedAttack);
+        }
+
+        protected override void OnDeactivate() {
+            m_char.LocalDispatcher.Unsubscribe<OnReceivedAttack>(OnReceivedAttack);
         }
 
         private void OnReceivedAttack(OnReceivedAttack ev) {
@@ -27,7 +33,6 @@ namespace GameToBeNamed.Utils {
             m_char.Velocity = Vector2.zero;
             var to = m_knockBackForce * m_dir;
             DOTween.To(() => m_char.Velocity.x, x => m_char.Velocity.x = x, to, .2f).SetEase(Ease.Linear);
-            
         }
     }
 }

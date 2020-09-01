@@ -22,7 +22,7 @@ namespace GameToBeNamed.Character {
             
             Debug.Log("adiciona action");
             foreach (var t in m_actions) {
-               character2D.AddAction(t); 
+               //character2D.AddAction(t); 
             }
             
             //character2D.AddAction(m_actions[0];

@@ -53,109 +53,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Velocity: {x: 0, y: 0}
   m_animatorProxy: {fileID: 3201174525823821393}
-  m_actions:
-  - id: 0
-  - id: 1
-  - id: 2
-  - id: 3
-  - id: 4
-  - id: 5
-  - id: 6
-  - id: 7
-  - id: 8
-  - id: 9
-  - id: 10
-  - id: 11
-  - id: 12
+  m_data: {fileID: 11400000, guid: 939947eee704d8b47834037e7e617ec8, type: 2}
   m_inputSource:
-    id: 13
+    id: 0
   references:
     version: 1
     00000000:
-      type: {class: JumpAction, ns: GameToBeNamed.Character, asm: CS-Player}
-      data:
-        JumpForce: {x: 50, y: 80}
-        m_lowJumpMultiplier: 4
-        m_fallMultiplier: 6
-        m_downJumpEffect: {fileID: 4541717697892416001, guid: ecc8f19ff25b48c46b44e0258a411c28,
-          type: 3}
-        m_upJumpEffect: {fileID: 4541717697892416001, guid: 2f5886722ef11e647913fae8526c0308,
-          type: 3}
-        m_jumpEffectPosition: {fileID: 7297325523716540212}
-    00000001:
-      type: {class: MoveAction, ns: GameToBeNamed.Character, asm: CS-Player}
-      data:
-        Speed: 120
-        SpeedSprint: 0
-        InAirDrag: 3
-        InGroundDrag: 4
-        Sprite: {fileID: 3201174525823821392}
-    00000002:
-      type: {class: ConstituctionAction, ns: GameToBeNamed.Character, asm: CS-Player}
-      data:
-        characterStatusLife: {fileID: 11400000, guid: 488ac927f0e65484d9a804c5d3ba120e,
-          type: 2}
-        m_knockbackForce: {x: 50, y: 0}
-        m_damageCooldown: 0.5
-        m_armorDefense: 30
-        m_hitEffect: {fileID: 8252051896981874538, guid: de3c69e3409cb734590546c334f1b2a6,
-          type: 3}
-    00000003:
-      type: {class: TransitionAction, ns: GameToBeNamed.Character, asm: CS-Player}
-      data:
-        m_rend: {fileID: 3201174525823821392}
-    00000004:
-      type: {class: WarriorAttackAction, ns: GameToBeNamed.Character, asm: CS-Player}
-      data:
-        m_damage: 80
-        m_attackBox: {fileID: 3325466396227432078}
-    00000005:
-      type: {class: DashAction, ns: GameToBeNamed.Character, asm: CS-Player}
-      data:
-        DashEffect: {fileID: 5462726724862216830, guid: 1e1aec2aa305e22488e7da5a54084647,
-          type: 3}
-        m_dashPositionEffect: {fileID: 7297325523716540212}
-        m_dashCooldown: 0.5
-        DashForce: 60
-        DashDrag: 5
-    00000006:
-      type: {class: CollectableAction, ns: GameToBeNamed.Character, asm: CS-Player}
-      data:
-        m_statusMoney: {fileID: 11400000, guid: c2264366975c87b4481dd6eda9d9c60b,
-          type: 2}
-    00000007:
-      type: {class: TalkingAction, ns: GameToBeNamed.Character, asm: CS-Player}
-      data:
-        OnTalkingNpc: 0
-    00000008:
-      type: {class: BlockAction, ns: GameToBeNamed.Character, asm: CS-Player}
-      data:
-        id: 0
-    00000009:
-      type: {class: CameraController, ns: GameToBeNamed.Character, asm: CS-Player}
-      data:
-        m_lookUp: 20
-        m_lookDown: -6
-        m_defaultOffset: 8
-    0000000A:
-      type: {class: WarriorJumpAttackAction, ns: GameToBeNamed.Character, asm: CS-Player}
-      data:
-        m_damage: 80
-        m_attackBox: {fileID: 3325466396227432078}
-        m_spriteRenderer: {fileID: 3201174525823821392}
-    0000000B:
-      type: {class: WallSlidingAction, ns: GameToBeNamed.Character, asm: CS-Player}
-      data:
-        UnallowedStatus: []
-        MaxWallSlideSpeed: 10
-    0000000C:
-      type: {class: WallJumpAction, ns: GameToBeNamed.Character, asm: CS-Player}
-      data:
-        UnallowedStatus: []
-        WallClimbing: {x: 20, y: 100}
-        WallLeap: {x: 30, y: 50}
-        WallJumpOff: {x: 40, y: 110}
-    0000000D:
       type: {class: PlayerInput, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
         PlayerID: 0

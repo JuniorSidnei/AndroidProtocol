@@ -18,12 +18,18 @@ namespace GameToBeNamed.Character {
         protected override void OnConfigure() {
             m_char = Character2D;
             
-            m_char.LocalDispatcher.Subscribe<OnReceivedAttack>(OnReceivedAttack);
-            
             m_unallowedStatus = new List<PropertyName>() {
                 ActionStates.Dead
             };
             
+        }
+
+        protected override void OnActivate() {
+            m_char.LocalDispatcher.Subscribe<OnReceivedAttack>(OnReceivedAttack);
+        }
+
+        protected override void OnDeactivate() {
+            m_char.LocalDispatcher.Unsubscribe<OnReceivedAttack>(OnReceivedAttack);
         }
 
         private void OnReceivedAttack(OnReceivedAttack ev) {

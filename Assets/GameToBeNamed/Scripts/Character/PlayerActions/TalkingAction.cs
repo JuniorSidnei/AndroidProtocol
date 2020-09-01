@@ -14,17 +14,21 @@ namespace GameToBeNamed.Character {
         public bool OnTalkingNpc;
 
         protected override void OnConfigure() {
-           
             m_char = Character2D;
-            
+        }
+
+        protected override void OnActivate() {
             GameManager.Instance.GlobalDispatcher.Subscribe<OnTalking>(OnTalking);
+        }
+
+        protected override void OnDeactivate() {
+            GameManager.Instance.GlobalDispatcher.Unsubscribe<OnTalking>(OnTalking);
         }
 
         private void OnTalking(OnTalking ev) {
             
             m_char.ActionStates[ActionStates.Talking] = ev.OnTalkingNpc;
             m_char.Velocity = Vector2.zero;
-            Debug.Log("falando? " +  m_char.ActionStates[ActionStates.Talking]);
         }
     }
 }

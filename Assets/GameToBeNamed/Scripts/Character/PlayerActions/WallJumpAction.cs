@@ -26,21 +26,24 @@ namespace GameToBeNamed.Character
         protected override void OnConfigure() {
             
             m_input = Character2D.Input;
-            Character2D.LocalDispatcher.Subscribe<OnCharacterUpdate>(OnCharacterUpdate);
-            GameManager.Instance.GlobalDispatcher.Subscribe<OnAddWallJumpAction>(OnAddWallJumpAction);
-            
+           
+
             m_unallowedStatus = new List<PropertyName>() {
                 ActionStates.Dead, ActionStates.ReceivingDamage
             };
         }
 
-        private void OnAddWallJumpAction(OnAddWallJumpAction ev) {
-            m_isActionCollected = true;
+        protected override void OnActivate() {
+            Character2D.LocalDispatcher.Subscribe<OnCharacterUpdate>(OnCharacterUpdate);
         }
 
+        protected override void OnDeactivate() {
+            Character2D.LocalDispatcher.Unsubscribe<OnCharacterUpdate>(OnCharacterUpdate);
+        }
+        
         private void OnCharacterUpdate(OnCharacterUpdate ev) {
             
-            if (!Character2D.Controller2D.collisions.left && !Character2D.Controller2D.collisions.right || !m_isActionCollected) {
+            if (!Character2D.Controller2D.collisions.left && !Character2D.Controller2D.collisions.right) {
                 return;
             }
             

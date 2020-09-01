@@ -19,12 +19,21 @@ namespace GameToBeNamed.Character
         protected override void OnConfigure() {
             m_char = Character2D;
             m_input = m_char.Input;
-            m_char.LocalDispatcher.Subscribe<OnCharacterUpdate>(OnCharacterUpdate);
-            m_char.LocalDispatcher.Subscribe<OnBlockFinish>(OnBlockFinish);
+           
             
             m_unallowedStatus  = new List<PropertyName>() {
                 ActionStates.Dead, ActionStates.Talking, ActionStates.ReceivingDamage    
             };
+        }
+
+        protected override void OnActivate() {
+            m_char.LocalDispatcher.Subscribe<OnCharacterUpdate>(OnCharacterUpdate);
+            m_char.LocalDispatcher.Subscribe<OnBlockFinish>(OnBlockFinish);
+        }
+
+        protected override void OnDeactivate() {
+            m_char.LocalDispatcher.Unsubscribe<OnCharacterUpdate>(OnCharacterUpdate);
+            m_char.LocalDispatcher.Unsubscribe<OnBlockFinish>(OnBlockFinish);
         }
 
         private void OnCharacterUpdate(OnCharacterUpdate ev) {

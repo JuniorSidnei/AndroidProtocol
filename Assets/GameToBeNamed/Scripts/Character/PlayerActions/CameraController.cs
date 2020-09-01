@@ -19,8 +19,14 @@ namespace GameToBeNamed.Character {
         protected override void OnConfigure() {
             m_char = Character2D;
             m_input = m_char.Input;
-            
+        }
+
+        protected override void OnActivate() {
             m_char.LocalDispatcher.Subscribe<OnCharacterUpdate>(OnCharacterUpdate);
+        }
+
+        protected override void OnDeactivate() {
+            m_char.LocalDispatcher.Unsubscribe<OnCharacterUpdate>(OnCharacterUpdate);
         }
 
         private void OnCharacterUpdate(OnCharacterUpdate ev) {

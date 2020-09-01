@@ -2,10 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using GameToBeNamed.Character.Data;
 using GameToBeNamed.Utils;
 using Rewired;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.PlayerLoop;
 
 namespace GameToBeNamed.Character {
 	
@@ -18,6 +20,10 @@ namespace GameToBeNamed.Character {
 		private Controller2D m_controller2D;
 
 		[SerializeField] private BaseAnimatorProxy m_animatorProxy;
+		
+		[SerializeField] private PlayerData m_definitiveActionsData;
+		[SerializeField] private PlayerData m_shiftingActionsData;
+		
 		
 		public Controller2D Controller2D {
 			get { return m_controller2D; }
@@ -34,11 +40,17 @@ namespace GameToBeNamed.Character {
 			private set;
 		}
 		
+		public PlayerData ShiftingActionsData {
+			get => m_shiftingActionsData;
+			set => m_shiftingActionsData = value;
+		}
+		
 		public readonly Dictionary<PropertyName, bool> ActionStates = new Dictionary<PropertyName, bool>();
 		
 		[SerializeReference, SelectImplementation(typeof(ICharacterAction))]
 		private List<ICharacterAction> m_actions = new List<ICharacterAction>();
 		
+
 		[SerializeReference, SelectImplementation(typeof(IInputSource))]
 		private IInputSource m_inputSource = new PlayerInput();
 		
@@ -46,12 +58,13 @@ namespace GameToBeNamed.Character {
 		
 		public IInputSource Input => m_inputSource;
 		
-		private void Awake() {		
-			
+		private void Awake() {
+
 			foreach (var action in m_actions) {
 				action.Configure(this);
 			}
 			
+			UpdateActions();
 			m_controller2D = GetComponent<Controller2D>();
 			m_inputSource.Configure(this);
 		}
@@ -72,10 +85,16 @@ namespace GameToBeNamed.Character {
 			Velocity *= (1 - Time.deltaTime * m_drag);
 		}
 
-		public void AddAction(ICharacterAction action) {
-			//veririfcar se existe
-			action.Configure(this);
-			m_actions.Add(action);
+		public void UpdateActions() {
+			
+			foreach (var action in m_actions) {
+				if (m_definitiveActionsData.CompareLists(m_definitiveActionsData.Actions, m_shiftingActionsData.Actions)) {
+					action.Activate();
+				}
+				else {
+					action.Deactivate();
+				}
+			}
 		}
 	}
 }

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using GameToBeNamed.Character.Data;
 using GameToBeNamed.Utils;
 using UnityEngine;
 
@@ -9,8 +10,7 @@ namespace GameToBeNamed.Character.NPC {
 
     public class TerminalNpcBehavior : NpcBehavior {
 
-        [SerializeReference, SelectImplementation(typeof(ICharacterAction))]
-        private List<ICharacterAction> m_actions = new List<ICharacterAction>();
+        [SerializeField] private PlayerData m_playerData;
 
         [Header("Dialogs")]
         public Conversation IntroductionConversation;
@@ -64,10 +64,8 @@ namespace GameToBeNamed.Character.NPC {
         }
 
         private void AddActions() {
-//            foreach (var t in m_actions) {
-//                m_character2D.AddAction(t); 
-//            }
-            GameManager.Instance.GlobalDispatcher.Emit(new OnAddWallJumpAction());
+            m_character2D.ShiftingActionsData.SetActionList(m_playerData.Actions);
+            m_character2D.UpdateActions();
             Finish();
         }
         

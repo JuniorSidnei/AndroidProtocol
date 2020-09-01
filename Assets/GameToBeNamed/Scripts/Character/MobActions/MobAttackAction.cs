@@ -24,10 +24,7 @@ namespace GameToBeNamed.Character {
             m_input = Character2D.Input;
             m_char = Character2D;
 
-            m_char.LocalDispatcher.Subscribe<OnCharacterUpdate>(OnCharacterUpdate);
-            m_char.LocalDispatcher.Subscribe<OnExecuteAttack>(OnAttack);
-            m_char.LocalDispatcher.Subscribe<OnSecondAttackFinish>(OnAttackFinish);
-            m_attackBox.OnTrigger2DEnterCallback.AddListener(OnTrigger2DEnterCallback);
+            
             m_attackBoxPosition = m_attackBox.transform.localPosition;
 
             m_unallowedStatus = new List<PropertyName>() {
@@ -35,7 +32,20 @@ namespace GameToBeNamed.Character {
             };
         }
 
-        
+        protected override void OnActivate() {
+            m_char.LocalDispatcher.Subscribe<OnCharacterUpdate>(OnCharacterUpdate);
+            m_char.LocalDispatcher.Subscribe<OnExecuteAttack>(OnAttack);
+            m_char.LocalDispatcher.Subscribe<OnSecondAttackFinish>(OnAttackFinish);
+            m_attackBox.OnTrigger2DEnterCallback.AddListener(OnTrigger2DEnterCallback);
+        }
+
+        protected override void OnDeactivate() {
+            m_char.LocalDispatcher.Unsubscribe<OnCharacterUpdate>(OnCharacterUpdate);
+            m_char.LocalDispatcher.Unsubscribe<OnExecuteAttack>(OnAttack);
+            m_char.LocalDispatcher.Unsubscribe<OnSecondAttackFinish>(OnAttackFinish);
+            m_attackBox.OnTrigger2DEnterCallback.RemoveListener(OnTrigger2DEnterCallback);
+        }
+
 
         private void OnCharacterUpdate(OnCharacterUpdate ev) {
             if (m_char.ActionStates.AllNotDefault(m_unallowedStatus).Any()) {

@@ -22,6 +22,14 @@ namespace GameToBeNamed.Character {
             m_char.LocalDispatcher.Subscribe<OnCharacterUpdate>(OnCharacterUpdate);
         }
 
+        protected override void OnActivate() {
+            throw new NotImplementedException();
+        }
+
+        protected override void OnDeactivate() {
+            throw new NotImplementedException();
+        }
+
         private void OnCharacterUpdate(OnCharacterUpdate ev) {
           
             

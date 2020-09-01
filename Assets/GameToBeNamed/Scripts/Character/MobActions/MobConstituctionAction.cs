@@ -28,13 +28,20 @@ namespace GameToBeNamed.Character {
         protected override void OnConfigure() {
             m_char = Character2D;
             
-            m_char.LocalDispatcher.Subscribe<OnReceivedAttack>(OnReceivedAttack);
-            m_collisionBox.OnCollision2DEnterCallback.AddListener(OnCollision2DEnterCallback);
-
             m_life = m_maxLife;
         }
 
-        
+        protected override void OnActivate() {
+            m_char.LocalDispatcher.Subscribe<OnReceivedAttack>(OnReceivedAttack);
+            m_collisionBox.OnCollision2DEnterCallback.AddListener(OnCollision2DEnterCallback);
+        }
+
+        protected override void OnDeactivate() {
+            m_char.LocalDispatcher.Unsubscribe<OnReceivedAttack>(OnReceivedAttack);
+            m_collisionBox.OnCollision2DEnterCallback.RemoveListener(OnCollision2DEnterCallback);
+        }
+
+
         private void OnCollision2DEnterCallback(Collision2D ev) {
             
             var info = new OnAttackTriggerEnter.Info {
