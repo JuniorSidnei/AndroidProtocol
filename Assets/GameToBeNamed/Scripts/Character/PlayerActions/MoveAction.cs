@@ -31,10 +31,12 @@ namespace GameToBeNamed.Character {
 
         protected override void OnActivate() {
             m_char.LocalDispatcher.Subscribe<OnCharacterFixedUpdate>(OnCharacterFixedUpdate);
+            GameManager.Instance.GlobalDispatcher.Subscribe<OnCharacterChangeClass>(OnCharacterChangeClass);
         }
 
         protected override void OnDeactivate() {
             m_char.LocalDispatcher.Unsubscribe<OnCharacterFixedUpdate>(OnCharacterFixedUpdate);
+            GameManager.Instance.GlobalDispatcher.Unsubscribe<OnCharacterChangeClass>(OnCharacterChangeClass);
         }
 
         private void OnCharacterChangeClass(OnCharacterChangeClass ev) {
@@ -46,8 +48,7 @@ namespace GameToBeNamed.Character {
             if (m_char.ActionStates.AllNotDefault(m_unallowedStatus).Any()) {
                 return;
             }
-
-            GameManager.Instance.GlobalDispatcher.Subscribe<OnCharacterChangeClass>(OnCharacterChangeClass);
+            
             
             if (m_char.Controller2D.collisions.below) {
                 m_char.Drag = InGroundDrag;

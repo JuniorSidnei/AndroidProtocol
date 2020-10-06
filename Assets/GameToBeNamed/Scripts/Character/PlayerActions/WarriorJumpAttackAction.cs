@@ -30,10 +30,10 @@ namespace GameToBeNamed.Character
         }
 
         protected override void OnActivate() {
-            m_char.LocalDispatcher.Unsubscribe<OnCharacterUpdate>(OnCharacterUpdate);
-            m_char.LocalDispatcher.Unsubscribe<OnWarriorAirAttack>(OnWarriorAirAttack);
-            m_char.LocalDispatcher.Unsubscribe<OnSecondAttackFinish>(OnAttackFinish);
-            m_attackBox.OnTrigger2DEnterCallback.RemoveListener(OnTrigger2DEnterCallback);
+            m_char.LocalDispatcher.Subscribe<OnCharacterUpdate>(OnCharacterUpdate);
+            m_char.LocalDispatcher.Subscribe<OnWarriorAirAttack>(OnWarriorAirAttack);
+            m_char.LocalDispatcher.Subscribe<OnSecondAttackFinish>(OnAttackFinish);
+            m_attackBox.OnTrigger2DEnterCallback.AddListener(OnTrigger2DEnterCallback);
         }
 
         protected override void OnDeactivate() {

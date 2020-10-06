@@ -64,8 +64,7 @@ namespace GameToBeNamed.Character.NPC {
         }
 
         private void AddActions() {
-            m_character2D.ShiftingActionsData.SetActionList(m_playerData.Actions);
-            m_character2D.UpdateActions();
+            m_character2D.UpdateActions(m_playerData.Actions);
             Finish();
         }
         

@@ -21,9 +21,7 @@ namespace GameToBeNamed.Character {
 
 		[SerializeField] private BaseAnimatorProxy m_animatorProxy;
 		
-		[SerializeField] private PlayerData m_definitiveActionsData;
-		[SerializeField] private PlayerData m_shiftingActionsData;
-		
+		[SerializeField] private PlayerData m_initialData;
 		
 		public Controller2D Controller2D {
 			get { return m_controller2D; }
@@ -34,16 +32,8 @@ namespace GameToBeNamed.Character {
 			get { return m_drag; }
 			set { m_drag = value; }
 		}
-		
-		public Vector2 PositionDelta {
-			get;
-			private set;
-		}
-		
-		public PlayerData ShiftingActionsData {
-			get => m_shiftingActionsData;
-			set => m_shiftingActionsData = value;
-		}
+
+		public Vector2 PositionDelta { get; private set; }
 		
 		public readonly Dictionary<PropertyName, bool> ActionStates = new Dictionary<PropertyName, bool>();
 		
@@ -64,7 +54,7 @@ namespace GameToBeNamed.Character {
 				action.Configure(this);
 			}
 			
-			UpdateActions();
+			UpdateActions(m_initialData.Actions);
 			m_controller2D = GetComponent<Controller2D>();
 			m_inputSource.Configure(this);
 		}
@@ -74,6 +64,17 @@ namespace GameToBeNamed.Character {
 			m_inputSource.Update();
 			LocalDispatcher.Emit(new OnCharacterUpdate());
 			LocalDispatcher.DispatchAll();
+
+//			if (Input.HasAction(InputAction.Button2)) {
+//				foreach (var action in m_actions) {
+//					action.Deactivate();
+//				}
+//			}
+//			if (Input.HasAction(InputAction.Button3)) {
+//				foreach (var action in m_actions) {
+//					action.Activate();
+//				}
+//			}
 		}
 
 		private void FixedUpdate() {
@@ -85,10 +86,10 @@ namespace GameToBeNamed.Character {
 			Velocity *= (1 - Time.deltaTime * m_drag);
 		}
 
-		public void UpdateActions() {
-			
+		public void UpdateActions(List<string> updatedActions) {
+
 			foreach (var action in m_actions) {
-				if (m_definitiveActionsData.CompareLists(m_definitiveActionsData.Actions, m_shiftingActionsData.Actions)) {
+				if (updatedActions.Contains(action.GetName())) {
 					action.Activate();
 				}
 				else {

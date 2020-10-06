@@ -18,17 +18,5 @@ namespace GameToBeNamed.Character.Data {
         public void SetActionList(List<string> action) {
             m_actions = action;
         }
-
-        public bool CompareLists(List<string> list1, List<string> list2) {
-
-            for (var i = 0; i < list1.Count; i++) {
-                if (list1[i] != list2[i]) { 
-                    Debug.Log("lista1: " + list1[i] + "lista2: " + list2[i]);
-                    return false;
-                }
-            }
-            Debug.Log("é verdade");
-            return true;
-        }
     }
 }

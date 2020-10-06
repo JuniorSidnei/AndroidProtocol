@@ -13,7 +13,7 @@ namespace GameToBeNamed.Character{
         
         [SerializeField] private float m_fireRate;
         [SerializeField] private GameObject m_bullet;
-        [SerializeField] private Transform m_shootPosition;
+        [SerializeField] private Transform m_bulletSpawn;
         [SerializeField] private int m_startAmmunitionAmount;
         [SerializeField] private int m_ammunitionAmount;
         
@@ -22,12 +22,15 @@ namespace GameToBeNamed.Character{
         private IInputSource m_input;
         private Character2D m_char;
         private float m_direction;
+        private Vector2 m_shootPosition;
         
         
         protected override void OnConfigure() {
             m_input = Character2D.Input;
             m_char = Character2D;
             m_ammunitionAmount = m_startAmmunitionAmount;
+            m_shootPosition = m_bulletSpawn.localPosition;
+            
             m_unallowedStatus = new List<PropertyName>() {
                 ActionStates.Dead, ActionStates.Talking, ActionStates.ReceivingDamage    
             };
@@ -41,6 +44,7 @@ namespace GameToBeNamed.Character{
             m_char.LocalDispatcher.Unsubscribe<OnCharacterUpdate>(OnCharacterUpdate);
         }
 
+            
 
         private void OnCharacterUpdate(OnCharacterUpdate ev) {
             
@@ -56,10 +60,13 @@ namespace GameToBeNamed.Character{
             }
             
             if (m_input.HasActionDown(InputAction.Button4) &&  m_fireRate < 0) {
-                
-                InstantiateController.Instance.InstantiateDirectionalEffect(m_bullet, m_shootPosition.position, m_direction);
+
+                m_char.Velocity = Vector2.zero;
+                m_bulletSpawn.localPosition = new Vector3(m_direction * m_shootPosition.x, m_shootPosition.y);
+                InstantiateController.Instance.InstantiateDirectionalEffect(m_bullet, m_bulletSpawn.position, m_direction);
                 m_fireRate = 1f;
                 m_ammunitionAmount -= 1;
+                m_char.LocalDispatcher.Emit(new OnFirstAttack());
             }
             
             m_fireRate -= Time.deltaTime;

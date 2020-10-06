@@ -10,14 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 07a6efc65c781874fa2f78d26b12f765, type: 3}
-  m_Name: ShooterDefinitiveData
+  m_Name: ShooterInitialData
   m_EditorClassIdentifier: 
   m_actions:
   - MoveAction
-  - JumpAction
   - ShooterAttackAction
-  - TransitionAction
-  - ConstitutionAction
-  - CollectableAction
-  - CameraController
-  - TalkingAction
+  - JumpAction

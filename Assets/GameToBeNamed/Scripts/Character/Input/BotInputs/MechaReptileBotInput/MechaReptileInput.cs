@@ -108,7 +108,7 @@ namespace GameToBeNamed.Character {
         }
 
         private void OnTrigger2DEnterCallback(Collider2D ev) {
-            if (((1 << ev.gameObject.layer) & m_targetLayer) == 0) return;
+            if (((1 << ev.gameObject.layer) & m_targetLayer) == 0 || IsTargetSet()) return;
             
             SetTarget(ev.gameObject);
             m_stateMachine.ChangeState<PursuitState>(Character, this);

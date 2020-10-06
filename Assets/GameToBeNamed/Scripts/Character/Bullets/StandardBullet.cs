@@ -22,7 +22,9 @@ namespace GameToBeNamed.Character.Bullets {
         }
 
         private void FixedUpdate() {
-            transform.position += new Vector3(m_speed * Time.deltaTime, 0, 0);
+            var direction = m_speed * Time.deltaTime * transform.localScale.x;
+            
+            transform.position += new Vector3(direction, 0, 0);
         }
 
         private void OnTrigger2DEnterCallback(Collider2D ev) {

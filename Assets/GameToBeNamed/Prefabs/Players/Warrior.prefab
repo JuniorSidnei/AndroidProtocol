@@ -53,12 +53,82 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Velocity: {x: 0, y: 0}
   m_animatorProxy: {fileID: 3201174525823821393}
-  m_data: {fileID: 11400000, guid: 939947eee704d8b47834037e7e617ec8, type: 2}
+  m_initialData: {fileID: 11400000, guid: 939947eee704d8b47834037e7e617ec8, type: 2}
+  m_actions:
+  - id: 0
+  - id: 1
+  - id: 2
+  - id: 3
+  - id: 4
+  - id: 5
+  - id: 6
+  - id: 7
   m_inputSource:
-    id: 0
+    id: 8
   references:
     version: 1
     00000000:
+      type: {class: TransitionAction, ns: GameToBeNamed.Character, asm: CS-Player}
+      data:
+        IsActionActive: 0
+        m_rend: {fileID: 3201174525823821392}
+    00000001:
+      type: {class: WarriorAttackAction, ns: GameToBeNamed.Character, asm: CS-Player}
+      data:
+        IsActionActive: 0
+        m_damage: 80
+        m_attackBox: {fileID: 3325466396227432078}
+    00000002:
+      type: {class: JumpAction, ns: GameToBeNamed.Character, asm: CS-Player}
+      data:
+        IsActionActive: 0
+        JumpForce: {x: 20, y: 100}
+        m_lowJumpMultiplier: 4
+        m_fallMultiplier: 6
+        m_downJumpEffect: {fileID: 4541717697892416001, guid: ecc8f19ff25b48c46b44e0258a411c28,
+          type: 3}
+        m_upJumpEffect: {fileID: 4541717697892416001, guid: 2f5886722ef11e647913fae8526c0308,
+          type: 3}
+        m_jumpEffectPosition: {fileID: 7297325523716540212}
+    00000003:
+      type: {class: ConstituctionAction, ns: GameToBeNamed.Character, asm: CS-Player}
+      data:
+        IsActionActive: 0
+        characterStatusLife: {fileID: 11400000, guid: 488ac927f0e65484d9a804c5d3ba120e,
+          type: 2}
+        m_knockbackForce: {x: 20, y: 0}
+        m_damageCooldown: 1
+        m_armorDefense: 20
+        m_hitEffect: {fileID: 8252051896981874538, guid: de3c69e3409cb734590546c334f1b2a6,
+          type: 3}
+    00000004:
+      type: {class: CollectableAction, ns: GameToBeNamed.Character, asm: CS-Player}
+      data:
+        IsActionActive: 0
+        m_statusMoney: {fileID: 11400000, guid: c2264366975c87b4481dd6eda9d9c60b,
+          type: 2}
+    00000005:
+      type: {class: CameraController, ns: GameToBeNamed.Character, asm: CS-Player}
+      data:
+        IsActionActive: 0
+        m_lookUp: 20
+        m_lookDown: -6
+        m_defaultOffset: 8
+    00000006:
+      type: {class: TalkingAction, ns: GameToBeNamed.Character, asm: CS-Player}
+      data:
+        IsActionActive: 0
+        OnTalkingNpc: 0
+    00000007:
+      type: {class: MoveAction, ns: GameToBeNamed.Character, asm: CS-Player}
+      data:
+        IsActionActive: 0
+        Speed: 150
+        SpeedSprint: 0
+        InAirDrag: 0.5
+        InGroundDrag: 5
+        Sprite: {fileID: 3201174525823821392}
+    00000008:
       type: {class: PlayerInput, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
         PlayerID: 0

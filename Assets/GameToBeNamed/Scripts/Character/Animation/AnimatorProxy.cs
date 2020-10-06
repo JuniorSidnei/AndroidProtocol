@@ -98,6 +98,7 @@ namespace GameToBeNamed.Character
         public void ExecuteWarriorAirAttack() {
             m_char2D.LocalDispatcher.Emit(new OnWarriorAirAttack());
         }
+        
         public void FinishFirstAttack() {
             m_char2D.LocalDispatcher.Emit(new OnFirstAttackFinish());
         }
@@ -105,5 +106,6 @@ namespace GameToBeNamed.Character
         public void FinishSecondAttack() {
             m_char2D.LocalDispatcher.Emit(new OnSecondAttackFinish());
         }
+       
     }
 }

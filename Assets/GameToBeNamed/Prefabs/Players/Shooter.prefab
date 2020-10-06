@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 868458355412461223}
   m_Layer: 11
-  m_Name: ShootPosition
+  m_Name: BulletSpawn
   m_TagString: Untagged
   m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 65259006739578131}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.9500003, y: 0.02, z: 0}
+  m_LocalPosition: {x: 5.16, y: 0.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7054123030391772773}
@@ -54,7 +54,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5242675753832118612}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.36, z: 0}
+  m_LocalPosition: {x: -1.21, y: -4.62, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7054123030391772773}
@@ -132,8 +132,7 @@ SpriteRenderer:
   m_SortingLayerID: -783599303
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4979363154352999712, guid: f3554a61f28682f46ac61b791449148b,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: d769bdbd3b86fd341adeee15fc775979, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -207,7 +206,7 @@ Transform:
   m_GameObject: {fileID: 7054123030391772774}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7054123030057230250}
   - {fileID: 5139864945406988081}
@@ -249,7 +248,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.052429676, y: -0.38483262}
+  m_Offset: {x: -1.4575019, y: -0.13317776}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -260,7 +259,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.9277267, y: 5.894898}
+  m_Size: {x: 5.695936, y: 8.579219}
   m_EdgeRadius: 0
 --- !u!50 &4495217425353230857
 Rigidbody2D:
@@ -297,10 +296,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Velocity: {x: 0, y: 0}
   m_animatorProxy: {fileID: 7054123030057230249}
-  m_definitiveActionsData: {fileID: 11400000, guid: 7f3a520fec9073a429db60534474c773,
-    type: 2}
-  m_shiftingActionsData: {fileID: 11400000, guid: 6dff668d48a4a1744bf45e084b6b791e,
-    type: 2}
+  m_initialData: {fileID: 11400000, guid: 7f3a520fec9073a429db60534474c773, type: 2}
   m_actions:
   - id: 0
   - id: 1
@@ -326,7 +322,7 @@ MonoBehaviour:
         m_fireRate: 0.5
         m_bullet: {fileID: 8879324325392784300, guid: 3b7b016943b24f94fad22206899d948b,
           type: 3}
-        m_shootPosition: {fileID: 868458355412461223}
+        m_bulletSpawn: {fileID: 868458355412461223}
         m_startAmmunitionAmount: 4
         m_ammunitionAmount: 0
     00000002:

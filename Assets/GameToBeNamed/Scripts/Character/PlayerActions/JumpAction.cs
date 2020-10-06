@@ -43,7 +43,6 @@ namespace GameToBeNamed.Character {
         private void OnCharacterFixedUpdate(OnCharacterFixedUpdate ev) {
             
             if (m_char.ActionStates.AllNotDefault(m_unallowedStatus).Any()) {
-                Debug.Log("Não ativei essa habilidade ainda");
                 return;
             }
             

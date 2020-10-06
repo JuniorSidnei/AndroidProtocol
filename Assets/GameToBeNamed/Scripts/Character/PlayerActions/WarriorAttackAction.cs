@@ -34,11 +34,11 @@ namespace GameToBeNamed.Character
         }
 
         protected override void OnActivate() {
-            m_char.LocalDispatcher.Unsubscribe<OnCharacterUpdate>(OnCharacterUpdate);
-            m_char.LocalDispatcher.Unsubscribe<OnExecuteAttack>(OnExecuteAttack);
-            m_char.LocalDispatcher.Unsubscribe<OnFirstAttackFinish>(OnFirstAttackFinish);
-            m_char.LocalDispatcher.Unsubscribe<OnSecondAttackFinish>(OnSecondAttackFinish);
-            m_attackBox.OnTrigger2DEnterCallback.RemoveListener(OnTrigger2DEnterCallback);
+            m_char.LocalDispatcher.Subscribe<OnCharacterUpdate>(OnCharacterUpdate);
+            m_char.LocalDispatcher.Subscribe<OnExecuteAttack>(OnExecuteAttack);
+            m_char.LocalDispatcher.Subscribe<OnFirstAttackFinish>(OnFirstAttackFinish);
+            m_char.LocalDispatcher.Subscribe<OnSecondAttackFinish>(OnSecondAttackFinish);
+            m_attackBox.OnTrigger2DEnterCallback.AddListener(OnTrigger2DEnterCallback);
         }
 
         protected override void OnDeactivate() {

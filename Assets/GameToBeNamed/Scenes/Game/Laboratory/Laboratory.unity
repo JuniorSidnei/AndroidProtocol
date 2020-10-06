@@ -20761,7 +20761,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1301845057}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -648, y: 6.9, z: 0}
+  m_LocalPosition: {x: -648, y: 10.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -20780,7 +20780,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_characters:
-  - {fileID: 4093046324995149396, guid: 6de97ddd0dd5ced4e8c52a6ff25bb868, type: 3}
+  - {fileID: 169090993916409873, guid: 49037f7e2b7c2f249b465304ddce6734, type: 3}
   PlayerID: 0
   ChangeClassCooldown: 10
 --- !u!1 &1308296855
@@ -24086,6 +24086,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 6dff668d48a4a1744bf45e084b6b791e,
         type: 2}
+    - target: {fileID: 5955829787421557606, guid: 8c24c1ded26b3314c9d3e9cb002fb81d,
+        type: 3}
+      propertyPath: m_initialData
+      value: 
+      objectReference: {fileID: 11400000, guid: c7b0fffc4c6eba24aac297e085fa6e63,
+        type: 2}
     - target: {fileID: 5955829787421557629, guid: 8c24c1ded26b3314c9d3e9cb002fb81d,
         type: 3}
       propertyPath: m_Name
@@ -24094,7 +24100,7 @@ PrefabInstance:
     - target: {fileID: 5955829787421557629, guid: 8c24c1ded26b3314c9d3e9cb002fb81d,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c24c1ded26b3314c9d3e9cb002fb81d, type: 3}
@@ -24845,7 +24851,7 @@ MonoBehaviour:
   priority: 1
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: d4521579b151a66468aa1bac5eaea93a, type: 2}
+  sharedProfile: {fileID: 0}
 --- !u!4 &2034029009
 Transform:
   m_ObjectHideFlags: 0
