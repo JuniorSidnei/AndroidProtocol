@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using GameToBeNamed.Utils;
+using GameToBeNamed.Utils.Sound;
 using UnityEngine;
 
 namespace GameToBeNamed.Character {
@@ -12,12 +13,15 @@ namespace GameToBeNamed.Character {
         
         [SerializeField] private float Speed;
         [SerializeField] private float SpeedSprint;
-        private float m_originalSpeed;
+        [SerializeField] private float SoundDisplacement;
         [SerializeField] private float InAirDrag = 0.5f, InGroundDrag = 5;
-        [SerializeField] private SpriteRenderer Sprite;
+        [SerializeField] private SpriteRenderer m_spriteVfx;
+        [SerializeField] private AudioClip m_footStepsSound;
         
         private IInputSource m_input;
         private Character2D m_char;
+        private float m_soundDisplacement;
+        private float m_originalSpeed;
 
         protected override void OnConfigure() {
             m_input = Character2D.Input;
@@ -64,14 +68,20 @@ namespace GameToBeNamed.Character {
                 Speed = m_originalSpeed;
             }
             
+            m_soundDisplacement += Mathf.Abs(m_char.PositionDelta.x);
+            if (m_soundDisplacement > SoundDisplacement) {
+                AudioController.Instance.Play(m_footStepsSound, AudioController.SoundType.SoundEffect2D, 0.1f);
+                m_soundDisplacement = 0;
+            }
+            
             if (m_input.HasAction(InputAction.Button2)) {//right
                 m_char.Velocity += new Vector2(Speed * Time.deltaTime, 0);
-                Sprite.flipX = false;
+                m_spriteVfx.flipX = false;
             }
             
             if (m_input.HasAction(InputAction.Button3)) {//left
                 m_char.Velocity -= new Vector2(Speed * Time.deltaTime, 0);
-                Sprite.flipX = true;
+                m_spriteVfx.flipX = true;
             }
         }
     }

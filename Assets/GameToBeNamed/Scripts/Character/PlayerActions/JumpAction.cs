@@ -67,7 +67,6 @@ namespace GameToBeNamed.Character {
             }
             
 
-
             if ((m_input.HasActionDown(InputAction.Button1) || m_input.HasAction(InputAction.Button1)) && m_char.Controller2D.collisions.below) {
                 
                 m_char.ActionStates[ActionStates.Jumping] = true;

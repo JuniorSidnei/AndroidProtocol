@@ -16,14 +16,13 @@ namespace GameToBeNamed.Character{
         [SerializeField] private Transform m_bulletSpawn;
         [SerializeField] private int m_startAmmunitionAmount;
         [SerializeField] private int m_ammunitionAmount;
-        
+        [SerializeField] private SpriteRenderer m_spriteVfx;
         private List<PropertyName> m_unallowedStatus;
         
         private IInputSource m_input;
         private Character2D m_char;
-        private float m_direction;
         private Vector2 m_shootPosition;
-        
+        private int m_direction;
         
         protected override void OnConfigure() {
             m_input = Character2D.Input;
@@ -44,15 +43,14 @@ namespace GameToBeNamed.Character{
             m_char.LocalDispatcher.Unsubscribe<OnCharacterUpdate>(OnCharacterUpdate);
         }
 
-            
-
+        
         private void OnCharacterUpdate(OnCharacterUpdate ev) {
             
             if (Character2D.ActionStates.AllNotDefault(m_unallowedStatus).Any()) {
                 return;
             }
 
-            m_direction = m_char.Velocity.x > 0 ? 1 : -1;
+            SetDirection();
             
             if (m_ammunitionAmount <= 0) {
                 m_fireRate = 4f;
@@ -70,6 +68,16 @@ namespace GameToBeNamed.Character{
             }
             
             m_fireRate -= Time.deltaTime;
+        }
+
+        private void SetDirection() {
+            
+            if (m_spriteVfx.flipX) {
+                m_direction = -1;
+            }
+            else {
+                m_direction = 1;
+            }
         }
     }
 }

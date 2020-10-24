@@ -35,6 +35,7 @@ namespace GameToBeNamed.Character.NPC {
 
         //Player input
         public int PlayerID = 0;
+        public string PlayerTag;
         protected Player m_player;
 
         private void Awake() {

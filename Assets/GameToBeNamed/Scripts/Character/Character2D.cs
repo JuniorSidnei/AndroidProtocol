@@ -64,17 +64,6 @@ namespace GameToBeNamed.Character {
 			m_inputSource.Update();
 			LocalDispatcher.Emit(new OnCharacterUpdate());
 			LocalDispatcher.DispatchAll();
-
-//			if (Input.HasAction(InputAction.Button2)) {
-//				foreach (var action in m_actions) {
-//					action.Deactivate();
-//				}
-//			}
-//			if (Input.HasAction(InputAction.Button3)) {
-//				foreach (var action in m_actions) {
-//					action.Activate();
-//				}
-//			}
 		}
 
 		private void FixedUpdate() {

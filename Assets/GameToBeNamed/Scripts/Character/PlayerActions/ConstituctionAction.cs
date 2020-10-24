@@ -36,7 +36,7 @@ namespace GameToBeNamed.Character {
         protected override void OnActivate() {
             m_char.LocalDispatcher.Subscribe<OnReceivedAttack>(OnReceivedAttack);
         }
-
+        
         protected override void OnDeactivate() {
             m_char.LocalDispatcher.Unsubscribe<OnReceivedAttack>(OnReceivedAttack);
         }

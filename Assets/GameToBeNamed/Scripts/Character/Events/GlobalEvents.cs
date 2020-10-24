@@ -171,6 +171,4 @@ namespace GameToBeNamed.Utils {
         public NpcBehavior Npc;
         public bool OnTalkingNpc;
     }
- 
-    public class OnAddWallJumpAction { }
 }
