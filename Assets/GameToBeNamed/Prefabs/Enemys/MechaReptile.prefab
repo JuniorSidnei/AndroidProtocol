@@ -332,7 +332,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5955829787421557604
 Transform:
   m_ObjectHideFlags: 0
@@ -403,8 +403,8 @@ MonoBehaviour:
         IsActionActive: 0
         Speed: 20
         SpeedSprint: 60
-        SoundDisplacement: 5
-        InAirDrag: 0.5
+        SoundDisplacement: 3
+        InAirDrag: 2
         InGroundDrag: 5
         m_spriteVfx: {fileID: 5955829786628665579}
         m_footStepsSound: {fileID: 8300000, guid: ec474369c733f434ebb4368e2fb7bf7c,
@@ -421,6 +421,8 @@ MonoBehaviour:
         m_upJumpEffect: {fileID: 4541717697892416001, guid: 2f5886722ef11e647913fae8526c0308,
           type: 3}
         m_jumpEffectPosition: {fileID: 8502856831483503490}
+        m_jumpStartSound: {fileID: 0}
+        m_jumpLandSound: {fileID: 0}
     00000002:
       type: {class: MobConstituctionAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
@@ -430,6 +432,9 @@ MonoBehaviour:
         m_damageCooldown: 0.5
         m_damageColision: 50
         m_lifeSplashImage: {fileID: 1768311158770260567}
+        m_dieExplosionSound: {fileID: 8300000, guid: 01378984a4f5a534da69223e2914b9b2,
+          type: 3}
+        m_hurtSound: {fileID: 8300000, guid: 11202e9749c9d4e4b996d48a938e0e8e, type: 3}
         ExplosionEffect: {fileID: 1565985355217795680, guid: 2d4d627d318f1cb458c9b8ae79b95c7a,
           type: 3}
         MoneyBox: {fileID: 663016336894859358, guid: db2d97cc5a1f2d1468ad57d1fe5ead54,

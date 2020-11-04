@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using GameToBeNamed.Character;
 using GameToBeNamed.Utils;
+using GameToBeNamed.Utils.Sound;
 using UnityEngine;
 
 namespace GameToBeNamed.Character
@@ -15,6 +16,8 @@ namespace GameToBeNamed.Character
         private Character2D m_char;
         [SerializeField] private int m_damage;
         [SerializeField] private Collision2DProxy m_attackBox;
+        [SerializeField] private AudioClip m_attackSound;
+        [SerializeField] private AudioClip m_hitGroundSound;
         private Vector2 m_attackBoxPosition;
         private float m_direction;
 
@@ -66,6 +69,7 @@ namespace GameToBeNamed.Character
                 m_comboStep = 1;
                 m_comboIntervalTimer = 1;
                 m_char.LocalDispatcher.Emit(new OnFirstAttack());
+                AudioController.Instance.Play(m_attackSound, AudioController.SoundType.SoundEffect2D, 0.1f);
             }
             else if (m_input.HasActionDown(InputAction.Button4) && (m_comboStep == 1 && m_comboIntervalTimer >= 0)) {
                 m_char.LocalDispatcher.Emit(new OnSecondAttack());
@@ -85,12 +89,14 @@ namespace GameToBeNamed.Character
             m_char.ActionStates[ActionStates.Attacking] = true;
             m_attackBox.BoxCollider.enabled = true;
             m_attackBox.transform.localPosition = new Vector3(m_direction * m_attackBoxPosition.x, m_attackBoxPosition.y,0);
+           
         }
         
         private void OnFirstAttackFinish(OnFirstAttackFinish ev) {
             m_attackBox.BoxCollider.enabled = false;
             m_char.ActionStates[ActionStates.Attacking] = false;
             GameManager.Instance.GlobalDispatcher.Emit(new OnCameraScreenshake(1, .2f));
+            AudioController.Instance.Play(m_hitGroundSound, AudioController.SoundType.SoundEffect2D, 0.3f);
         }
         
         private void OnSecondAttackFinish(OnSecondAttackFinish ev) {

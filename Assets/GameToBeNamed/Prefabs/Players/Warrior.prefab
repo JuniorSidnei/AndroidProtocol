@@ -75,12 +75,17 @@ MonoBehaviour:
       data:
         IsActionActive: 0
         m_rend: {fileID: 3201174525823821392}
+        m_changeClassSound: {fileID: 8300000, guid: 09a9f6859d7699e4ea42c90ef0285470,
+          type: 3}
     00000001:
       type: {class: WarriorAttackAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
         IsActionActive: 0
         m_damage: 80
         m_attackBox: {fileID: 3325466396227432078}
+        m_attackSound: {fileID: 8300000, guid: 6209cc579067dce4385f7da00f6dc26c, type: 3}
+        m_hitGroundSound: {fileID: 8300000, guid: b8cfaa523e5dee144b127d92ed49c545,
+          type: 3}
     00000002:
       type: {class: JumpAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
@@ -93,6 +98,10 @@ MonoBehaviour:
         m_upJumpEffect: {fileID: 4541717697892416001, guid: 2f5886722ef11e647913fae8526c0308,
           type: 3}
         m_jumpEffectPosition: {fileID: 7297325523716540212}
+        m_jumpStartSound: {fileID: 8300000, guid: 97f8dc841c97752489690d2903147b9b,
+          type: 3}
+        m_jumpLandSound: {fileID: 8300000, guid: 97c7dde5c060f6e40a2e554cc8b7b5b7,
+          type: 3}
     00000003:
       type: {class: ConstituctionAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
@@ -104,12 +113,17 @@ MonoBehaviour:
         m_armorDefense: 30
         m_hitEffect: {fileID: 8252051896981874538, guid: de3c69e3409cb734590546c334f1b2a6,
           type: 3}
+        m_onHurtSound: {fileID: 8300000, guid: d10b828b12c8325479dfd49bb65327ba, type: 3}
+        m_onBlockSound: {fileID: 8300000, guid: 2bbbada93b7faca4f87ab87c994634bc,
+          type: 3}
     00000004:
       type: {class: CollectableAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
         IsActionActive: 0
         m_statusMoney: {fileID: 11400000, guid: c2264366975c87b4481dd6eda9d9c60b,
           type: 2}
+        m_onCollectMoney: {fileID: 8300000, guid: c7acfcd911f26ec4b973010c8744a45c,
+          type: 3}
     00000005:
       type: {class: CameraController, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
@@ -128,9 +142,12 @@ MonoBehaviour:
         IsActionActive: 0
         Speed: 150
         SpeedSprint: 0
-        InAirDrag: 0.5
+        SoundDisplacement: 7
+        InAirDrag: 2
         InGroundDrag: 5
-        Sprite: {fileID: 3201174525823821392}
+        m_spriteVfx: {fileID: 3201174525823821392}
+        m_footStepsSound: {fileID: 8300000, guid: 2a62cd066e00a194ab4ed7c2fd7e0871,
+          type: 3}
     00000008:
       type: {class: DashAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:

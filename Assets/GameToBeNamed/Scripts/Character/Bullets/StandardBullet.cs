@@ -14,6 +14,7 @@ namespace GameToBeNamed.Character.Bullets {
         [SerializeField] private float m_speed;
         [SerializeField] private GameObject m_onContactExplosion;
         [SerializeField] private LayerMask m_targetLayer;
+        [SerializeField] private LayerMask m_wallLayer;
 
 
         private void Awake() {
@@ -33,6 +34,11 @@ namespace GameToBeNamed.Character.Bullets {
                 return;
             }
             
+            if (((1 << ev.gameObject.layer) & m_wallLayer) == 0) {
+                var contactExplosion = Instantiate(m_onContactExplosion, transform.position, Quaternion.identity);
+                Destroy(gameObject);
+                return;
+            }
             
             var info = new OnAttackTriggerEnter.Info {
                 Emiter = gameObject, Receiver = ev.gameObject

@@ -5,6 +5,7 @@ using System.Linq;
 using DG.Tweening;
 using GameToBeNamed.Character;
 using GameToBeNamed.Utils;
+using GameToBeNamed.Utils.Sound;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -20,6 +21,8 @@ namespace GameToBeNamed.Character {
         [SerializeField] private float m_damageCooldown;
         [SerializeField] private int m_armorDefense;
         [SerializeField] private GameObject m_hitEffect;
+        [SerializeField] private AudioClip m_onHurtSound;
+        [SerializeField] private AudioClip m_onBlockSound;
         private float m_damageCooldownTimer;
 
         protected override void OnConfigure() {
@@ -44,6 +47,7 @@ namespace GameToBeNamed.Character {
         private void OnReceivedAttack(OnReceivedAttack ev) {
             
             if (m_damageCooldownTimer > Time.time ||  m_char.ActionStates.AllNotDefault(m_unallowedStatus).Any()) {
+                AudioController.Instance.Play(m_onBlockSound, AudioController.SoundType.SoundEffect2D, 0.5f);
                 return;
             }
 
@@ -60,6 +64,7 @@ namespace GameToBeNamed.Character {
             }
             
             InstantiateController.Instance.InstantiateEffect(m_hitEffect, ev.DamageContact);
+            AudioController.Instance.Play(m_onHurtSound, AudioController.SoundType.SoundEffect2D, 0.2f);
             var to = m_char.Velocity;
             DOTween.To(() => m_char.Velocity, x => m_char.Velocity = to, to, .2f).SetEase(Ease.Linear).OnComplete(()=> {
                 m_char.ActionStates[ActionStates.ReceivingDamage] = false;

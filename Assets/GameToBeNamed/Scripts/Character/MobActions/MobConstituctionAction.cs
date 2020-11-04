@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using GameToBeNamed.Character;
 using GameToBeNamed.Utils;
+using GameToBeNamed.Utils.Sound;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = System.Random;
@@ -21,6 +22,8 @@ namespace GameToBeNamed.Character {
         [SerializeField] private float m_damageCooldown;
         [SerializeField] private int m_damageColision;
         [SerializeField] private Image m_lifeSplashImage;
+        [SerializeField] private AudioClip m_dieExplosionSound;
+        [SerializeField] private AudioClip m_hurtSound;
         public GameObject ExplosionEffect;
         public GameObject MoneyBox;
         private float m_damageCooldownTimer;
@@ -47,6 +50,7 @@ namespace GameToBeNamed.Character {
             var info = new OnAttackTriggerEnter.Info {
                     Emiter = m_char.gameObject, Receiver = ev.gameObject };
             GameManager.Instance.GlobalDispatcher.Emit(new OnAttackTriggerEnter(info, m_damageColision, ev.contacts[0].point));
+            
         }
 
         private void OnReceivedAttack(OnReceivedAttack ev) {
@@ -55,6 +59,7 @@ namespace GameToBeNamed.Character {
                 return;
             }
             
+            AudioController.Instance.Play(m_hurtSound, AudioController.SoundType.SoundEffect2D, 0.2f);
             m_damageCooldownTimer = Time.time + m_damageCooldown;
             m_life -= ev.Damage;
             m_lifeSplashImage.fillAmount = (float) m_life / m_maxLife;
@@ -66,6 +71,7 @@ namespace GameToBeNamed.Character {
             if (m_life > 0) return;
             
             InstantiateController.Instance.InstantiateEffect(ExplosionEffect, m_char.transform.position);
+            AudioController.Instance.Play(m_dieExplosionSound, AudioController.SoundType.SoundEffect2D, 0.2f);
 
             for (var i = 0; i < 5; i++) {
                 InstantiateController.Instance.InstantiateEffect(MoneyBox, m_char.transform.position);

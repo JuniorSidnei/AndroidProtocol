@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using GameToBeNamed.Character;
+using GameToBeNamed.Utils.Sound;
 using Rewired;
 using UnityEngine;
 
@@ -45,8 +46,7 @@ namespace GameToBeNamed.Character.NPC {
         protected virtual bool Run(Action onFinish) {
 
             m_onFinish = onFinish;
-            //TODO ajeitar audio controller para sons
-            //AudioController.Instance.Play(m_npcMusic, AudioController.SoundType.Music, 1, false, true, 0, 1, 0, 0, null, false);
+            AudioController.Instance.Play(m_npcMusic, AudioController.SoundType.SoundEffect2D, 0.5f);
 
             Count++;
 

@@ -67,7 +67,6 @@ namespace GameToBeNamed.Utils.Sound {
             UnMuteMusic();
 
             DontDestroyOnLoad(this);
-
         }
 
         private void LoadGameSettings() {

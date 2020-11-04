@@ -6073,6 +6073,7 @@ MonoBehaviour:
   m_sceneToUnload:
     m_SceneAsset: {fileID: 0}
     m_SceneName: Laboratory
+  m_areaBgMusic: {fileID: 0}
 --- !u!4 &147928574
 Transform:
   m_ObjectHideFlags: 0
@@ -7056,6 +7057,7 @@ GameObject:
   m_Component:
   - component: {fileID: 287149019}
   - component: {fileID: 287149018}
+  - component: {fileID: 287149020}
   m_Layer: 0
   m_Name: InstantiateController
   m_TagString: Untagged
@@ -7089,6 +7091,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &287149020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 287149017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d40f5ac92f57d504c85e99e926856f62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_areaBgMusic: {fileID: 8300000, guid: 3f86192cda23292409e79f01e77fa8eb, type: 3}
 --- !u!1 &291844825
 GameObject:
   m_ObjectHideFlags: 0
@@ -77504,6 +77519,11 @@ PrefabInstance:
       propertyPath: m_inputSource.m_wayPoints.Array.data[0].x
       value: -22
       objectReference: {fileID: 0}
+    - target: {fileID: 2101162658026266990, guid: 231bd08587ad03040a80107e4ac21c72,
+        type: 3}
+      propertyPath: m_actions.Array.data[3].SoundDisplacement
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4624111266376434068, guid: 231bd08587ad03040a80107e4ac21c72,
         type: 3}
       propertyPath: m_Name
@@ -77547,7 +77567,7 @@ PrefabInstance:
     - target: {fileID: 4624111266376434090, guid: 231bd08587ad03040a80107e4ac21c72,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4624111266376434090, guid: 231bd08587ad03040a80107e4ac21c72,
         type: 3}
@@ -84750,7 +84770,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: d4521579b151a66468aa1bac5eaea93a, type: 2}
+  sharedProfile: {fileID: 0}
 --- !u!4 &2034029009
 Transform:
   m_ObjectHideFlags: 0

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using GameToBeNamed.Utils;
+using GameToBeNamed.Utils.Sound;
 using UnityEngine;
 
 namespace GameToBeNamed.Character {
@@ -11,6 +12,7 @@ namespace GameToBeNamed.Character {
     public class TransitionAction : CharacterAction {
 
         [SerializeField] private SpriteRenderer m_rend;
+        [SerializeField] private AudioClip m_changeClassSound;
         private Character2D m_char;
         
         protected override void OnConfigure() {
@@ -34,6 +36,7 @@ namespace GameToBeNamed.Character {
         
         private void DoTransitionIn() {
             m_rend.material.DOFloat(1, "_Fade", .5f);
+            AudioController.Instance.Play(m_changeClassSound, AudioController.SoundType.SoundEffect2D, 0.5f);
         }
         
         private void DoTransitionOut(Action onTransitionCallBack) {

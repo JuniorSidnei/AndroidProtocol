@@ -28,7 +28,7 @@ namespace GameToBeNamed.Character {
             m_char = Character2D;
             
             m_unallowedStatus = new List<PropertyName>() {
-                ActionStates.Dead, ActionStates.Talking, ActionStates.ReceivingDamage, ActionStates.Blocking
+                ActionStates.Dead, ActionStates.Talking, ActionStates.ReceivingDamage, ActionStates.Blocking, ActionStates.Dashing
             };
             m_originalSpeed = Speed;
         }
@@ -69,8 +69,9 @@ namespace GameToBeNamed.Character {
             }
             
             m_soundDisplacement += Mathf.Abs(m_char.PositionDelta.x);
+            
             if (m_soundDisplacement > SoundDisplacement) {
-                AudioController.Instance.Play(m_footStepsSound, AudioController.SoundType.SoundEffect2D, 0.1f);
+                AudioController.Instance.Play(m_footStepsSound, AudioController.SoundType.SoundEffect2D, 0.05f);
                 m_soundDisplacement = 0;
             }
             

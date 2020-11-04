@@ -11,7 +11,7 @@ namespace GameToBeNamed.Utils {
     public class GameManager : Singleton<GameManager> {
         
         public QueuedEventDispatcher GlobalDispatcher = new QueuedEventDispatcher();
-
+        
         private void Awake() {
             UIManager.Show();
         }

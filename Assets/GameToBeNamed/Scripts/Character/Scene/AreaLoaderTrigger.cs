@@ -10,11 +10,12 @@ namespace GameToBeNamed.Utils {
         public LayerMask PlayerLayer;
         [SerializeField] private SceneField m_sceneToLoad;
         [SerializeField] private SceneField m_sceneToUnload;
+        [SerializeField] private AudioClip m_areaBgMusic;
 
         private void OnTriggerEnter2D(Collider2D other) {
             
             if (((1 << other.gameObject.layer) & PlayerLayer) != 0) {
-                GameManager.Instance.GlobalDispatcher.Emit(new OnValidateScene(m_sceneToLoad, m_sceneToUnload));   
+                GameManager.Instance.GlobalDispatcher.Emit(new OnValidateScene(m_sceneToLoad, m_sceneToUnload, m_areaBgMusic));   
             }
         }
     }

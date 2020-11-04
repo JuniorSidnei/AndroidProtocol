@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using GameToBeNamed.Utils;
+using GameToBeNamed.Utils.Sound;
 using UnityEngine;
 
 namespace GameToBeNamed.Character {
@@ -17,6 +18,8 @@ namespace GameToBeNamed.Character {
         [SerializeField] private GameObject m_downJumpEffect; 
         [SerializeField] private GameObject m_upJumpEffect; 
         [SerializeField] private Transform m_jumpEffectPosition; 
+        [SerializeField] private AudioClip m_jumpStartSound; 
+        [SerializeField] private AudioClip m_jumpLandSound; 
         private IInputSource m_input;
         private Character2D m_char;
         private int m_dir;
@@ -57,6 +60,7 @@ namespace GameToBeNamed.Character {
             if (m_char.Controller2D.collisions.below && m_landJump) {
                 InstantiateController.Instance.InstantiateEffect(m_downJumpEffect, m_jumpEffectPosition.position);
                 m_landJump = false;
+                AudioController.Instance.Play(m_jumpLandSound, AudioController.SoundType.SoundEffect2D, 1f);
             }
             
             if (m_char.Velocity.y < 0) {
@@ -72,9 +76,11 @@ namespace GameToBeNamed.Character {
                 m_char.ActionStates[ActionStates.Jumping] = true;
                 InstantiateController.Instance.InstantiateEffect(m_upJumpEffect, m_jumpEffectPosition.position);
                 m_landJump = true;
+                AudioController.Instance.Play(m_jumpStartSound, AudioController.SoundType.SoundEffect2D, 0.5f);
                 
                 if (inputDir == 0) {
                     m_char.Velocity =  JumpForce * Vector2.up;
+                    
                 }
                 else {
                     m_char.Velocity = new Vector2(inputDir * JumpForce.x, JumpForce.y);

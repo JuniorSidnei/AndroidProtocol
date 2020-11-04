@@ -52,7 +52,7 @@ namespace GameToBeNamed.Character
             else if (m_input.HasAction(InputAction.Button3)) {
                 m_dir = -1;
             }
-
+            
             m_dashCooldownTimer -= Time.deltaTime;
             
             if (m_input.HasActionDown(InputAction.Button6) && m_dashCooldownTimer <= 0) {
