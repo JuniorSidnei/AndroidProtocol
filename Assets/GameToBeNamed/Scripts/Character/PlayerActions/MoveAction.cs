@@ -71,7 +71,7 @@ namespace GameToBeNamed.Character {
             m_soundDisplacement += Mathf.Abs(m_char.PositionDelta.x);
             
             if (m_soundDisplacement > SoundDisplacement) {
-                AudioController.Instance.Play(m_footStepsSound, AudioController.SoundType.SoundEffect2D, 0.05f);
+                AudioController.Instance.Play(m_footStepsSound, AudioController.SoundType.SoundEffect2D, 0.08f);
                 m_soundDisplacement = 0;
             }
             

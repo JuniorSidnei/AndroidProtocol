@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 65259006739578131}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.41, y: 0.6, z: 0}
+  m_LocalPosition: {x: 9.85, y: 1.49, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7054123030391772773}
@@ -54,7 +54,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5242675753832118612}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.21, y: -4.62, z: 0}
+  m_LocalPosition: {x: -1.3, y: -5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7054123030391772773}
@@ -248,7 +248,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.4575019, y: -0.13317776}
+  m_Offset: {x: -1.4874282, y: -0.122692585}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -259,7 +259,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.695936, y: 8.579219}
+  m_Size: {x: 4.202322, y: 9.76663}
   m_EdgeRadius: 0
 --- !u!50 &4495217425353230857
 Rigidbody2D:
@@ -391,7 +391,7 @@ MonoBehaviour:
         IsActionActive: 0
         Speed: 150
         SpeedSprint: 0
-        SoundDisplacement: 6
+        SoundDisplacement: 20
         InAirDrag: 3
         InGroundDrag: 5
         m_spriteVfx: {fileID: 7054123030057230247}

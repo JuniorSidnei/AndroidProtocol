@@ -142,7 +142,7 @@ MonoBehaviour:
         IsActionActive: 0
         Speed: 150
         SpeedSprint: 0
-        SoundDisplacement: 7
+        SoundDisplacement: 20
         InAirDrag: 2
         InGroundDrag: 5
         m_spriteVfx: {fileID: 3201174525823821392}
@@ -208,7 +208,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.12472892, y: -0.37515545}
+  m_Offset: {x: -0.12472892, y: -0.47294092}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -219,7 +219,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.323175, y: 9.097694}
+  m_Size: {x: 4.323175, y: 10.388465}
   m_EdgeRadius: 0
 --- !u!50 &8903071293105687355
 Rigidbody2D:
@@ -437,7 +437,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4801947224864706851}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -5.15, z: 0}
+  m_LocalPosition: {x: 0, y: -6.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3201174525415516839}

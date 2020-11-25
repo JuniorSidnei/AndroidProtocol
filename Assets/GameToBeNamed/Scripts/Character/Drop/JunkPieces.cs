@@ -20,7 +20,7 @@ namespace GameToBeNamed.Character {
             
             m_pieceAmount = Random.Range(1, 10);
 
-            m_rb.velocity += new Vector2(Random.Range(-30, 30), Random.Range(0, 50));
+            m_rb.velocity += new Vector2(Random.Range(-50, 50), Random.Range(0, 80));
         }
         
         private void OnTriggerEnter2D(Collider2D other) {

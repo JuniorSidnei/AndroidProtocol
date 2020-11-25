@@ -34,7 +34,7 @@ namespace GameToBeNamed.Character.Bullets {
                 return;
             }
             
-            if (((1 << ev.gameObject.layer) & m_wallLayer) == 0) {
+            if (((1 << ev.gameObject.layer) & m_wallLayer) != 0) {
                 var contactExplosion = Instantiate(m_onContactExplosion, transform.position, Quaternion.identity);
                 Destroy(gameObject);
                 return;
@@ -45,6 +45,7 @@ namespace GameToBeNamed.Character.Bullets {
             };
             GameManager.Instance.GlobalDispatcher.Emit(new OnAttackTriggerEnter(info, m_damage, ev.bounds.center));
             var temContactExplosion = Instantiate(m_onContactExplosion, ev.bounds.center, Quaternion.identity);
+            GameManager.Instance.GlobalDispatcher.Emit(new OnCameraScreenshake(1, .2f));
             gameObject.SetActive(false);
             Destroy(gameObject, 2f);
         }
