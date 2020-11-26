@@ -10,8 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f2cc6ba7100b3846bffc910ab82fa85, type: 3}
-  m_Name: IntroductionConversation
+  m_Name: Tutorial2
   m_EditorClassIdentifier: 
   Dialogs:
-  - Hello stranger!
-  - Thanks!
+  - The prototype one is skilled with the sword and can do great <CORRUPTED FILE>
+  - He's ablle to JUMP, ATTACK, BLOCK ATTACKS <CORRUPTED FILE>
+  - <CORRUPTED FILE> and DASH, even more! We need to find out his strength
+  - The prototype two can make SHOOT, JUMP, he's more fast <CORRUPTED FILE>
+  - 'Can jump higher <CORRUPTED FILE> They are ready! '
