@@ -171,6 +171,14 @@ namespace GameToBeNamed.Utils {
             OnTalkingNpc = onTalkingNpc;
         }
         public NpcBehavior Npc;
-        public bool OnTalkingNpc;
+        public bool OnTalkingNpc; 
+    }
+
+    public class OnAddNewMobOnCombatList {
+        public OnAddNewMobOnCombatList(Character2D newMob) {
+            NewMob = newMob;
+        }
+
+        public Character2D NewMob;
     }
 }

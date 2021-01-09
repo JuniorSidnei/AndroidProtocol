@@ -26,6 +26,8 @@ namespace GameToBeNamed.Character {
     public class OnBlocking { }
 
     public class OnJumpAttack { }
+    
+    public class OnFinishDeath { }
 
     public class OnReceivedAttack {
         public OnReceivedAttack(int damage, Vector2 damageContact, OnAttackTriggerEnter.Info attackInfo,
@@ -54,4 +56,11 @@ namespace GameToBeNamed.Character {
     public class OnFirstAttackFinish { }
 
     public class OnSecondAttackFinish { }
+
+    public class OnDeath {
+        public OnDeath(Character2D character) {
+            Character = character;
+        }
+        public Character2D Character;
+    }
 }

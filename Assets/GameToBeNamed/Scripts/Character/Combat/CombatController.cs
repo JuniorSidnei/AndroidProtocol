@@ -16,8 +16,20 @@ namespace GameToBeNamed.Character {
 
         private Character2D m_char;
         [SerializeField] private List<Character2D> m_mobs;
-        
-        
+
+        private void Awake() {
+            GameManager.Instance.GlobalDispatcher.Subscribe<OnAddNewMobOnCombatList>(OnAddNewMobOnCombatList);
+        }
+
+        private void OnAddNewMobOnCombatList(OnAddNewMobOnCombatList ev) {
+            if (!m_char) {
+                return;
+            }
+
+            ev.NewMob.transform.SetParent(transform);
+            m_mobs.Add(ev.NewMob);
+        }
+
         private void OnAttackTriggerEnter(OnAttackTriggerEnter ev) {
             
             if(ev.AttackInfo.Receiver.layer == ev.AttackInfo.Emiter.gameObject.layer) {

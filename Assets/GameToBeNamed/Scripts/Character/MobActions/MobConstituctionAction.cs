@@ -18,6 +18,7 @@ namespace GameToBeNamed.Character {
         private Character2D m_char;
         [SerializeField] private Collision2DProxy m_collisionBox;
         private int m_life;
+        [SerializeField] private bool _hasDeathAnimation;
         [SerializeField] private int m_maxLife;
         [SerializeField] private float m_damageCooldown;
         [SerializeField] private int m_damageColision;
@@ -30,17 +31,19 @@ namespace GameToBeNamed.Character {
 
         protected override void OnConfigure() {
             m_char = Character2D;
-            
             m_life = m_maxLife;
         }
 
         protected override void OnActivate() {
             m_char.LocalDispatcher.Subscribe<OnReceivedAttack>(OnReceivedAttack);
+            m_char.LocalDispatcher.Subscribe<OnFinishDeath>(OnFinishDeath);
             m_collisionBox.OnCollision2DEnterCallback.AddListener(OnCollision2DEnterCallback);
         }
 
+        
         protected override void OnDeactivate() {
             m_char.LocalDispatcher.Unsubscribe<OnReceivedAttack>(OnReceivedAttack);
+            m_char.LocalDispatcher.Unsubscribe<OnFinishDeath>(OnFinishDeath);
             m_collisionBox.OnCollision2DEnterCallback.RemoveListener(OnCollision2DEnterCallback);
         }
 
@@ -50,7 +53,6 @@ namespace GameToBeNamed.Character {
             var info = new OnAttackTriggerEnter.Info {
                     Emiter = m_char.gameObject, Receiver = ev.gameObject };
             GameManager.Instance.GlobalDispatcher.Emit(new OnAttackTriggerEnter(info, m_damageColision, ev.contacts[0].point));
-            
         }
 
         private void OnReceivedAttack(OnReceivedAttack ev) {
@@ -69,10 +71,30 @@ namespace GameToBeNamed.Character {
             
 
             if (m_life > 0) return;
+
+            
+            if (_hasDeathAnimation) {
+                m_char.LocalDispatcher.Emit(new OnDeath(m_char));
+            }
+            else {
+                OnDeath();
+            }
+        }
+
+        private void OnDeath() {
             
             InstantiateController.Instance.InstantiateEffect(ExplosionEffect, m_char.transform.position);
             AudioController.Instance.Play(m_dieExplosionSound, AudioController.SoundType.SoundEffect2D, 0.2f);
 
+            for (var i = 0; i < 5; i++) {
+                InstantiateController.Instance.InstantiateEffect(MoneyBox, m_char.transform.position);
+            }
+                
+            GameManager.Instance.GlobalDispatcher.Emit(new OnCharacterDeath(m_char));
+        }
+        
+        private void OnFinishDeath(OnFinishDeath ev) {
+            
             for (var i = 0; i < 5; i++) {
                 InstantiateController.Instance.InstantiateEffect(MoneyBox, m_char.transform.position);
             }

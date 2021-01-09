@@ -13,11 +13,13 @@ namespace GameToBeNamed.Character.Bullets {
         [SerializeField] private int m_damage;
         [SerializeField] private float m_speed;
         [SerializeField] private GameObject m_onContactExplosion;
+        [SerializeField] private AnimationCurve m_curve;
         [SerializeField] private LayerMask m_targetLayer;
         [SerializeField] private LayerMask m_wallLayer;
-
-
+        private ParticleSystem m_onContactExplosionParticleSystem;
+        
         private void Awake() {
+            m_onContactExplosionParticleSystem = m_onContactExplosion.transform.GetChild(2).GetComponentInChildren<ParticleSystem>();
             m_colliderBox.OnTrigger2DEnterCallback.AddListener(OnTrigger2DEnterCallback);
             Destroy(gameObject, .2f);
         }
@@ -45,6 +47,12 @@ namespace GameToBeNamed.Character.Bullets {
             };
             GameManager.Instance.GlobalDispatcher.Emit(new OnAttackTriggerEnter(info, m_damage, ev.bounds.center));
             var temContactExplosion = Instantiate(m_onContactExplosion, ev.bounds.center, Quaternion.identity);
+            
+            var forceOverLifetimeModule = m_onContactExplosionParticleSystem.forceOverLifetime;
+            forceOverLifetimeModule.enabled = true;
+            var b = forceOverLifetimeModule.space == ParticleSystemSimulationSpace.World;
+            forceOverLifetimeModule.x = new ParticleSystem.MinMaxCurve(100 * transform.localScale.x, m_curve);
+            
             GameManager.Instance.GlobalDispatcher.Emit(new OnCameraScreenshake(1, .2f));
             gameObject.SetActive(false);
             Destroy(gameObject, 2f);

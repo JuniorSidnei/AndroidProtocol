@@ -18,9 +18,9 @@ namespace GameToBeNamed.Character {
 
             m_rb = GetComponent<Rigidbody2D>();
             
-            m_pieceAmount = Random.Range(1, 10);
+            m_pieceAmount = Random.Range(5, 10);
 
-            m_rb.velocity += new Vector2(Random.Range(-50, 50), Random.Range(0, 80));
+            m_rb.velocity += new Vector2(Random.Range(-30, 30), Random.Range(0, 60));
         }
         
         private void OnTriggerEnter2D(Collider2D other) {

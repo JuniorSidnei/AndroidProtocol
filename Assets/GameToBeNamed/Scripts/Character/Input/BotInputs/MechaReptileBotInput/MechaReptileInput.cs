@@ -27,9 +27,9 @@ namespace GameToBeNamed.Character {
             m_triggerProxy.OnTrigger2DExitCallback.AddListener(OnTrigger2DExitCallback);
         }
 
-        
         public override void Update() {
             m_stateMachine.OnUpdate(Character, this);
+            
             
             if (IsTargetSet()) {
                 SetActionDown(InputAction.Button12);    
@@ -58,7 +58,8 @@ namespace GameToBeNamed.Character {
 
         //o role do bot vai ser tudo aqui nessa função
         public override void MoveToDestination(Vector3 destination) {
-
+            
+            
             if (!IsTargetSet()) {
                 UnsetActionDown(InputAction.Button4);
             }

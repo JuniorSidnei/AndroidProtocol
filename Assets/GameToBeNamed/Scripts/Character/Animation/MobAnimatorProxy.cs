@@ -9,6 +9,11 @@ namespace GameToBeNamed.Character {
         private void Start() {
             m_char2D.LocalDispatcher.Subscribe<OnReceivedAttack>(OnReceivedAttack);
             m_char2D.LocalDispatcher.Subscribe<OnFirstAttack>(OnFirstAttack);
+            m_char2D.LocalDispatcher.Subscribe<OnDeath>(OnDeath);
+        }
+
+        private void OnDeath(OnDeath ev) {
+            m_anim.SetTrigger("OnDeath");
         }
 
         private void FixedUpdate() {
@@ -36,6 +41,10 @@ namespace GameToBeNamed.Character {
         
         public void FinishAttack() {
             m_char2D.LocalDispatcher.Emit(new OnSecondAttackFinish());
+        }
+
+        public void FinishDeath() {
+            m_char2D.LocalDispatcher.Emit(new OnFinishDeath());
         }
     }
 }
