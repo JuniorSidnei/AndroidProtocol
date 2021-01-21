@@ -21,6 +21,7 @@ namespace GameToBeNamed.Character {
         [SerializeField] private bool _hasDeathAnimation;
         [SerializeField] private int m_maxLife;
         [SerializeField] private float m_damageCooldown;
+        [SerializeField] private bool _hasDamageCollision;
         [SerializeField] private int m_damageColision;
         [SerializeField] private Image m_lifeSplashImage;
         [SerializeField] private AudioClip m_dieExplosionSound;
@@ -49,22 +50,27 @@ namespace GameToBeNamed.Character {
 
 
         private void OnCollision2DEnterCallback(Collision2D ev) {
+            if (!_hasDamageCollision) return;
             
             var info = new OnAttackTriggerEnter.Info {
-                    Emiter = m_char.gameObject, Receiver = ev.gameObject };
-            GameManager.Instance.GlobalDispatcher.Emit(new OnAttackTriggerEnter(info, m_damageColision, ev.contacts[0].point));
+                Emiter = m_char.gameObject, Receiver = ev.gameObject
+            };
+            GameManager.Instance.GlobalDispatcher.Emit(new OnAttackTriggerEnter(info, m_damageColision,
+                ev.contacts[0].point));
         }
 
         private void OnReceivedAttack(OnReceivedAttack ev) {
 
-            if (m_damageCooldownTimer > Time.time || ev.OnBlocking) {
+            if (m_damageCooldownTimer > Time.time || ev.OnBlocking || ev.AttackInfo.Emiter == null) {
                 return;
             }
             
             AudioController.Instance.Play(m_hurtSound, AudioController.SoundType.SoundEffect2D, 0.2f);
             m_damageCooldownTimer = Time.time + m_damageCooldown;
             m_life -= ev.Damage;
-            m_lifeSplashImage.fillAmount = (float) m_life / m_maxLife;
+            
+            if(m_lifeSplashImage)
+                m_lifeSplashImage.fillAmount = (float) m_life / m_maxLife;
 
             GameManager.Instance.GlobalDispatcher.Emit(new OnCharacterDamage(ev.Damage, m_char.transform.position,
                 m_life, m_maxLife, false));

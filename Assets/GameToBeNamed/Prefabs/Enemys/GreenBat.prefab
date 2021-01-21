@@ -177,7 +177,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6196712125393861930}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -56.381042, y: -22.562386, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children:
@@ -241,8 +241,7 @@ MonoBehaviour:
         InAirDrag: 2
         InGroundDrag: 0
         m_spriteVfx: {fileID: 6196712126211821244}
-        m_footStepsSound: {fileID: 8300000, guid: ec474369c733f434ebb4368e2fb7bf7c,
-          type: 3}
+        m_footStepsSound: {fileID: 0}
     00000001:
       type: {class: MobProcessDamageAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
@@ -255,7 +254,7 @@ MonoBehaviour:
       data:
         IsActionActive: 0
         m_collisionBox: {fileID: 6196712125393861933}
-        m_maxLife: 100
+        m_maxLife: 1
         m_damageCooldown: 0.5
         m_damageColision: 50
         m_lifeSplashImage: {fileID: 2292951076772209664}
@@ -274,8 +273,8 @@ MonoBehaviour:
           m_states:
           - id: 4
         m_wayPoints:
-        - {x: -500, y: 0, z: 0}
-        - {x: -450, y: 0, z: 0}
+        - {x: -560, y: 0, z: 0}
+        - {x: -495, y: 0, z: 0}
     00000004:
       type: {class: PatrolState, ns: GameToBeNamed.Character, asm: CS-Player}
       data:

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8879324324202335027}
   - component: {fileID: 8879324324202335026}
   - component: {fileID: 7567242515011097145}
-  m_Layer: 14
+  m_Layer: 0
   m_Name: StandardBulletVfx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -201,7 +201,8 @@ GameObject:
   - component: {fileID: 3977548003128739096}
   - component: {fileID: 5306758065323744883}
   - component: {fileID: 8807870571962151741}
-  m_Layer: 14
+  - component: {fileID: 4932076796364874249}
+  m_Layer: 0
   m_Name: StandardBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -238,7 +239,7 @@ MonoBehaviour:
   m_colliderBox: {fileID: 8807870571962151741}
   m_damage: 30
   m_speed: 150
-  m_onContactExplosion: {fileID: 6699870486591376504, guid: 45decf4e7b07da947bb78e35e45a3935,
+  m_onContactExplosion: {fileID: 6699870486591376504, guid: 108be871b283aec41a2042d0fe48bfcb,
     type: 3}
   m_curve:
     serializedVersion: 2
@@ -331,3 +332,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LineOfSite: 0
   CircleCollider2D: {fileID: 0}
+--- !u!114 &4932076796364874249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8879324325392784300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5d67d8ad7f5f9f46a9a9c85060485f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  horizontalRayCount: 0
+  verticalRayCount: 0
+  horizontalRaySpacing: 0
+  verticalRaySpacing: 0
+  collider: {fileID: 0}
+  maxSlopeAngle: 80

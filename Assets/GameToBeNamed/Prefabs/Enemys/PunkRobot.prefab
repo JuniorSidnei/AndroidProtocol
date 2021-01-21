@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: 3150145055551074483}
   - component: {fileID: 5403311666772794633}
   m_Layer: 9
-  m_Name: vfx
+  m_Name: PunkRobotVfx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -364,6 +364,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_anim: {fileID: 3150145055551074483}
   m_char2D: {fileID: 2101162658026266990}
+  m_hasGroundCollision: 1
 --- !u!1 &4624111266376434068
 GameObject:
   m_ObjectHideFlags: 0
@@ -498,8 +499,10 @@ MonoBehaviour:
       data:
         IsActionActive: 0
         m_collisionBox: {fileID: 954528887747561706}
-        m_maxLife: 200
+        _hasDeathAnimation: 0
+        m_maxLife: 80
         m_damageCooldown: 0.2
+        _hasDamageCollision: 0
         m_damageColision: 50
         m_lifeSplashImage: {fileID: 8120407507057581768}
         m_dieExplosionSound: {fileID: 8300000, guid: 00a5d3890eb63954ba2b000574b39681,

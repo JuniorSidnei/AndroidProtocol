@@ -34,6 +34,10 @@ namespace GameToBeNamed.Character {
 
         private void OnReceivedAttack(OnReceivedAttack ev) {
 
+            if (ev.AttackInfo.Emiter == null) {
+                return;
+            }
+            
             m_char.ActionStates[ActionStates.ReceivingDamage] = true;
             
             InstantiateController.Instance.InstantiateEffect(m_onHitEffect, ev.DamageContact);

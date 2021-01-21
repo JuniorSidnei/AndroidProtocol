@@ -5,6 +5,8 @@ using UnityEngine;
 
 namespace GameToBeNamed.Character {
     public class MobAnimatorProxy : BaseAnimatorProxy {
+
+        [SerializeField] private bool m_hasGroundCollision;
         
         private void Start() {
             m_char2D.LocalDispatcher.Subscribe<OnReceivedAttack>(OnReceivedAttack);
@@ -17,11 +19,12 @@ namespace GameToBeNamed.Character {
         }
 
         private void FixedUpdate() {
+
+            if (!m_hasGroundCollision) {
+                return;
+            }
             
-            //OnGround
             m_anim.SetBool("OnGround", m_char2D.Controller2D.collisions.below);
-            
-            //Iddle/Run
             m_anim.SetFloat("VelX", Mathf.Abs(m_char2D.PositionDelta.x));
             
         }

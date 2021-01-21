@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Tutorial2
   m_EditorClassIdentifier: 
   Dialogs:
-  - The prototype one is skilled with the sword and can do great <CORRUPTED FILE>
-  - He's ablle to JUMP, ATTACK, BLOCK ATTACKS <CORRUPTED FILE>
-  - <CORRUPTED FILE> and DASH, even more! We need to find out his strength
-  - The prototype two can make SHOOT, JUMP, he's more fast <CORRUPTED FILE>
-  - 'Can jump higher <CORRUPTED FILE> They are ready! '
+  - The prototype W is skilled with the sword and can do great <CORRUPTED FILE>
+  - He's strong and has a great resilience <CORRUPTED FILE>
+  - <CORRUPTED FILE> and even more! We need to find out his strength
+  - The prototype S is skilled with guns, every gun, we just need  to <CORRUPTED
+    FILE>
+  - 'if we find more CORES they can be even more powerfull! <CORRUPTED FILE> They
+    are ready! '

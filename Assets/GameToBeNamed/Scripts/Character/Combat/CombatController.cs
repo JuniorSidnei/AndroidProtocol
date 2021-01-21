@@ -31,6 +31,10 @@ namespace GameToBeNamed.Character {
         }
 
         private void OnAttackTriggerEnter(OnAttackTriggerEnter ev) {
+
+            if (ev.AttackInfo.Emiter == null || ev.AttackInfo.Receiver == null) {
+                return;
+            }
             
             if(ev.AttackInfo.Receiver.layer == ev.AttackInfo.Emiter.gameObject.layer) {
                return; 

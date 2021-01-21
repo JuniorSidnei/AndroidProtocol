@@ -340,9 +340,9 @@ MonoBehaviour:
       type: {class: JumpAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
         IsActionActive: 0
-        JumpForce: {x: 20, y: 110}
+        JumpForce: {x: 20, y: 100}
         m_lowJumpMultiplier: 4
-        m_fallMultiplier: 6
+        m_fallMultiplier: 9
         m_downJumpEffect: {fileID: 4541717697892416001, guid: ecc8f19ff25b48c46b44e0258a411c28,
           type: 3}
         m_upJumpEffect: {fileID: 4541717697892416001, guid: 2f5886722ef11e647913fae8526c0308,
