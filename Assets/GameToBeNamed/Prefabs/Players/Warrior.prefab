@@ -92,7 +92,7 @@ MonoBehaviour:
         IsActionActive: 0
         JumpForce: {x: 20, y: 90}
         m_lowJumpMultiplier: 4
-        m_fallMultiplier: 6
+        m_fallMultiplier: 4
         m_downJumpEffect: {fileID: 4541717697892416001, guid: ecc8f19ff25b48c46b44e0258a411c28,
           type: 3}
         m_upJumpEffect: {fileID: 4541717697892416001, guid: 2f5886722ef11e647913fae8526c0308,
@@ -140,11 +140,11 @@ MonoBehaviour:
       type: {class: MoveAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
         IsActionActive: 0
-        Speed: 150
+        Speed: 180
         SpeedSprint: 0
         SoundDisplacement: 20
-        InAirDrag: 2
-        InGroundDrag: 5
+        InAirDrag: 4
+        InGroundDrag: 7
         m_spriteVfx: {fileID: 3201174525823821392}
         m_footStepsSound: {fileID: 8300000, guid: 2a62cd066e00a194ab4ed7c2fd7e0871,
           type: 3}

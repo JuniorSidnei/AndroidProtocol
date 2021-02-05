@@ -54,7 +54,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5242675753832118612}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.3, y: -5, z: 0}
+  m_LocalPosition: {x: -0.62, y: -5.72, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7054123030391772773}
@@ -248,7 +248,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.4874282, y: -0.122692585}
+  m_Offset: {x: -0.40517378, y: -0.3256154}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -259,7 +259,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.202322, y: 9.76663}
+  m_Size: {x: 6.366831, y: 10.352854}
   m_EdgeRadius: 0
 --- !u!50 &4495217425353230857
 Rigidbody2D:
@@ -340,9 +340,9 @@ MonoBehaviour:
       type: {class: JumpAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
         IsActionActive: 0
-        JumpForce: {x: 20, y: 100}
-        m_lowJumpMultiplier: 4
-        m_fallMultiplier: 9
+        JumpForce: {x: 30, y: 120}
+        m_lowJumpMultiplier: 3.5
+        m_fallMultiplier: 4.5
         m_downJumpEffect: {fileID: 4541717697892416001, guid: ecc8f19ff25b48c46b44e0258a411c28,
           type: 3}
         m_upJumpEffect: {fileID: 4541717697892416001, guid: 2f5886722ef11e647913fae8526c0308,
@@ -389,11 +389,11 @@ MonoBehaviour:
       type: {class: MoveAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
         IsActionActive: 0
-        Speed: 170
+        Speed: 200
         SpeedSprint: 0
         SoundDisplacement: 20
-        InAirDrag: 2
-        InGroundDrag: 5
+        InAirDrag: 5
+        InGroundDrag: 6
         m_spriteVfx: {fileID: 7054123030057230247}
         m_footStepsSound: {fileID: 8300000, guid: 2a62cd066e00a194ab4ed7c2fd7e0871,
           type: 3}

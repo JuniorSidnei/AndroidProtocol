@@ -508,7 +508,7 @@ MonoBehaviour:
         m_dieExplosionSound: {fileID: 8300000, guid: 00a5d3890eb63954ba2b000574b39681,
           type: 3}
         m_hurtSound: {fileID: 8300000, guid: 03c6e3d0d08b5bd45a3c8e7bb7b4c514, type: 3}
-        ExplosionEffect: {fileID: 1565985355217795680, guid: 2d4d627d318f1cb458c9b8ae79b95c7a,
+        ExplosionEffect: {fileID: 2715569658705303883, guid: 49d986b41f77ecc43beca8322cab4207,
           type: 3}
         MoneyBox: {fileID: 663016336894859358, guid: db2d97cc5a1f2d1468ad57d1fe5ead54,
           type: 3}
