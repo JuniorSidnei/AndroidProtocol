@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/GameToBeNamed/Scenes/UI/HUD.unity
     guid: 465c89d0bdebb2942985bb491f02f618
+  - enabled: 1
+    path: Assets/GameToBeNamed/Scenes/UI/IntroductionScene.unity
+    guid: bc21a48af01835f45ad225165aba92dd
   m_configObjects: {}
