@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: CinematicConversation
   m_EditorClassIdentifier: 
   Dialogs:
-  - AAAAAAAAAAAAAAAAAAAAA
-  - BBBBBBBBBBBBBB
+  - 'Long time ago humnanity '
+  - BBBBBBBBBBBB
   - CCCCCCCCCCCC
   - DDDDDDDDDDDDDDDDDDDD
   - EEEEEEEEEEEEEEEEEEE...
