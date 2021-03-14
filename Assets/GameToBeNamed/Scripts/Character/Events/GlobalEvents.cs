@@ -7,11 +7,14 @@ using UnityEngine;
 
 namespace GameToBeNamed.Utils {
 
+
+    public class OnGameStart {
+        public OnGameStart() { }
+    }
     
-    public class OnGameStart { }
     
     public class OnCameraScreenshake {
-
+        
         public OnCameraScreenshake(int force, float duration) {
             Shakeforce = force;
             ShakeDuration = duration;
@@ -97,12 +100,13 @@ namespace GameToBeNamed.Utils {
 
     
     public class OnCharacterConfigureConstitution {
-        public OnCharacterConfigureConstitution(int maxHealth, int currentHealth, Sprite iconSplash, Sprite lifeSplash) {
+        public OnCharacterConfigureConstitution(int maxHealth, int currentHealth, Sprite iconSplash, Sprite lifeSplash, PanelPlayingBehaviour.CharacterType type) {
             
             MaxHealth = maxHealth;
             CurrentHealth = currentHealth;
             IconSplash = iconSplash;
             LifeSplash = lifeSplash;
+            Type = type;
         }
 
         public int MaxHealth { get; set; }
@@ -110,6 +114,8 @@ namespace GameToBeNamed.Utils {
         
         public Sprite IconSplash;
         public Sprite LifeSplash;
+
+        public PanelPlayingBehaviour.CharacterType Type;
     }
 
     //Every attack should use this
@@ -180,5 +186,17 @@ namespace GameToBeNamed.Utils {
         }
 
         public Character2D NewMob;
+    }
+
+    public class OnUpdateAmmunitionAmount {
+        public OnUpdateAmmunitionAmount(int currentAmount, float rechargeTime, bool ammunitionOut) {
+            CurrentAmount = currentAmount;
+            RechargeTime = rechargeTime;
+            AmmunitionOut = ammunitionOut;
+        }
+
+        public int CurrentAmount;
+        public float RechargeTime;
+        public bool AmmunitionOut;
     }
 }

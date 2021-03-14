@@ -13,7 +13,6 @@ namespace GameToBeNamed.Utils {
         [SerializeField] private TransitionImageController m_transitionImageController;
         [SerializeField] private CanvasGroup m_menuPanel;
         [SerializeField] private TextMeshProUGUI m_mainTittle;
-        [SerializeField] private TextMeshProUGUI m_subTittle;
 
         private void Start() {
             StartCoroutine(showMainTittle());
@@ -30,9 +29,9 @@ namespace GameToBeNamed.Utils {
 
         private IEnumerator showMainTittle() {
             yield return new WaitForSeconds(0.5f);
-            m_mainTittle.DOFade(1, 0.5f);
-            yield return new WaitForSeconds(0.2f);
-            m_subTittle.DOFade(1, 0.5f);
+            m_mainTittle.DOFade(1, 0.5f).SetEase(Ease.InQuad);
+            yield return new WaitForSeconds(1f);
+            m_menuPanel.DOFade(1, 1f).SetEase(Ease.InQuad);
         }
     }
 }

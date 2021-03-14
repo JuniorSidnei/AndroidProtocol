@@ -106,6 +106,5 @@ namespace GameToBeNamed.Character
         public void FinishSecondAttack() {
             m_char2D.LocalDispatcher.Emit(new OnSecondAttackFinish());
         }
-       
     }
 }

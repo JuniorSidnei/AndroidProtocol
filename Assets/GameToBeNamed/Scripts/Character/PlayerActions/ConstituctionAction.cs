@@ -23,8 +23,10 @@ namespace GameToBeNamed.Character {
         [SerializeField] private GameObject m_hitEffect;
         [SerializeField] private AudioClip m_onHurtSound;
         [SerializeField] private AudioClip m_onBlockSound;
+        [SerializeField] private PanelPlayingBehaviour.CharacterType m_type;
         private float m_damageCooldownTimer;
-
+        
+        
         protected override void OnConfigure() {
             
             m_char = Character2D;
@@ -33,7 +35,7 @@ namespace GameToBeNamed.Character {
                 ActionStates.Blocking
             };
             
-            GameManager.Instance.GlobalDispatcher.Emit(new OnCharacterConfigureConstitution(characterStatusLife.MaxHealth, characterStatusLife.CurrentHealth, characterStatusLife.IconSplash, characterStatusLife.LifeSplash));
+            GameManager.Instance.GlobalDispatcher.Emit(new OnCharacterConfigureConstitution(characterStatusLife.MaxHealth, characterStatusLife.CurrentHealth, characterStatusLife.IconSplash, characterStatusLife.LifeSplash, m_type));
         }
 
         protected override void OnActivate() {

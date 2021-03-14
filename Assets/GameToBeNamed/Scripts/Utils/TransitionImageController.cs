@@ -11,6 +11,7 @@ namespace GameToBeNamed.Utils {
     public class TransitionImageController : MonoBehaviour {
         
         private Image m_image;
+        public string SceneToTransition;
 
         private void Awake() {
             m_image = GetComponent<Image>();
@@ -18,7 +19,7 @@ namespace GameToBeNamed.Utils {
 
         public void transitionIn() {
             m_image.material.DOFloat(1, "_Fade", 1.5f).SetEase(Ease.InQuad).OnComplete(() => {
-                changeScene("IntroductionScene");
+                changeScene(SceneToTransition);
             });
         }
 

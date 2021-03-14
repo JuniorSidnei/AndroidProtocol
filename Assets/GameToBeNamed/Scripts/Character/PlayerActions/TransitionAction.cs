@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using DG.Tweening;
 using GameToBeNamed.Utils;
 using GameToBeNamed.Utils.Sound;
@@ -14,11 +15,16 @@ namespace GameToBeNamed.Character {
         [SerializeField] private SpriteRenderer m_rend;
         [SerializeField] private AudioClip m_changeClassSound;
         private Character2D m_char;
+        private List<PropertyName> m_unallowedStatus;
+        
         
         protected override void OnConfigure() {
             m_char = Character2D;
             m_rend.material.SetFloat("_Fade", 0);
             DoTransitionIn();
+            m_unallowedStatus = new List<PropertyName>() {
+                ActionStates.Dead, ActionStates.Talking, ActionStates.ReceivingDamage, ActionStates.Blocking, ActionStates.Dashing, ActionStates.Unconscious
+            };
         }
 
         protected override void OnActivate() {
@@ -30,6 +36,10 @@ namespace GameToBeNamed.Character {
         }
 
         private void OnCharacterTransition(OnCharacterTransition ev) {
+            if (m_char.ActionStates.AllNotDefault(m_unallowedStatus).Any()) {
+                return;
+            }
+
             DoTransitionOut(ev.OnTransitionCallBack);
         }
         

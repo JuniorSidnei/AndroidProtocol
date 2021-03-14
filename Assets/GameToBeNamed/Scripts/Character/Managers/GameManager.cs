@@ -13,6 +13,7 @@ namespace GameToBeNamed.Utils {
         public QueuedEventDispatcher GlobalDispatcher = new QueuedEventDispatcher();
         
         private void Awake() {
+            GlobalDispatcher.Emit(new OnGameStart());
             UIManager.Show();
         }
 

@@ -29,7 +29,7 @@ namespace GameToBeNamed.Character {
             
             
             m_unallowedStatus = new List<PropertyName>() {
-                ActionStates.Dead, ActionStates.Talking, ActionStates.ReceivingDamage, ActionStates.Blocking, ActionStates.Dashing
+                ActionStates.Dead, ActionStates.Talking, ActionStates.ReceivingDamage, ActionStates.Blocking, ActionStates.Dashing, ActionStates.Unconscious
             };
             m_originalSpeed = Speed;
         }

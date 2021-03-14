@@ -31,7 +31,7 @@ namespace GameToBeNamed.Character {
             m_char = Character2D;
 
             m_unallowedStatus = new List<PropertyName>() {
-                ActionStates.Dead, ActionStates.Talking, ActionStates.ReceivingDamage
+                ActionStates.Dead, ActionStates.Talking, ActionStates.ReceivingDamage, ActionStates.Unconscious
             };
         }
 

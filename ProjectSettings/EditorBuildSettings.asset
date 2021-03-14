@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/GameToBeNamed/Scenes/Menu/MainMenu.unity
+    guid: c10570ec49497944eb35cc39ac179ee5
+  - enabled: 1
+    path: Assets/GameToBeNamed/Scenes/Menu/IntroductionScene.unity
+    guid: 63801e358259b6e49986f1fa257bf2b3
+  - enabled: 1
+    path: Assets/GameToBeNamed/Scenes/UI/HUD.unity
+    guid: 465c89d0bdebb2942985bb491f02f618
+  - enabled: 1
     path: Assets/GameToBeNamed/Scenes/Game/Laboratory/Laboratory.unity
     guid: fff5cc9d0d47c5541b7ad48f30de471f
   - enabled: 1
@@ -14,16 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/GameToBeNamed/Scenes/Game/DarkFlorest/DarkFlorest_2.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
+  - enabled: 0
     path: Assets/GameToBeNamed/Scenes/Game/DarkFlorest/Game2.unity
     guid: e63efd90583cfdc40852620440901e4d
-  - enabled: 1
-    path: Assets/GameToBeNamed/Scenes/UI/HUD.unity
-    guid: 465c89d0bdebb2942985bb491f02f618
-  - enabled: 0
-    path: Assets/GameToBeNamed/Scenes/UI/IntroductionScene-REBASE.unity
-    guid: bc21a48af01835f45ad225165aba92dd
-  - enabled: 1
-    path: Assets/GameToBeNamed/Scenes/Menu/IntroductionScene.unity
-    guid: 63801e358259b6e49986f1fa257bf2b3
   m_configObjects: {}

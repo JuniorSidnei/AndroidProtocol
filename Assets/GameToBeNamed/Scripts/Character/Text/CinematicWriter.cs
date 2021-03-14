@@ -1,21 +1,28 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using GameToBeNamed.Utils;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace GameToBeNamed.Character {
 
     public class CinematicWriter : MonoBehaviour {
         [Header("Audio typing")]
         [SerializeField] private AudioClip m_textTyping;
-        
-        [Header("Text settings")]
+
+        [Header("Cinematic stuff")]
+        public List<GameObject> CinematicObjects;
         public Conversation CinematicConversation;
         public TextMeshProUGUI TextConversation;
-
+        
+        [Header("LoadingStuff")]
+        public CanvasGroup LoadingStuff;
+        public Image LoadingBar;
+        
         [Header("Buttons")]
         public GameObject NextButton;
         public GameObject SkipButton;
@@ -23,7 +30,9 @@ namespace GameToBeNamed.Character {
         [Header("Transition")]
         [SerializeField] private TransitionImageController m_transitionImageController;
 
-        //TODO: FAZER TRANSIÇÃO PARA A CENA DO GAME E AJUSTAR O CALLBACK DA ULTIMA FALA OU DEIXAR FALA EM BRANCO
+        private AsyncOperation sceneLoading = new AsyncOperation();
+        private float loadingProgress = 0;
+        
         private void Start() {
             m_transitionImageController.transitionOut(() => {
                 CinematicConversation.Initialize((message) => {
@@ -42,12 +51,30 @@ namespace GameToBeNamed.Character {
         }
 
         public void cutSpeedch() {
-            SceneManager.LoadScene("Laboratory");
+
+            foreach (var obj in CinematicObjects) {
+                obj.SetActive(false);
+            }
+            
+            LoadingStuff.DOFade(1, 0.01f);
+            sceneLoading = SceneManager.LoadSceneAsync("Laboratory");
+            StartCoroutine(LoadingInitialScene());
         }
 
         private IEnumerator showSkipButton() {
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(5f);
             SkipButton.SetActive(true);
+        }
+
+        private IEnumerator LoadingInitialScene() {
+            while (!sceneLoading.isDone) {
+
+                loadingProgress = sceneLoading.progress;
+
+                loadingProgress = Mathf.Clamp01(sceneLoading.progress / .9f);
+                LoadingBar.DOFillAmount(loadingProgress, 0.1f).SetEase(Ease.InQuad);
+                yield return null;
+            }
         }
     }
 }

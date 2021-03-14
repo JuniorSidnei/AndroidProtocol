@@ -365,6 +365,7 @@ MonoBehaviour:
           type: 3}
         m_onHurtSound: {fileID: 8300000, guid: 9d4bad28e8e2b58488066b9735631863, type: 3}
         m_onBlockSound: {fileID: 0}
+        m_type: 1
     00000004:
       type: {class: CollectableAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:

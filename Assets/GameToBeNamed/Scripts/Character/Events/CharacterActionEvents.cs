@@ -56,6 +56,10 @@ namespace GameToBeNamed.Character {
     public class OnFirstAttackFinish { }
 
     public class OnSecondAttackFinish { }
+    
+    public class OnCharacterWakeUp { }
+    
+    public class OnFinishWakeUp { }
 
     public class OnDeath {
         public OnDeath(Character2D character) {

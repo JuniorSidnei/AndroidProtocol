@@ -37,7 +37,7 @@ namespace GameToBeNamed.Character{
             m_shootPosition = m_bulletSpawn.localPosition;
             
             m_unallowedStatus = new List<PropertyName>() {
-                ActionStates.Dead, ActionStates.Talking, ActionStates.ReceivingDamage    
+                ActionStates.Dead, ActionStates.Talking, ActionStates.ReceivingDamage, ActionStates.Unconscious    
             };
         }
 
@@ -57,6 +57,7 @@ namespace GameToBeNamed.Character{
             }
 
             SetDirection();
+            GameManager.Instance.GlobalDispatcher.Emit(new OnUpdateAmmunitionAmount(m_ammunitionAmount, m_fireRate, m_outOfAmmunition));
             
             if (m_ammunitionAmount <= 0) {
                 m_fireRate = 4f;
@@ -76,6 +77,7 @@ namespace GameToBeNamed.Character{
                 m_fireRate = 1f;
                 m_ammunitionAmount -= 1;
                 m_char.LocalDispatcher.Emit(new OnFirstAttack());
+                
             }
             else if (m_input.HasActionDown(InputAction.Button4) && m_outOfAmmunition) {
                 AudioController.Instance.Play(m_onOutOffAmmunitionSound, AudioController.SoundType.SoundEffect2D, 0.1f);
