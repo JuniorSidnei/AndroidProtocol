@@ -37,7 +37,7 @@ namespace GameToBeNamed.Character.NPC {
                 ChangeNPCState();
             }
 
-            if (m_player.GetButtonDown("CancelAction") && m_npcState != NpcBehavior.NPCstates.None) {
+            if (m_player.GetButtonDown("CancelAction") && m_npcState != NPCstates.None) {
                 UIManager.Instance.HandlePlaying();
                 GameManager.Instance.GlobalDispatcher.Emit(new OnTalking(this, false));
                 Count = 0;

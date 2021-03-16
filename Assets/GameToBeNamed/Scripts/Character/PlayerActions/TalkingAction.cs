@@ -26,7 +26,6 @@ namespace GameToBeNamed.Character {
         }
 
         private void OnTalking(OnTalking ev) {
-            
             m_char.ActionStates[ActionStates.Talking] = ev.OnTalkingNpc;
             m_char.Velocity = Vector2.zero;
         }

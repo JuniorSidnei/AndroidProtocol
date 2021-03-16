@@ -35,6 +35,8 @@ namespace GameToBeNamed.Character {
         [SerializeField]  private List<Image> m_ammunitionAmount;
         private bool m_isRechargeAnimationDone = true;
 
+
+        private bool isWarriorSkillHudActive = false;
         
         private void Awake() {
             
@@ -52,7 +54,7 @@ namespace GameToBeNamed.Character {
 
         private void OnCharacterChangeClass(OnCharacterChangeClass ev) {
             m_changeClassCooldownSplashImage.DOFillAmount(0, .01f).SetEase(Ease.Linear);
-            m_changeClassCooldownSplashImage.DOFillAmount(1, 10f).SetEase(Ease.Linear);
+            m_changeClassCooldownSplashImage.DOFillAmount(1, 4f).SetEase(Ease.Linear);
         }
 
 
@@ -91,6 +93,7 @@ namespace GameToBeNamed.Character {
         }
 
         private void showShooterSettings() {
+            isWarriorSkillHudActive = false;
             m_warriorSkillsContainer.SetActive(false);
             m_shooterSkillsContainer.SetActive(true);
             
@@ -100,6 +103,7 @@ namespace GameToBeNamed.Character {
         }
 
         private void showWarriorSettings() {
+            isWarriorSkillHudActive = true;
             m_shooterSkillsContainer.SetActive(false);
             m_warriorSkillsContainer.SetActive(true);
         }
@@ -140,6 +144,13 @@ namespace GameToBeNamed.Character {
         
         public  override void HandlePlayingMode() {
             base.HandlePlayingMode();
+            
+            if (isWarriorSkillHudActive) {
+                showWarriorSettings();
+            }
+            else {
+                showShooterSettings();
+            }
         }
         
         public  override void HandleConversationMode() {

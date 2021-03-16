@@ -2309,8 +2309,6 @@ MonoBehaviour:
   - {fileID: 974932122}
   - {fileID: 206376987}
   - {fileID: 584712304}
-  - {fileID: 1799691014}
-  - {fileID: 1519611227}
   m_conversationMode: []
   m_shopMode: []
   m_cinematicMode: []
@@ -2802,7 +2800,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_playingBehaviour: {fileID: 1460220892}
   m_conversationBehaviour: {fileID: 652573191}
-  m_shopBehaviour: {fileID: 0}
 --- !u!4 &1824750437
 Transform:
   m_ObjectHideFlags: 0
