@@ -37,6 +37,7 @@ namespace GameToBeNamed.Character {
 
 
         private bool isWarriorSkillHudActive = false;
+        private bool warriorUnlockedSkills = false;
         
         private void Awake() {
             
@@ -103,8 +104,11 @@ namespace GameToBeNamed.Character {
         }
 
         private void showWarriorSettings() {
-            isWarriorSkillHudActive = true;
             m_shooterSkillsContainer.SetActive(false);
+            isWarriorSkillHudActive = true;
+            
+            if (!warriorUnlockedSkills) return;
+
             m_warriorSkillsContainer.SetActive(true);
         }
 
