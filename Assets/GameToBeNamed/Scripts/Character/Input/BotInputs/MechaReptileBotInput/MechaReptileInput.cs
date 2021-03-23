@@ -104,8 +104,16 @@ namespace GameToBeNamed.Character {
             currentWayPoint = m_wayPoints[++currentWayPointIndex % m_wayPoints.Count];
         }
 
+        public override bool IsTargetClose(Vector3 target) {
+            throw new System.NotImplementedException();
+        }
+
         public override void SetAttackAction() {
             SetActionDown(InputAction.Button4);
+        }
+
+        public override void SetRunMovement() {
+            throw new System.NotImplementedException();
         }
 
         private void OnTrigger2DEnterCallback(Collider2D ev) {

@@ -17,7 +17,13 @@ namespace GameToBeNamed.Character {
 
     public class OnFirstAttack { }
 
-    public class OnSecondAttack { }
+    public class OnSecondAttack {
+        public OnSecondAttack(int comboStep) {
+            ComboStep = comboStep;
+        }
+
+        public int ComboStep;
+    }
 
     public class OnThirdAttack { }
 

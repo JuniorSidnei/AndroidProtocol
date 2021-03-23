@@ -21,4 +21,4 @@ MonoBehaviour:
   - CollectableAction
   - CameraController
   - TalkingAction
-  - GameStartAction
+  - DashAction

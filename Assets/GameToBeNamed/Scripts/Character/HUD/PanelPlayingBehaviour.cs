@@ -123,12 +123,12 @@ namespace GameToBeNamed.Character {
             
             if(ev.CurrentAmount == 0 && m_isRechargeAnimationDone) {
                 m_isRechargeAnimationDone = false;
-                StartCoroutine(rechargeAnimation());
+                StartCoroutine(rechargeAnimation(ev.RechargeTime));
             }
         }
 
-        private IEnumerator rechargeAnimation() {
-            yield return new WaitForSeconds(4f);
+        private IEnumerator rechargeAnimation(float rechargeTime) {
+            yield return new WaitForSeconds(rechargeTime);
             foreach (var amount in m_ammunitionAmount) {
                 amount.DOFade(1, 0.2f);
             }

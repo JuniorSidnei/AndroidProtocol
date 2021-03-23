@@ -52,6 +52,7 @@ namespace GameToBeNamed.Character
 
         //secondattack
         private void OnSecondAttack(OnSecondAttack ev) {
+            m_anim.SetInteger(ComboStep, ev.ComboStep);
             m_anim.SetTrigger("SecondAttack");
         }
 
@@ -104,6 +105,7 @@ namespace GameToBeNamed.Character
         }
         
         public void FinishSecondAttack() {
+            m_anim.SetInteger(ComboStep, 0);
             m_char2D.LocalDispatcher.Emit(new OnSecondAttackFinish());
         }
     }

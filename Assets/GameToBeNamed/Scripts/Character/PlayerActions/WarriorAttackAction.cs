@@ -60,20 +60,23 @@ namespace GameToBeNamed.Character
 
             m_direction = m_char.Velocity.x > 0 ? 1 : -1;
             m_comboIntervalTimer -= Time.deltaTime;
-
+            
+           
+            
             if (m_comboIntervalTimer <= 0) {
                 m_comboStep = 0;
             }
             
             if (m_input.HasActionDown(InputAction.Button4) && (m_comboStep == 0  && m_comboIntervalTimer < 0)) {
+                m_char.Velocity = new Vector2(0, 0);
                 m_comboStep = 1;
-                m_comboIntervalTimer = 1;
+                m_comboIntervalTimer = 0.5f;
                 m_char.LocalDispatcher.Emit(new OnFirstAttack());
                 AudioController.Instance.Play(m_attackSound, AudioController.SoundType.SoundEffect2D, 0.1f);
             }
-            else if (m_input.HasActionDown(InputAction.Button4) && (m_comboStep == 1 && m_comboIntervalTimer >= 0)) {
-                m_char.LocalDispatcher.Emit(new OnSecondAttack());
-                m_comboStep = 0;
+            else if (m_input.HasActionDown(InputAction.Button4) && (m_comboStep == 1 && m_comboIntervalTimer > 0)) {
+                m_char.Velocity = new Vector2(0, 0);
+                m_char.LocalDispatcher.Emit(new OnSecondAttack(m_comboStep));
             }
         }
         
@@ -95,13 +98,14 @@ namespace GameToBeNamed.Character
         private void OnFirstAttackFinish(OnFirstAttackFinish ev) {
             m_attackBox.BoxCollider.enabled = false;
             m_char.ActionStates[ActionStates.Attacking] = false;
-            GameManager.Instance.GlobalDispatcher.Emit(new OnCameraScreenshake(1, .2f));
+            //GameManager.Instance.GlobalDispatcher.Emit(new OnCameraScreenshake(1, .2f));
             AudioController.Instance.Play(m_hitGroundSound, AudioController.SoundType.SoundEffect2D, 0.3f);
         }
         
         private void OnSecondAttackFinish(OnSecondAttackFinish ev) {
             m_attackBox.BoxCollider.enabled = false;
             m_char.ActionStates[ActionStates.Attacking] = false;
+            m_comboStep = 0;
         }
     }
 }

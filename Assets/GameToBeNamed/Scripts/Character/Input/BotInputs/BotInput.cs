@@ -27,9 +27,13 @@ namespace GameToBeNamed.Character {
 
         public abstract bool IsDestinationReached(Vector3 target);
 
+        public abstract bool IsTargetClose(Vector3 target);
+
         public abstract bool IsTargetSet();
 
         public abstract void SetNextMovement();
+
+        public abstract void SetRunMovement();
 
         public abstract void SetAttackAction();
 

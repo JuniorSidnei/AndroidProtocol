@@ -53,6 +53,14 @@ namespace GameToBeNamed.Character {
             return false;
         }
 
+        public override bool IsTargetClose(Vector3 target) {
+            throw new System.NotImplementedException();
+        }
+
+        public override void SetRunMovement() {
+            throw new System.NotImplementedException();
+        }
+
         public override bool IsTargetSet() { throw new System.NotImplementedException(); }
 
         public override void SetNextMovement() {

@@ -13,7 +13,7 @@ namespace GameToBeNamed.Character
         [SerializeField] private int m_damage;
         [SerializeField] private Collision2DProxy m_attackBox;
         private Vector2 m_attackBoxPosition;
-        [SerializeField] private SpriteRenderer m_spriteRenderer;
+        [SerializeField] private GameObject m_spriteVfx;
         private float m_direction;
         private Character2D m_char;
         private IInputSource m_input;
@@ -54,7 +54,7 @@ namespace GameToBeNamed.Character
             if (m_input.HasActionDown(InputAction.Button4) && !m_char.Controller2D.collisions.below) {
                 m_char.ActionStates[ActionStates.Attacking] = true;
                 m_char.LocalDispatcher.Emit(new OnJumpAttack());
-                SetDirection();
+                //SetDirection();
             }
         }
 
@@ -67,7 +67,7 @@ namespace GameToBeNamed.Character
         
         private void OnWarriorAirAttack(OnWarriorAirAttack ev) {
             m_attackBox.BoxCollider.enabled = true;
-            m_attackBox.transform.localPosition = new Vector3(m_direction * m_attackBoxPosition.x, m_attackBoxPosition.y,0);
+            //m_attackBox.transform.localPosition = new Vector3(m_direction * m_attackBoxPosition.x, m_attackBoxPosition.y,0);
         }
         
         private void OnAttackFinish(OnSecondAttackFinish ev) {
@@ -75,14 +75,14 @@ namespace GameToBeNamed.Character
             m_char.ActionStates[ActionStates.Attacking] = false;
         }
 
-        private void SetDirection() {
-            
-            if (m_spriteRenderer.flipX) {
-                m_direction = -1;
-            }
-            else if(!m_spriteRenderer.flipX) {
-                m_direction = 1;
-            }
-        }
+//        private void SetDirection() {
+//            
+//            if (m_spriteRenderer.flipX) {
+//                m_direction = -1;
+//            }
+//            else if(!m_spriteRenderer.flipX) {
+//                m_direction = 1;
+//            }
+//        }
     }
 }

@@ -1,0 +1,230 @@
+fileFormatVersion: 2
+guid: f197bbb0894794c43a43d7543c015123
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 9205572373031657963
+    second: All-Parts---Single-Sprite-Sheet_0
+  - first:
+      213: -7139919821883662782
+    second: All-Parts---Single-Sprite-Sheet_1
+  - first:
+      213: 7797606937139391001
+    second: All-Parts---Single-Sprite-Sheet_2
+  - first:
+      213: 2753056287675406845
+    second: All-Parts---Single-Sprite-Sheet_3
+  - first:
+      213: -4320108784153941588
+    second: All-Parts---Single-Sprite-Sheet_4
+  - first:
+      213: 161729849983894134
+    second: All-Parts---Single-Sprite-Sheet_5
+  - first:
+      213: -2352323547326852205
+    second: All-Parts---Single-Sprite-Sheet_6
+  - first:
+      213: 7721389240856822555
+    second: All-Parts---Single-Sprite-Sheet_7
+  - first:
+      213: -9197210946560047206
+    second: All-Parts---Single-Sprite-Sheet_8
+  - first:
+      213: -5424971932404616831
+    second: All-Parts---Single-Sprite-Sheet_9
+  - first:
+      213: -2565294739805326411
+    second: All-Parts---Single-Sprite-Sheet_10
+  - first:
+      213: -7483018889596154446
+    second: All-Parts---Single-Sprite-Sheet_11
+  - first:
+      213: -7129688414030123821
+    second: All-Parts---Single-Sprite-Sheet_12
+  - first:
+      213: -8792661972703221751
+    second: All-Parts---Single-Sprite-Sheet_13
+  - first:
+      213: -6245362130467122877
+    second: All-Parts---Single-Sprite-Sheet_14
+  - first:
+      213: -4329909762151006444
+    second: All-Parts---Single-Sprite-Sheet_15
+  - first:
+      213: -5641673098379792651
+    second: All-Parts---Single-Sprite-Sheet_16
+  - first:
+      213: 1488922336009231691
+    second: All-Parts---Single-Sprite-Sheet_17
+  - first:
+      213: 6728655122482006684
+    second: All-Parts---Single-Sprite-Sheet_18
+  - first:
+      213: 390139115254887564
+    second: All-Parts---Single-Sprite-Sheet_19
+  - first:
+      213: -5849600457362817967
+    second: All-Parts---Single-Sprite-Sheet_20
+  - first:
+      213: -4214551089892385529
+    second: All-Parts---Single-Sprite-Sheet_21
+  - first:
+      213: -2877913620666784072
+    second: All-Parts---Single-Sprite-Sheet_22
+  - first:
+      213: -7848833468345804994
+    second: All-Parts---Single-Sprite-Sheet_23
+  - first:
+      213: -7906657270167659876
+    second: All-Parts---Single-Sprite-Sheet_24
+  - first:
+      213: 6732746019961259584
+    second: All-Parts---Single-Sprite-Sheet_25
+  - first:
+      213: 234515548096840670
+    second: All-Parts---Single-Sprite-Sheet_26
+  - first:
+      213: -5829237953244949696
+    second: All-Parts---Single-Sprite-Sheet_27
+  - first:
+      213: 6366401897289356996
+    second: All-Parts---Single-Sprite-Sheet_28
+  - first:
+      213: 366696229630114511
+    second: All-Parts---Single-Sprite-Sheet_0
+  - first:
+      213: -2520369347198816949
+    second: All-Parts---Single-Sprite-Sheet_12
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 60
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: All-Parts---Single-Sprite-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 8
+        width: 231
+        height: 1041
+      alignment: 9
+      pivot: {x: 0.5212344, y: 0.22028038}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bd451677f9f62890800000000000000
+      internalID: -7483018889596154446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: b82735aa7fc62cf41a83d27fbaa620ee
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

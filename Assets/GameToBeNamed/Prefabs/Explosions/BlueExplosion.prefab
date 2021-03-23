@@ -9693,6 +9693,56 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9188494423323629433, guid: f574156a65b49f043983ddab265d1842,
+        type: 3}
+      propertyPath: ForceModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9188494423323629433, guid: f574156a65b49f043983ddab265d1842,
+        type: 3}
+      propertyPath: ForceModule.x.minMaxState
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9188494423323629433, guid: f574156a65b49f043983ddab265d1842,
+        type: 3}
+      propertyPath: ForceModule.x.scalar
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 9188494423323629433, guid: f574156a65b49f043983ddab265d1842,
+        type: 3}
+      propertyPath: ForceModule.x.maxCurve.m_Curve.Array.data[0].inWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9188494423323629433, guid: f574156a65b49f043983ddab265d1842,
+        type: 3}
+      propertyPath: ForceModule.x.maxCurve.m_Curve.Array.data[0].outWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9188494423323629433, guid: f574156a65b49f043983ddab265d1842,
+        type: 3}
+      propertyPath: ForceModule.x.maxCurve.m_Curve.Array.data[1].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9188494423323629433, guid: f574156a65b49f043983ddab265d1842,
+        type: 3}
+      propertyPath: ForceModule.x.maxCurve.m_Curve.Array.data[1].inSlope
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9188494423323629433, guid: f574156a65b49f043983ddab265d1842,
+        type: 3}
+      propertyPath: ForceModule.x.maxCurve.m_Curve.Array.data[1].outSlope
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9188494423323629433, guid: f574156a65b49f043983ddab265d1842,
+        type: 3}
+      propertyPath: ForceModule.x.maxCurve.m_Curve.Array.data[1].inWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9188494423323629433, guid: f574156a65b49f043983ddab265d1842,
+        type: 3}
+      propertyPath: ForceModule.x.maxCurve.m_Curve.Array.data[1].outWeight
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f574156a65b49f043983ddab265d1842, type: 3}
 --- !u!4 &1509053448957519329 stripped

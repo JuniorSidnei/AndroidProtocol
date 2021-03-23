@@ -13,6 +13,7 @@ namespace GameToBeNamed.Character{
         
         
         [SerializeField] private float m_fireRate;
+        [SerializeField] private float m_rechargingCooldown;
         [SerializeField] private GameObject m_bullet;
         [SerializeField] private GameObject m_muzzleFlashPtc;
         [SerializeField] private Transform m_bulletSpawn;
@@ -29,6 +30,7 @@ namespace GameToBeNamed.Character{
         private Vector2 m_shootPosition;
         private int m_direction;
         private bool m_outOfAmmunition;
+        private float m_fireRateCooldown;
         
         protected override void OnConfigure() {
             m_input = Character2D.Input;
@@ -39,6 +41,8 @@ namespace GameToBeNamed.Character{
             m_unallowedStatus = new List<PropertyName>() {
                 ActionStates.Dead, ActionStates.Talking, ActionStates.ReceivingDamage, ActionStates.Unconscious    
             };
+
+            m_fireRateCooldown = m_fireRate;
         }
 
         protected override void OnActivate() {
@@ -57,16 +61,16 @@ namespace GameToBeNamed.Character{
             }
 
             SetDirection();
-            GameManager.Instance.GlobalDispatcher.Emit(new OnUpdateAmmunitionAmount(m_ammunitionAmount, m_fireRate, m_outOfAmmunition));
+            GameManager.Instance.GlobalDispatcher.Emit(new OnUpdateAmmunitionAmount(m_ammunitionAmount, m_rechargingCooldown, m_outOfAmmunition));
             
             if (m_ammunitionAmount <= 0) {
-                m_fireRate = 4f;
+                m_fireRateCooldown = m_rechargingCooldown;
                 m_ammunitionAmount = m_startAmmunitionAmount;
                 AudioController.Instance.Play(m_onLoadingSound, AudioController.SoundType.SoundEffect2D, 1f);
                 m_outOfAmmunition = true;
             }
             
-            if (m_input.HasActionDown(InputAction.Button4) &&  m_fireRate < 0) {
+            if (m_input.HasActionDown(InputAction.Button4) &&  m_fireRateCooldown < 0) {
 
                 m_outOfAmmunition = false;
                 AudioController.Instance.Play(m_onShootSound, AudioController.SoundType.SoundEffect2D, 0.1f);
@@ -74,7 +78,7 @@ namespace GameToBeNamed.Character{
                 m_bulletSpawn.localPosition = new Vector3(m_direction * m_shootPosition.x, m_shootPosition.y);
                 InstantiateController.Instance.InstantiateDirectionalEffect(m_bullet, m_bulletSpawn.position, m_direction);
                 InstantiateController.Instance.InstantiateDirectionalEffect(m_muzzleFlashPtc, m_bulletSpawn.position, -m_direction);
-                m_fireRate = 1f;
+                m_fireRateCooldown = m_fireRate;
                 m_ammunitionAmount -= 1;
                 m_char.LocalDispatcher.Emit(new OnFirstAttack());
                 
@@ -83,7 +87,7 @@ namespace GameToBeNamed.Character{
                 AudioController.Instance.Play(m_onOutOffAmmunitionSound, AudioController.SoundType.SoundEffect2D, 0.1f);
             }
 
-            m_fireRate -= Time.deltaTime;
+            m_fireRateCooldown -= Time.deltaTime;
         }
 
         private void SetDirection() {

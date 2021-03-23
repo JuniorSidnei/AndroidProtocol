@@ -116,6 +116,7 @@ MonoBehaviour:
         m_onHurtSound: {fileID: 8300000, guid: d10b828b12c8325479dfd49bb65327ba, type: 3}
         m_onBlockSound: {fileID: 8300000, guid: 2bbbada93b7faca4f87ab87c994634bc,
           type: 3}
+        m_type: 0
     00000004:
       type: {class: CollectableAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
@@ -155,9 +156,9 @@ MonoBehaviour:
         DashEffect: {fileID: 5462726724862216830, guid: 1e1aec2aa305e22488e7da5a54084647,
           type: 3}
         m_dashPositionEffect: {fileID: 7297325523716540212}
-        m_dashCooldown: 1
-        DashForce: 50
-        DashDrag: 2
+        m_dashCooldown: 0.5
+        DashForce: 120
+        DashDrag: 4
     00000009:
       type: {class: BlockAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
@@ -437,7 +438,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4801947224864706851}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -6.05, z: 0}
+  m_LocalPosition: {x: 0, y: -4.99, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3201174525415516839}

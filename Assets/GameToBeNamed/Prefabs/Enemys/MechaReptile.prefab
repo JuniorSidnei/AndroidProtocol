@@ -403,7 +403,7 @@ MonoBehaviour:
       data:
         IsActionActive: 0
         Speed: 20
-        SpeedSprint: 70
+        SpeedSprint: 110
         SoundDisplacement: 3
         InAirDrag: 2
         InGroundDrag: 5
@@ -414,9 +414,9 @@ MonoBehaviour:
       type: {class: JumpAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
         IsActionActive: 0
-        JumpForce: {x: 5, y: 90}
-        m_lowJumpMultiplier: 4
-        m_fallMultiplier: 6
+        JumpForce: {x: 10, y: 110}
+        m_lowJumpMultiplier: 3.5
+        m_fallMultiplier: 4.5
         m_downJumpEffect: {fileID: 4541717697892416001, guid: ecc8f19ff25b48c46b44e0258a411c28,
           type: 3}
         m_upJumpEffect: {fileID: 4541717697892416001, guid: 2f5886722ef11e647913fae8526c0308,
@@ -448,7 +448,7 @@ MonoBehaviour:
         IsActionActive: 0
         m_onHitEffect: {fileID: 8252051896981874538, guid: de3c69e3409cb734590546c334f1b2a6,
           type: 3}
-        m_knockbackForce: {x: 30, y: 20}
+        m_knockbackForce: {x: 40, y: 30}
     00000004:
       type: {class: MobAttackAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:

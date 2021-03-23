@@ -46,14 +46,13 @@ namespace GameToBeNamed.Character
                 return;
             }
             
-            if (m_input.HasAction(InputAction.Button2)) {
-                m_dir = 1;
-            }
-            else if (m_input.HasAction(InputAction.Button3)) {
-                m_dir = -1;
-            }
-            
+            var m_dir = m_input.HasAction(InputAction.Button3) ? -1 : m_input.HasAction(InputAction.Button2) ? 1 : 0;
+
             m_dashCooldownTimer -= Time.deltaTime;
+
+            if (m_dir == 0) {
+                return;
+            }
             
             if (m_input.HasActionDown(InputAction.Button6) && m_dashCooldownTimer <= 0) {
 
@@ -64,7 +63,7 @@ namespace GameToBeNamed.Character
                 //InstantiateController.Instance.InstantiateDirectionalEffect(DashEffect, m_dashPositionEffect.position, m_dir);
                 m_dashCooldownTimer = m_dashCooldown;
                 var to = m_char.Velocity.x;
-                DOTween.To(() => Character2D.Velocity.x, x => Character2D.Velocity.x = to, to, .2f).SetEase(Ease.Linear).OnComplete(() => {
+                DOTween.To(() => Character2D.Velocity.x, x => Character2D.Velocity.x = to, to, .1f).SetEase(Ease.Linear).OnComplete(() => {
                     m_char.ActionStates[ActionStates.Dashing] = false;
                 });
             }
