@@ -16,6 +16,7 @@ namespace GameToBeNamed.Character.Bullets {
         [SerializeField] private AnimationCurve m_curve;
         [SerializeField] private LayerMask m_targetLayer;
         [SerializeField] private LayerMask m_wallLayer;
+        [SerializeField] private float m_lifeTime;
         private ParticleSystem m_onContactExplosionParticleSystem;
         
         private void Awake() {
@@ -55,7 +56,7 @@ namespace GameToBeNamed.Character.Bullets {
             
             GameManager.Instance.GlobalDispatcher.Emit(new OnCameraScreenshake(1, .2f));
             gameObject.SetActive(false);
-            Destroy(gameObject, 1f);
+            Destroy(gameObject, m_lifeTime);
         }
     }
 }

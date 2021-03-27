@@ -12,7 +12,7 @@ namespace GameToBeNamed.Character {
     [Serializable]
     public class TransitionAction : CharacterAction {
 
-        [SerializeField] private List<SpriteRenderer> m_rends;
+        [SerializeField] private SpriteRenderer m_rend;
         [SerializeField] private AudioClip m_changeClassSound;
         private Character2D m_char;
         private List<PropertyName> m_unallowedStatus;
@@ -20,10 +20,8 @@ namespace GameToBeNamed.Character {
         
         protected override void OnConfigure() {
             m_char = Character2D;
-            foreach (var rend in m_rends) {
-                rend.material.SetFloat("_Fade", 0);
-            }
-            
+            m_rend.material.SetFloat("_Fade", 0);
+
             DoTransitionIn();
             m_unallowedStatus = new List<PropertyName>() {
                 ActionStates.Dead, ActionStates.Talking, ActionStates.ReceivingDamage, ActionStates.Blocking, ActionStates.Dashing, ActionStates.Unconscious
@@ -48,17 +46,12 @@ namespace GameToBeNamed.Character {
         
         
         private void DoTransitionIn() {
-            foreach (var rend in m_rends) {
-                rend.material.SetFloat("_Fade", 1);
-            }
+            m_rend.material.DOFloat(1, "_Fade", 0.5f);
             AudioController.Instance.Play(m_changeClassSound, AudioController.SoundType.SoundEffect2D, 0.5f);
         }
         
         private void DoTransitionOut(Action onTransitionCallBack) {
-            foreach (var rend in m_rends) {
-                rend.material.SetFloat("_Fade", 0);
-                onTransitionCallBack?.Invoke();
-            }
+            m_rend.material.DOFloat(0, "_Fade", 0.5f).OnComplete(() => { onTransitionCallBack?.Invoke(); });
         }
     }
 }

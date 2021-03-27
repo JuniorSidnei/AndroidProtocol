@@ -26,6 +26,7 @@ namespace GameToBeNamed.Character {
             
             m_anim.SetBool("OnGround", m_char2D.Controller2D.collisions.below);
             m_anim.SetFloat("VelX", Mathf.Abs(m_char2D.PositionDelta.x));
+            m_anim.SetFloat("VelY", Mathf.Abs(m_char2D.PositionDelta.y));
             
         }
 

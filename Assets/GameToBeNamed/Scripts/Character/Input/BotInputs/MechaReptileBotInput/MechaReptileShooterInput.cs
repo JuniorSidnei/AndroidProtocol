@@ -12,6 +12,7 @@ namespace GameToBeNamed.Character {
         [SerializeField] private StateMachine m_stateMachine;
         [SerializeField] private List<Vector3> m_wayPoints;
         [SerializeField] private Collision2DProxy m_triggerProxy;
+        [SerializeField] private SpriteRenderer m_spriteVfx;
 
         public Character2D Character { get; private set; }
 
@@ -24,20 +25,18 @@ namespace GameToBeNamed.Character {
             m_stateMachine.OnConfigure();
             m_stateMachine.ChangeState<PatrolState>(Character, this);
             m_triggerProxy.OnTrigger2DEnterCallback.AddListener(OnTrigger2DEnterCallback);
-            m_triggerProxy.OnTrigger2DExitCallback.AddListener(OnTrigger2DExitCallback);
         }
 
         public override void Update() {
+
+            if (m_target && Vector3.Distance(m_target.transform.position, Character.transform.position) > 40f) {
+                UnsetActionDown(InputAction.Button4);
+                SetTarget(null); 
+                m_stateMachine.ChangeState<PatrolState>(Character, this);
+            }
+            
             m_stateMachine.OnUpdate(Character, this);
             
-            
-//            if (IsTargetSet()) {
-//                SetActionDown(InputAction.Button12);    
-//            }
-//            else {
-//                UnsetActionDown(InputAction.Button12);
-//            }
-
             if (Character.Controller2D.collisions.left || Character.Controller2D.collisions.right) {
                 SetActionDown(InputAction.Button1);
             }
@@ -57,6 +56,8 @@ namespace GameToBeNamed.Character {
         public override bool SearchDestination() { throw new System.NotImplementedException(); }
         
         public override void MoveToDestination(Vector3 destination) {
+            
+            SetActionDown(InputAction.Button12);
             
             if (Character.transform.position.x < destination.x) {
                 UnsetAction(InputAction.Button3);
@@ -80,8 +81,7 @@ namespace GameToBeNamed.Character {
         public override bool IsTargetClose(Vector3 target) {
             if (!IsTargetSet()) return false;
             
-            UnsetAction(InputAction.Button4);
-            return Vector3.Distance(Character.transform.position, target) < 30f;
+            return Vector3.Distance(Character.transform.position, target) < 35f;
         }
 
         public override bool IsTargetSet() {
@@ -93,15 +93,25 @@ namespace GameToBeNamed.Character {
         }
 
         public override void SetRunMovement() {
-            UnsetAction(InputAction.Button4);
+            UnsetActionDown(InputAction.Button4);
             m_stateMachine.ChangeState<RunState>(Character, this);
         }
 
         public override void SetAttackAction() {
-            SetActionDown(Character.transform.position.x > m_target.transform.position.x
-                ? InputAction.Button2
-                : InputAction.Button3);
+            if (!m_target) {
+                return;
+            }
+            
+//            if (Character.transform.position.y - 30 > m_target.transform.position.y ||
+//                Character.transform.position.y + 30 < m_target.transform.position.y) {
+//                return;
+//            }
+            
+            UnsetAction(InputAction.Button12);
+            m_spriteVfx.flipX = !(m_target.transform.position.x > Character.transform.position.x);
 
+            UnsetAction(InputAction.Button2);
+            UnsetAction(InputAction.Button3);
             SetActionDown(InputAction.Button4);
         }
 
@@ -110,13 +120,6 @@ namespace GameToBeNamed.Character {
             
             SetTarget(ev.gameObject);
             m_stateMachine.ChangeState<AttackState>(Character, this);
-        }
-        
-        private void OnTrigger2DExitCallback(Collider2D ev) {
-            if (((1 << ev.gameObject.layer) & m_targetLayer) == 0) return;
-            
-            SetTarget(null);
-            m_stateMachine.ChangeState<PatrolState>(Character, this);
         }
     }
 }

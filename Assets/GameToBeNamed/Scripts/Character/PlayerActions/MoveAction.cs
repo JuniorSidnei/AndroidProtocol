@@ -15,7 +15,7 @@ namespace GameToBeNamed.Character {
         [SerializeField] private float SpeedSprint;
         [SerializeField] private float SoundDisplacement;
         [SerializeField] private float InAirDrag = 0.5f, InGroundDrag = 5;
-        [SerializeField] private GameObject m_spriteVfx;
+        [SerializeField] private SpriteRenderer m_spriteVfx;
         [SerializeField] private AudioClip m_footStepsSound;
         
         private IInputSource m_input;
@@ -79,12 +79,12 @@ namespace GameToBeNamed.Character {
             
             if (m_input.HasAction(InputAction.Button2)) {//right
                 m_char.Velocity += new Vector2(Speed * Time.deltaTime, 0);
-                m_spriteVfx.transform.localScale = new Vector3(1, 0, 0);
+                m_spriteVfx.flipX = false;
             }
             
             if (m_input.HasAction(InputAction.Button3)) {//left
                 m_char.Velocity -= new Vector2(Speed * Time.deltaTime, 0);
-                m_spriteVfx.transform.localScale = new Vector3(-1, 0, 0);
+                m_spriteVfx.flipX = true;
             }
         }
     }

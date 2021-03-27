@@ -9706,7 +9706,7 @@ PrefabInstance:
     - target: {fileID: 9188494423323629433, guid: f574156a65b49f043983ddab265d1842,
         type: 3}
       propertyPath: ForceModule.x.scalar
-      value: 100
+      value: -100
       objectReference: {fileID: 0}
     - target: {fileID: 9188494423323629433, guid: f574156a65b49f043983ddab265d1842,
         type: 3}

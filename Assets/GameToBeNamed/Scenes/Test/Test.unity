@@ -6038,81 +6038,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5955829787421557606, guid: 2aebf551e9f8e4240910d3a0d1c47ec4,
-        type: 3}
-      propertyPath: m_inputSource.m_wayPoints.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5955829787421557606, guid: 2aebf551e9f8e4240910d3a0d1c47ec4,
-        type: 3}
-      propertyPath: m_inputSource.m_stateMachine.m_states.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5955829787421557606, guid: 2aebf551e9f8e4240910d3a0d1c47ec4,
-        type: 3}
-      propertyPath: m_inputSource.m_wayPoints.Array.data[0].y
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5955829787421557606, guid: 2aebf551e9f8e4240910d3a0d1c47ec4,
-        type: 3}
-      propertyPath: m_inputSource.m_wayPoints.Array.data[1].y
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5955829787421557606, guid: 2aebf551e9f8e4240910d3a0d1c47ec4,
-        type: 3}
-      propertyPath: m_inputSource.m_wayPoints.Array.data[0].x
-      value: 37.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5955829787421557606, guid: 2aebf551e9f8e4240910d3a0d1c47ec4,
-        type: 3}
-      propertyPath: m_inputSource.m_wayPoints.Array.data[1].x
-      value: 52.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5955829787421557606, guid: 2aebf551e9f8e4240910d3a0d1c47ec4,
-        type: 3}
-      propertyPath: m_inputSource.m_stateMachine.m_states.Array.data[1].data
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5955829787421557606, guid: 2aebf551e9f8e4240910d3a0d1c47ec4,
-        type: 3}
-      propertyPath: m_inputSource.m_stateMachine.m_states.Array.data[2].data
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5955829787421557606, guid: 2aebf551e9f8e4240910d3a0d1c47ec4,
-        type: 3}
-      propertyPath: m_inputSource.m_stateMachine.m_states.Array.data[0]
-      value: CS-Player GameToBeNamed.Character.AttackState
-      objectReference: {fileID: 0}
-    - target: {fileID: 5955829787421557606, guid: 2aebf551e9f8e4240910d3a0d1c47ec4,
-        type: 3}
-      propertyPath: m_inputSource.m_stateMachine.m_states.Array.data[0].id
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5955829787421557606, guid: 2aebf551e9f8e4240910d3a0d1c47ec4,
-        type: 3}
-      propertyPath: m_inputSource.m_stateMachine.m_states.Array.data[2]
-      value: CS-Player GameToBeNamed.Character.RunState
-      objectReference: {fileID: 0}
-    - target: {fileID: 5955829787421557606, guid: 2aebf551e9f8e4240910d3a0d1c47ec4,
-        type: 3}
-      propertyPath: m_inputSource.m_stateMachine.m_states.Array.data[2].id
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5955829787421557606, guid: 2aebf551e9f8e4240910d3a0d1c47ec4,
-        type: 3}
-      propertyPath: m_inputSource.m_stateMachine.m_states.Array.data[2].distanceToRun
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 5955829787421557606, guid: 2aebf551e9f8e4240910d3a0d1c47ec4,
-        type: 3}
-      propertyPath: m_inputSource.m_stateMachine.m_states.Array.data[1]
-      value: CS-Player GameToBeNamed.Character.PatrolState
-      objectReference: {fileID: 0}
-    - target: {fileID: 5955829787421557606, guid: 2aebf551e9f8e4240910d3a0d1c47ec4,
-        type: 3}
-      propertyPath: m_inputSource.m_stateMachine.m_states.Array.data[1].id
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5955829787421557629, guid: 2aebf551e9f8e4240910d3a0d1c47ec4,
         type: 3}
       propertyPath: m_Name
@@ -14829,7 +14754,7 @@ Tilemap:
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
-      m_AllTileFlags: 1073741825
+      m_AllTileFlags: 2147483649
   - first: {x: -56, y: 5, z: 0}
     second:
       serializedVersion: 2
@@ -18426,7 +18351,7 @@ Tilemap:
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
-      m_AllTileFlags: 1073741825
+      m_AllTileFlags: 2147483649
   - first: {x: 13, y: -1, z: 0}
     second:
       serializedVersion: 2
@@ -18435,7 +18360,7 @@ Tilemap:
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
-      m_AllTileFlags: 1073741825
+      m_AllTileFlags: 2147483649
   - first: {x: 30, y: -1, z: 0}
     second:
       serializedVersion: 2
@@ -18444,7 +18369,7 @@ Tilemap:
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
-      m_AllTileFlags: 1073741825
+      m_AllTileFlags: 2147483649
   - first: {x: 31, y: -1, z: 0}
     second:
       serializedVersion: 2
@@ -18471,7 +18396,7 @@ Tilemap:
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
-      m_AllTileFlags: 1073741825
+      m_AllTileFlags: 2147483649
   - first: {x: -22, y: 0, z: 0}
     second:
       serializedVersion: 2
@@ -18561,7 +18486,7 @@ Tilemap:
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
-      m_AllTileFlags: 1073741825
+      m_AllTileFlags: 2147483649
   - first: {x: 13, y: 0, z: 0}
     second:
       serializedVersion: 2
@@ -18570,7 +18495,7 @@ Tilemap:
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
-      m_AllTileFlags: 1073741825
+      m_AllTileFlags: 2147483649
   - first: {x: 30, y: 0, z: 0}
     second:
       serializedVersion: 2
@@ -18606,7 +18531,7 @@ Tilemap:
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
-      m_AllTileFlags: 1073741825
+      m_AllTileFlags: 2147483649
   - first: {x: -22, y: 1, z: 0}
     second:
       serializedVersion: 2
@@ -18705,7 +18630,7 @@ Tilemap:
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
-      m_AllTileFlags: 1073741825
+      m_AllTileFlags: 2147483649
   m_AnimatedTiles: {}
   m_TileAssetArray:
   - m_RefCount: 3

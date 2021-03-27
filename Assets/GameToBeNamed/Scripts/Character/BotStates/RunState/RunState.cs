@@ -14,14 +14,15 @@ namespace GameToBeNamed.Character {
 
         private Vector3 m_newDestination;
         public float distanceToRun = 0;
+        public float delayToAttack = 0.5f;
         
         public override void Enter(Character2D character, BotInput input) {
             
             if (character.transform.position.x < input.GetDestinationPosition().x) {
-                m_newDestination = input.GetDestinationPosition() + new Vector3(distanceToRun, 0, 0);
+                m_newDestination = input.GetDestinationPosition() - new Vector3(distanceToRun, 0, 0);
             }
             else {
-                m_newDestination = input.GetDestinationPosition() + new Vector3(-distanceToRun, 0, 0);
+                m_newDestination = input.GetDestinationPosition() + new Vector3(distanceToRun, 0, 0);
             }
         }
 
@@ -31,7 +32,13 @@ namespace GameToBeNamed.Character {
                 input.MoveToDestination(m_newDestination);
             }
             else {
+                delayToAttack -= Time.deltaTime;
+
+                if (!(delayToAttack <= 0)) return;
+                
                 input.SetAttackAction();
+                delayToAttack = 0.5f;
+
             }
         }
 

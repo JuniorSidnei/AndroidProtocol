@@ -170,7 +170,7 @@ MonoBehaviour:
         IsActionActive: 0
         m_damage: 80
         m_attackBox: {fileID: 3325466396227432078}
-        m_spriteRenderer: {fileID: 3201174525823821392}
+        m_spriteVfx: {fileID: 3201174525823821392}
     0000000B:
       type: {class: PlayerInput, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
