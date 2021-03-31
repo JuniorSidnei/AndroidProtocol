@@ -11,11 +11,9 @@ namespace GameToBeNamed.Character {
     public class AttackState : State {
 
         public int id;
-        private bool m_activated = false;
-        
+
         public override void Enter(Character2D character, BotInput input) {
             input.SetAttackAction();
-            m_activated = true;
             id = 10;
         }
 
@@ -29,7 +27,6 @@ namespace GameToBeNamed.Character {
         }
 
         public override void Exit(Character2D character, BotInput input) {
-            m_activated = false;
             id = 0;
         }
     }

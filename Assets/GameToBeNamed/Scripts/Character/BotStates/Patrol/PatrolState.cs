@@ -11,11 +11,9 @@ namespace GameToBeNamed.Character {
     public class PatrolState : State {
 
         public int id;
-        private bool m_activated = false;
 
         public override void Enter(Character2D character, BotInput input) {
             input.SetInitialDestination();
-            m_activated = true;
         }
 
         public override void Run(Character2D character, BotInput input) {
@@ -29,7 +27,6 @@ namespace GameToBeNamed.Character {
 
         public override void Exit(Character2D character, BotInput input) {
             Debug.LogError("Sai da patrulha");
-            m_activated = false;
         }
     }
 }

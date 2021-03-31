@@ -12,7 +12,7 @@ using Random = UnityEngine.Random;
 namespace GameToBeNamed.Character {
 
     [Serializable]
-    public class ToxicMobConstituctionAction : CharacterAction {
+    public class MobToxicConstituctionAction : CharacterAction {
 
 
         private Character2D m_char;

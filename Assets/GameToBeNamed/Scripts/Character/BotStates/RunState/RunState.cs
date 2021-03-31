@@ -28,17 +28,10 @@ namespace GameToBeNamed.Character {
 
         public override void Run(Character2D character, BotInput input) {
             
-            if (input.IsTargetClose(input.GetDestinationPosition())) {
-                input.MoveToDestination(m_newDestination);
-            }
-            else {
-                delayToAttack -= Time.deltaTime;
+            input.MoveToDestination(m_newDestination);
 
-                if (!(delayToAttack <= 0)) return;
-                
-                input.SetAttackAction();
-                delayToAttack = 0.5f;
-
+            if (input.IsDestinationReached(m_newDestination)) {
+                Debug.Log("cheguei no destino de correr");
             }
         }
 

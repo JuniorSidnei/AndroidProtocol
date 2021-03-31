@@ -141,14 +141,14 @@ namespace GameToBeNamed.Utils {
     //load scene
     public class OnValidateScene {
 
-        public OnValidateScene(SceneField sceneToLoad, SceneField sceneToUnload, AudioClip areaBgMusic) {
+        public OnValidateScene(SceneFieldController sceneToLoad, SceneFieldController sceneToUnload, AudioClip areaBgMusic) {
             SceneToLoad = sceneToLoad;
             SceneToUnload = sceneToUnload;
             AreaBgMusic = areaBgMusic;
         }
 
-        public SceneField SceneToLoad;
-        public SceneField SceneToUnload;
+        public SceneFieldController SceneToLoad;
+        public SceneFieldController SceneToUnload;
         public AudioClip AreaBgMusic;
     }
     

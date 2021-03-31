@@ -81,7 +81,7 @@ namespace GameToBeNamed.Character {
         public override bool IsTargetClose(Vector3 target) {
             if (!IsTargetSet()) return false;
             
-            return Vector3.Distance(Character.transform.position, target) < 35f;
+            return Vector3.Distance(Character.transform.position, target) < 30f;
         }
 
         public override bool IsTargetSet() {

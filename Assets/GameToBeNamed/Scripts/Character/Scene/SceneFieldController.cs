@@ -7,20 +7,20 @@ using UnityEditor;
 namespace GameToBeNamed.Utils {
 
     [System.Serializable]
-    public class SceneField {
+    public class SceneFieldController {
         [SerializeField] private Object m_SceneAsset;
         [SerializeField] private string m_SceneName = "";
 
         public string SceneName => m_SceneName;
 
         // makes it work with the existing Unity methods (LoadLevel/LoadScene)
-        public static implicit operator string(SceneField sceneField) {
-            return sceneField.SceneName;
+        public static implicit operator string(SceneFieldController sceneFieldController) {
+            return sceneFieldController.SceneName;
         }
     }
 }
 #if UNITY_EDITOR
-    [CustomPropertyDrawer(typeof(SceneField))]
+    [CustomPropertyDrawer(typeof(SceneFieldController))]
     public class SceneFieldPropertyDrawer : PropertyDrawer {
         
         public override void OnGUI(Rect _position, SerializedProperty _property, GUIContent _label) {

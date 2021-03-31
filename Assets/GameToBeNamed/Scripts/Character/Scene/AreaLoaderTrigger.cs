@@ -8,8 +8,8 @@ namespace GameToBeNamed.Utils {
     public class AreaLoaderTrigger : MonoBehaviour {
 
         public LayerMask PlayerLayer;
-        [SerializeField] private SceneField m_sceneToLoad;
-        [SerializeField] private SceneField m_sceneToUnload;
+        [SerializeField] private SceneFieldController m_sceneToLoad;
+        [SerializeField] private SceneFieldController m_sceneToUnload;
         [SerializeField] private AudioClip m_areaBgMusic;
 
         private void OnTriggerEnter2D(Collider2D other) {
