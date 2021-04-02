@@ -271,7 +271,7 @@ MonoBehaviour:
   m_wallLayer:
     serializedVersion: 2
     m_Bits: 1024
-  m_lifeTime: 1
+  m_lifeTime: 0.2
 --- !u!61 &3977548003128739096
 BoxCollider2D:
   m_ObjectHideFlags: 0

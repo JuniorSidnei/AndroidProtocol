@@ -17,25 +17,27 @@ namespace GameToBeNamed.Character {
         public float delayToAttack = 0.5f;
         
         public override void Enter(Character2D character, BotInput input) {
+            Debug.LogError("Entrei no run");
             
             if (character.transform.position.x < input.GetDestinationPosition().x) {
-                m_newDestination = input.GetDestinationPosition() - new Vector3(distanceToRun, 0, 0);
+                m_newDestination = character.transform.position - new Vector3(distanceToRun, 0, 0);
             }
             else {
-                m_newDestination = input.GetDestinationPosition() + new Vector3(distanceToRun, 0, 0);
+                m_newDestination = character.transform.position + new Vector3(distanceToRun, 0, 0);
             }
         }
 
         public override void Run(Character2D character, BotInput input) {
             
             input.MoveToDestination(m_newDestination);
-
+            
             if (input.IsDestinationReached(m_newDestination)) {
-                Debug.Log("cheguei no destino de correr");
+                Debug.LogError("cheguei no destino de correr");
             }
         }
 
         public override void Exit(Character2D character, BotInput input) {
+            Debug.LogError("Sai do run");
         }
     }
 }

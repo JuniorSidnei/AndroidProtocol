@@ -460,7 +460,7 @@ MonoBehaviour:
         IsActionActive: 0
         m_collisionBox: {fileID: 5955829787421557626}
         _hasDeathAnimation: 0
-        m_maxLife: 800
+        m_maxLife: 200
         m_damageCooldown: 0.5
         _hasDamageCollision: 0
         m_damageColision: 50
@@ -495,12 +495,29 @@ MonoBehaviour:
           m_Bits: 2048
         m_stateMachine:
           id: 0
-          m_states: []
+          m_states:
+          - id: 6
+          - id: 7
+          - id: 8
         m_wayPoints:
         - {x: 37.2, y: 3, z: 0}
         - {x: 52.3, y: 3, z: 0}
         m_triggerProxy: {fileID: 5955829787421557626}
         m_spriteVfx: {fileID: 5955829786628665579}
+    00000006:
+      type: {class: AttackState, ns: GameToBeNamed.Character, asm: CS-Player}
+      data:
+        id: 0
+    00000007:
+      type: {class: RunState, ns: GameToBeNamed.Character, asm: CS-Player}
+      data:
+        id: 0
+        distanceToRun: 500
+        delayToAttack: 0.5
+    00000008:
+      type: {class: PatrolState, ns: GameToBeNamed.Character, asm: CS-Player}
+      data:
+        id: 0
 --- !u!61 &5955829787421557624
 BoxCollider2D:
   m_ObjectHideFlags: 0

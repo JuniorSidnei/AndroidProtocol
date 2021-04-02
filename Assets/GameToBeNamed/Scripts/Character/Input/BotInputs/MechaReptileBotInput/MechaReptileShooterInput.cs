@@ -29,7 +29,7 @@ namespace GameToBeNamed.Character {
 
         public override void Update() {
 
-            if (m_target && Vector3.Distance(m_target.transform.position, Character.transform.position) > 40f) {
+            if (m_target && Vector3.Distance(m_target.transform.position, Character.transform.position) > 50f) {
                 UnsetActionDown(InputAction.Button4);
                 SetTarget(null); 
                 m_stateMachine.ChangeState<PatrolState>(Character, this);
@@ -81,7 +81,7 @@ namespace GameToBeNamed.Character {
         public override bool IsTargetClose(Vector3 target) {
             if (!IsTargetSet()) return false;
             
-            return Vector3.Distance(Character.transform.position, target) < 30f;
+            return Vector3.Distance(Character.transform.position, target) < 20f;
         }
 
         public override bool IsTargetSet() {
@@ -93,6 +93,7 @@ namespace GameToBeNamed.Character {
         }
 
         public override void SetRunMovement() {
+            Character.LocalDispatcher.Emit(new OnTerminateAttack());
             UnsetActionDown(InputAction.Button4);
             m_stateMachine.ChangeState<RunState>(Character, this);
         }

@@ -22,7 +22,7 @@ namespace GameToBeNamed.Character.Bullets {
         private void Awake() {
             m_onContactExplosionParticleSystem = m_onContactExplosion.transform.GetChild(1).GetComponentInChildren<ParticleSystem>();
             m_colliderBox.OnTrigger2DEnterCallback.AddListener(OnTrigger2DEnterCallback);
-            Destroy(gameObject, .2f);
+            Destroy(gameObject, m_lifeTime);
         }
 
         private void FixedUpdate() {
