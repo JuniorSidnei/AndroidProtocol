@@ -50,11 +50,12 @@ namespace GameToBeNamed.Character
                 return;
             }
 
-
+            SetDirection();
+            m_attackBox.transform.localPosition = new Vector3(m_direction * m_attackBoxPosition.x, m_attackBoxPosition.y,0);
+            
             if (m_input.HasActionDown(InputAction.Button4) && !m_char.Controller2D.collisions.below) {
                 m_char.ActionStates[ActionStates.Attacking] = true;
                 m_char.LocalDispatcher.Emit(new OnJumpAttack());
-                SetDirection();
             }
         }
 
@@ -67,7 +68,6 @@ namespace GameToBeNamed.Character
         
         private void OnWarriorAirAttack(OnWarriorAirAttack ev) {
             m_attackBox.BoxCollider.enabled = true;
-            m_attackBox.transform.localPosition = new Vector3(m_direction * m_attackBoxPosition.x, m_attackBoxPosition.y,0);
         }
         
         private void OnAttackFinish(OnSecondAttackFinish ev) {

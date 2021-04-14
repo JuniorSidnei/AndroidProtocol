@@ -66,7 +66,7 @@ namespace GameToBeNamed.Character {
             m_lifeSplashImage.fillAmount = (float) m_life / m_maxLife;
 
             GameManager.Instance.GlobalDispatcher.Emit(new OnCharacterDamage(ev.Damage, m_char.transform.position,
-                m_life, m_maxLife, false));
+                m_life, m_maxLife, true));
             
 
             if (m_life > 0) return;

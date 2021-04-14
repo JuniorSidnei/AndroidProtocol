@@ -8,7 +8,7 @@ namespace GameToBeNamed.Character {
         Button1 = 1 << 1, //Jump
         Button2 = 1 << 2, //Right
         Button3 = 1 << 3, //Left
-        Button4 = 1 << 4, //Atack
+        Button4 = 1 << 4, //Attack
         Button5 = 1 << 5, //Block
         Button6 = 1 << 6, //Dash
         Button7 = 1 << 7, //change class
@@ -17,6 +17,7 @@ namespace GameToBeNamed.Character {
         Button10 = 1 << 10, //Look up
         Button11 = 1 << 11, //Look down
         Button12 = 1 << 12, //Sprint
+        Button13 = 1 << 13 //pot
     }
 
     public interface IInputSource {

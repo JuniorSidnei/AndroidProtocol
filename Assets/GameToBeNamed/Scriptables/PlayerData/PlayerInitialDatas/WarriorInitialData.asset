@@ -24,3 +24,4 @@ MonoBehaviour:
   - TalkingAction
   - BlockAction
   - WarriorJumpAttackAction
+  - RechargeBatteryAction

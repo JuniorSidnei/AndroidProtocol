@@ -495,37 +495,36 @@ MonoBehaviour:
   references:
     version: 1
     00000000:
-      type: {class: MobConstituctionAction, ns: GameToBeNamed.Character, asm: CS-Player}
-      data:
-        IsActionActive: 0
-        m_collisionBox: {fileID: 954528887747561706}
-        _hasDeathAnimation: 0
-        m_maxLife: 80
-        m_damageCooldown: 0.2
-        _hasDamageCollision: 0
-        m_damageColision: 50
-        m_lifeSplashImage: {fileID: 8120407507057581768}
-        m_dieExplosionSound: {fileID: 8300000, guid: 00a5d3890eb63954ba2b000574b39681,
-          type: 3}
-        m_hurtSound: {fileID: 8300000, guid: 03c6e3d0d08b5bd45a3c8e7bb7b4c514, type: 3}
-        ExplosionEffect: {fileID: 2715569658705303883, guid: 49d986b41f77ecc43beca8322cab4207,
-          type: 3}
-        MoneyBox: {fileID: 663016336894859358, guid: db2d97cc5a1f2d1468ad57d1fe5ead54,
-          type: 3}
-    00000001:
       type: {class: MobProcessDamageAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
         IsActionActive: 0
         m_onHitEffect: {fileID: 8252051896981874538, guid: de3c69e3409cb734590546c334f1b2a6,
           type: 3}
-        m_knockbackForce: {x: 20, y: 20}
+        m_knockbackForce: {x: 20, y: 10}
+    00000001:
+      type: {class: MobConstituctionAction, ns: GameToBeNamed.Character, asm: CS-Player}
+      data:
+        IsActionActive: 0
+        m_collisionBox: {fileID: 954528887747561706}
+        _hasDeathAnimation: 0
+        m_maxLife: 200
+        m_damageCooldown: 0.5
+        _hasDamageCollision: 1
+        m_damageColision: 50
+        m_lifeSplashImage: {fileID: 8120407507057581768}
+        m_dieExplosionSound: {fileID: 0}
+        m_hurtSound: {fileID: 0}
+        ExplosionEffect: {fileID: 2715569658705303883, guid: 49d986b41f77ecc43beca8322cab4207,
+          type: 3}
+        MoneyBox: {fileID: 663016336894859358, guid: db2d97cc5a1f2d1468ad57d1fe5ead54,
+          type: 3}
     00000002:
       type: {class: JumpAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
         IsActionActive: 0
         JumpForce: {x: 0, y: 0}
-        m_lowJumpMultiplier: 4
-        m_fallMultiplier: 6
+        m_lowJumpMultiplier: 4.5
+        m_fallMultiplier: 3.5
         m_downJumpEffect: {fileID: 0}
         m_upJumpEffect: {fileID: 0}
         m_jumpEffectPosition: {fileID: 0}
@@ -535,9 +534,9 @@ MonoBehaviour:
       type: {class: MoveAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
         IsActionActive: 0
-        Speed: 100
+        Speed: 80
         SpeedSprint: 0
-        SoundDisplacement: 20
+        SoundDisplacement: 0
         InAirDrag: 0.5
         InGroundDrag: 5
         m_spriteVfx: {fileID: 4624111264368823645}
@@ -550,8 +549,8 @@ MonoBehaviour:
           m_states:
           - id: 5
         m_wayPoints:
-        - {x: -550, y: -5.7, z: 0}
-        - {x: -420, y: -5.7, z: 0}
+        - {x: 0, y: 0, z: 0}
+        - {x: 0, y: 0, z: 0}
     00000005:
       type: {class: PatrolState, ns: GameToBeNamed.Character, asm: CS-Player}
       data:

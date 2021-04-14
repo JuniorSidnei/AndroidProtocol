@@ -54,7 +54,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5242675753832118612}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.18, y: -4.94, z: 0}
+  m_LocalPosition: {x: -0.11, y: -5.47, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7054123030391772773}
@@ -307,8 +307,9 @@ MonoBehaviour:
   - id: 6
   - id: 7
   - id: 8
+  - id: 9
   m_inputSource:
-    id: 9
+    id: 10
   references:
     version: 1
     00000000:
@@ -411,6 +412,14 @@ MonoBehaviour:
         DashForce: 80
         DashDrag: 3
     00000009:
+      type: {class: RechargeBatteryAction, ns: GameToBeNamed.Character, asm: CS-Player}
+      data:
+        IsActionActive: 0
+        characterStatusLife: {fileID: 11400000, guid: a7992684fb4276e42b8119c0cddd9089,
+          type: 2}
+        RecoveryEffect: {fileID: 9106066692627721421, guid: 9a5c33d7fc60bc6418f4ed9d91c43388,
+          type: 3}
+    0000000A:
       type: {class: PlayerInput, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
         PlayerID: 0

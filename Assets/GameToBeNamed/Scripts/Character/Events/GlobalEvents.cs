@@ -82,13 +82,14 @@ namespace GameToBeNamed.Utils {
     //To show damage
     public class OnCharacterDamage {
         
-        public OnCharacterDamage(int damage, Vector3 position, int currentHealth, int maxHealth, bool isPlayer = true) {
+        public OnCharacterDamage(int damage, Vector3 position, int currentHealth, int maxHealth, bool isDamage, bool isPlayer = true) {
 
             Damage = damage;
             Position = position;
             CurrentHealth = currentHealth;
             MaxHealth = maxHealth;
             IsPlayer = isPlayer;
+            IsDamage = isDamage;
         }
 
         public int Damage;
@@ -96,14 +97,15 @@ namespace GameToBeNamed.Utils {
         public int CurrentHealth;
         public int MaxHealth;
         public bool IsPlayer;
+        public bool IsDamage;
     }
 
-    
     public class OnCharacterConfigureConstitution {
-        public OnCharacterConfigureConstitution(int maxHealth, int currentHealth, Sprite iconSplash, Sprite lifeSplash, PanelPlayingBehaviour.CharacterType type) {
+        public OnCharacterConfigureConstitution(int maxHealth, int currentHealth, Sprite iconSplash, Sprite lifeSplash, PanelPlayingBehaviour.CharacterType type, int currentBatteries) {
             
             MaxHealth = maxHealth;
             CurrentHealth = currentHealth;
+            CurrentBatteries = currentBatteries;
             IconSplash = iconSplash;
             LifeSplash = lifeSplash;
             Type = type;
@@ -111,6 +113,7 @@ namespace GameToBeNamed.Utils {
 
         public int MaxHealth { get; set; }
         public int CurrentHealth { get; set; }
+        public int CurrentBatteries;
         
         public Sprite IconSplash;
         public Sprite LifeSplash;
@@ -198,5 +201,13 @@ namespace GameToBeNamed.Utils {
         public int CurrentAmount;
         public float RechargeTime;
         public bool AmmunitionOut;
+    }
+
+    public class OnUpdateRecovery {
+        public OnUpdateRecovery(int currentAmount) {
+            CurrentAmount = currentAmount;
+        }
+
+        public int CurrentAmount;
     }
 }

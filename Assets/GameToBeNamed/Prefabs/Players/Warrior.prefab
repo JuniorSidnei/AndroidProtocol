@@ -66,8 +66,9 @@ MonoBehaviour:
   - id: 8
   - id: 9
   - id: 10
+  - id: 11
   m_inputSource:
-    id: 11
+    id: 12
   references:
     version: 1
     00000000:
@@ -108,7 +109,7 @@ MonoBehaviour:
         IsActionActive: 0
         characterStatusLife: {fileID: 11400000, guid: 488ac927f0e65484d9a804c5d3ba120e,
           type: 2}
-        m_knockbackForce: {x: 20, y: 0}
+        m_knockbackForce: {x: 20, y: 10}
         m_damageCooldown: 0.5
         m_armorDefense: 30
         m_hitEffect: {fileID: 8252051896981874538, guid: de3c69e3409cb734590546c334f1b2a6,
@@ -172,6 +173,14 @@ MonoBehaviour:
         m_attackBox: {fileID: 3325466396227432078}
         m_spriteVfx: {fileID: 3201174525823821392}
     0000000B:
+      type: {class: RechargeBatteryAction, ns: GameToBeNamed.Character, asm: CS-Player}
+      data:
+        IsActionActive: 0
+        characterStatusLife: {fileID: 11400000, guid: 488ac927f0e65484d9a804c5d3ba120e,
+          type: 2}
+        RecoveryEffect: {fileID: 9106066692627721421, guid: 9a5c33d7fc60bc6418f4ed9d91c43388,
+          type: 3}
+    0000000C:
       type: {class: PlayerInput, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
         PlayerID: 0

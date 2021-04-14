@@ -15,5 +15,7 @@ MonoBehaviour:
   Currenthealth: 500
   Maxhealth: 500
   Money: 0
+  RechargeableBatteries: 3
+  RechargeAmountValue: 250
   IconSplash: {fileID: 21300000, guid: df072afc178905f4ba0728e3eb368641, type: 3}
   LifeSplash: {fileID: 21300000, guid: edf9c2b7269a50842a61bdc9c2753655, type: 3}

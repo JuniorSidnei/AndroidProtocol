@@ -35,7 +35,8 @@ namespace GameToBeNamed.Character {
                 ActionStates.Blocking
             };
             
-            GameManager.Instance.GlobalDispatcher.Emit(new OnCharacterConfigureConstitution(characterStatusLife.MaxHealth, characterStatusLife.CurrentHealth, characterStatusLife.IconSplash, characterStatusLife.LifeSplash, m_type));
+            GameManager.Instance.GlobalDispatcher.Emit(new OnCharacterConfigureConstitution(characterStatusLife.MaxHealth, characterStatusLife.CurrentHealth,
+                characterStatusLife.IconSplash, characterStatusLife.LifeSplash, m_type, characterStatusLife.CurrentBatteries));
         }
 
         protected override void OnActivate() {
@@ -56,7 +57,7 @@ namespace GameToBeNamed.Character {
             m_char.ActionStates[ActionStates.ReceivingDamage] = true;
             characterStatusLife.CurrentHealth -= ev.Damage - m_armorDefense;
             m_damageCooldownTimer = Time.time + m_damageCooldown;
-            GameManager.Instance.GlobalDispatcher.Emit(new OnCharacterDamage(ev.Damage - m_armorDefense, m_char.transform.position, characterStatusLife.CurrentHealth, characterStatusLife.MaxHealth));
+            GameManager.Instance.GlobalDispatcher.Emit(new OnCharacterDamage(ev.Damage - m_armorDefense, m_char.transform.position, characterStatusLife.CurrentHealth, characterStatusLife.MaxHealth, true));
 
             if (ev.AttackInfo.Emiter.transform.position.x > m_char.transform.position.x) {
                 m_char.Velocity = new Vector2(-m_knockbackForce.x, m_knockbackForce.y);

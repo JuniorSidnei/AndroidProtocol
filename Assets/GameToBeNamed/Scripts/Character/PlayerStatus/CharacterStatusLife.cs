@@ -11,37 +11,54 @@ namespace GameToBeNamed.Character {
         public int Currenthealth;
         public int Maxhealth;
         public int Money;
-
+        public int RechargeableBatteries;
+        public int RechargeAmountValue;
+        
+        
         [Header("Class hud settings")]
         public Sprite IconSplash;
         public Sprite LifeSplash;
         
         //Alteram valor durante o jogo
-        private int m_maxHealthInGame;
-        private int m_currentHealthInGame;
-        private int m_moneyInGame;
-
+        private int m_max_health_in_game;
+        private int m_current_health_in_game;
+        private int m_money_in_game;
+        private int m_rechargeable_batteries_in_game;
+        private int m_recharge_amount_value_in_game;
+        
         //Valores iniciais
         public void OnBeforeSerialize() {
             Currenthealth = Maxhealth;
             Money = 0;
+            m_rechargeable_batteries_in_game = RechargeableBatteries;
+            m_recharge_amount_value_in_game = RechargeAmountValue;
         }
 
         public void OnAfterDeserialize() {
 
-            m_maxHealthInGame = Maxhealth;
-            m_currentHealthInGame = Currenthealth;
-            m_moneyInGame = Money;
+            m_max_health_in_game = Maxhealth;
+            m_current_health_in_game = Currenthealth;
+            m_money_in_game = Money;
         }
 
         public int CurrentHealth {
-            get => m_currentHealthInGame;
-            set => m_currentHealthInGame = value;
+            get => m_current_health_in_game;
+            set => m_current_health_in_game = value;
         }
 
         public int MaxHealth {
-            get => m_maxHealthInGame;
-            set => m_maxHealthInGame = value;
+            get => m_max_health_in_game;
+            set => m_max_health_in_game = value;
+        }
+
+        public int CurrentBatteries {
+            get => m_rechargeable_batteries_in_game;
+            set => m_rechargeable_batteries_in_game = value;
+        }
+
+        public int RechargeAmount {
+            get => m_recharge_amount_value_in_game;
+            set => m_recharge_amount_value_in_game = value;
         }
     }
 }

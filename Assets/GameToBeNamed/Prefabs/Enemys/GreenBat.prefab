@@ -232,39 +232,37 @@ MonoBehaviour:
   references:
     version: 1
     00000000:
+      type: {class: MobToxicConstituctionAction, ns: GameToBeNamed.Character, asm: CS-Player}
+      data:
+        IsActionActive: 0
+        m_collisionBox: {fileID: 6196712125393861933}
+        m_maxLife: 200
+        m_damageCooldown: 0.5
+        m_damageColision: 50
+        m_lifeSplashImage: {fileID: 2292951076772209664}
+        m_dieExplosionSound: {fileID: 0}
+        m_hurtSound: {fileID: 0}
+        ToxicGasCloud: {fileID: 9106066692627721421, guid: a2fd719ed4858f34d86cec0c080c1773,
+          type: 3}
+        MoneyBox: {fileID: 663016336894859358, guid: db2d97cc5a1f2d1468ad57d1fe5ead54,
+          type: 3}
+    00000001:
+      type: {class: MobProcessDamageAction, ns: GameToBeNamed.Character, asm: CS-Player}
+      data:
+        IsActionActive: 0
+        m_onHitEffect: {fileID: 0}
+        m_knockbackForce: {x: 0, y: 0}
+    00000002:
       type: {class: MoveAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
         IsActionActive: 0
-        Speed: 25
+        Speed: 100
         SpeedSprint: 0
         SoundDisplacement: 0
         InAirDrag: 2
         InGroundDrag: 0
         m_spriteVfx: {fileID: 6196712126211821244}
         m_footStepsSound: {fileID: 0}
-    00000001:
-      type: {class: MobProcessDamageAction, ns: GameToBeNamed.Character, asm: CS-Player}
-      data:
-        IsActionActive: 0
-        m_onHitEffect: {fileID: 8252051896981874538, guid: de3c69e3409cb734590546c334f1b2a6,
-          type: 3}
-        m_knockbackForce: {x: 20, y: 0}
-    00000002:
-      type: {class: ToxicMobConstituctionAction, ns: GameToBeNamed.Character, asm: CS-Player}
-      data:
-        IsActionActive: 0
-        m_collisionBox: {fileID: 6196712125393861933}
-        m_maxLife: 1
-        m_damageCooldown: 0.5
-        m_damageColision: 50
-        m_lifeSplashImage: {fileID: 2292951076772209664}
-        m_dieExplosionSound: {fileID: 8300000, guid: 1911bf7af541e40409aeff30ff3deb5b,
-          type: 3}
-        m_hurtSound: {fileID: 8300000, guid: e1a0e375c125426469efbb801a9a6a6c, type: 3}
-        ToxicGasCloud: {fileID: 5663605786732327233, guid: 52f8f4f14de59e241baec03f20fbd591,
-          type: 3}
-        MoneyBox: {fileID: 663016336894859358, guid: db2d97cc5a1f2d1468ad57d1fe5ead54,
-          type: 3}
     00000003:
       type: {class: PunkRobotInput, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
@@ -273,8 +271,8 @@ MonoBehaviour:
           m_states:
           - id: 4
         m_wayPoints:
-        - {x: -560, y: 0, z: 0}
-        - {x: -495, y: 0, z: 0}
+        - {x: 0, y: 0, z: 0}
+        - {x: 0, y: 0, z: 0}
     00000004:
       type: {class: PatrolState, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
@@ -456,6 +454,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_anim: {fileID: 6196712126211821245}
   m_char2D: {fileID: 6196712125393861937}
+  m_hasGroundCollision: 0
 --- !u!1 &6878905029382872399
 GameObject:
   m_ObjectHideFlags: 0
@@ -564,6 +563,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3918003566802038790, guid: a2fd719ed4858f34d86cec0c080c1773,
         type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3918003566802038790, guid: a2fd719ed4858f34d86cec0c080c1773,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.22
       objectReference: {fileID: 0}
@@ -579,6 +583,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3918003566802038790, guid: a2fd719ed4858f34d86cec0c080c1773,
         type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3918003566802038790, guid: a2fd719ed4858f34d86cec0c080c1773,
+        type: 3}
       propertyPath: m_LocalRotation.x
       value: -0.7071068
       objectReference: {fileID: 0}
@@ -591,16 +600,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3918003566802038790, guid: a2fd719ed4858f34d86cec0c080c1773,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 3918003566802038790, guid: a2fd719ed4858f34d86cec0c080c1773,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3918003566802038790, guid: a2fd719ed4858f34d86cec0c080c1773,
         type: 3}

@@ -20,7 +20,9 @@ namespace GameToBeNamed.Character {
         [SerializeField] private Image m_lifeSplashImage;
         [SerializeField] private Image m_iconSplashImage;
 
-        
+        [Header("RecoverySettings")]
+        [SerializeField]  private List<Image> m_recoveryIcons;
+
         [Header("Money Settings")]
         [SerializeField] private TextMeshProUGUI m_moneyText;
 
@@ -47,6 +49,7 @@ namespace GameToBeNamed.Character {
             GameManager.Instance.GlobalDispatcher.Subscribe<OnCharacterChangeClass>(OnCharacterChangeClass);
             GameManager.Instance.GlobalDispatcher.Subscribe<OnCharacterUpdateClassCooldown>(OnCharacterUpdateClassCooldown);
             GameManager.Instance.GlobalDispatcher.Subscribe<OnUpdateAmmunitionAmount>(OnUpdateAmmunitionAmount);
+            GameManager.Instance.GlobalDispatcher.Subscribe<OnUpdateRecovery>(OnUpdateRecovery);
         }
 
         private void OnCharacterUpdateClassCooldown(OnCharacterUpdateClassCooldown ev) {
@@ -71,6 +74,10 @@ namespace GameToBeNamed.Character {
 
             m_lifeSplashImage.sprite = ev.LifeSplash;
             m_iconSplashImage.sprite = ev.IconSplash;
+
+            for (var i = 0; i < ev.CurrentBatteries; i++) {
+                m_recoveryIcons[i].DOFade(1, 0.1f).SetEase(Ease.InQuad);
+            }
             
             switch (ev.Type) {
                 case CharacterType.Shooter:
@@ -80,7 +87,6 @@ namespace GameToBeNamed.Character {
                     showWarriorSettings();
                     break;
             }
-            
         }
 
         private void OnCharacterDamage(OnCharacterDamage ev) {
@@ -112,13 +118,15 @@ namespace GameToBeNamed.Character {
             m_warriorSkillsContainer.SetActive(true);
         }
 
-        private void hideSettings() {
-            
+        private void OnUpdateRecovery(OnUpdateRecovery ev) {
+            for (var i = ev.CurrentAmount; i < m_recoveryIcons.Count; i++) {
+                m_recoveryIcons[i].DOFade(0, 0.1f).SetEase(Ease.InQuad);
+            }
         }
-
+        
         private void OnUpdateAmmunitionAmount(OnUpdateAmmunitionAmount ev) {
-            for (var i = ev.CurrentAmount; i <= m_ammunitionAmount.Count - 1; i++) {
-                    m_ammunitionAmount[i].DOFade(0, 0.1f);
+            for (var i = ev.CurrentAmount; i < m_ammunitionAmount.Count; i++) {
+                    m_ammunitionAmount[i].DOFade(0, 0.1f).SetEase(Ease.InQuad);
             }
             
             if(ev.CurrentAmount == 0 && m_isRechargeAnimationDone) {
@@ -130,22 +138,11 @@ namespace GameToBeNamed.Character {
         private IEnumerator rechargeAnimation(float rechargeTime) {
             yield return new WaitForSeconds(rechargeTime);
             foreach (var amount in m_ammunitionAmount) {
-                amount.DOFade(1, 0.2f);
+                amount.DOFade(1, 0.2f).SetEase(Ease.InCubic);
             }
             m_isRechargeAnimationDone = true;
         }
-//        private void animateRechargeAmmunition(int index) {
-//            if (index > 4) {
-//                m_isRechargeAnimationDone = true;
-//                return;
-//            }
-//            
-//            m_ammunitionAmount[index].DOFade(1, 1f).OnComplete(() => {
-//                index++;
-//                animateRechargeAmmunition(index);
-//            });
-//        }
-        
+
         public  override void HandlePlayingMode() {
             base.HandlePlayingMode();
             

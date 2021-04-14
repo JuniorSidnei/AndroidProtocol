@@ -59,10 +59,9 @@ namespace GameToBeNamed.Character
             }
 
             m_direction = m_char.Velocity.x > 0 ? 1 : -1;
+            m_attackBox.transform.localPosition = new Vector3(m_direction * m_attackBoxPosition.x, m_attackBoxPosition.y,0);
             m_comboIntervalTimer -= Time.deltaTime;
-            
-           
-            
+
             if (m_comboIntervalTimer <= 0) {
                 m_comboStep = 0;
             }
@@ -89,16 +88,13 @@ namespace GameToBeNamed.Character
         }
 
         private void OnExecuteAttack(OnExecuteAttack ev) {
-            m_char.ActionStates[ActionStates.Attacking] = true;
             m_attackBox.BoxCollider.enabled = true;
-            m_attackBox.transform.localPosition = new Vector3(m_direction * m_attackBoxPosition.x, m_attackBoxPosition.y,0);
-           
+            m_char.ActionStates[ActionStates.Attacking] = true;
         }
         
         private void OnFirstAttackFinish(OnFirstAttackFinish ev) {
             m_attackBox.BoxCollider.enabled = false;
             m_char.ActionStates[ActionStates.Attacking] = false;
-            //GameManager.Instance.GlobalDispatcher.Emit(new OnCameraScreenshake(1, .2f));
             AudioController.Instance.Play(m_hitGroundSound, AudioController.SoundType.SoundEffect2D, 0.3f);
         }
         

@@ -30,6 +30,7 @@ namespace GameToBeNamed.Character {
             CheckButtonDown("LookUp", InputAction.Button10);
             CheckButtonDown("LookDown", InputAction.Button11);
             CheckButtonDown("Sprint", InputAction.Button12);
+            CheckButtonDown("Recovery", InputAction.Button13);
             
             //Released buttons
             CheckButtonUp("LookUp", InputAction.Button10);

@@ -15,7 +15,8 @@ namespace GameToBeNamed.Utils {
         private void OnTriggerEnter2D(Collider2D other) {
             
             if (((1 << other.gameObject.layer) & PlayerLayer) != 0) {
-                GameManager.Instance.GlobalDispatcher.Emit(new OnValidateScene(m_sceneToLoad, m_sceneToUnload, m_areaBgMusic));   
+                
+                GameManager.Instance.GlobalDispatcher.Emit(new OnValidateScene(m_sceneToLoad, m_sceneToUnload, m_areaBgMusic));
             }
         }
     }

@@ -37,11 +37,11 @@ namespace GameToBeNamed.Character {
             
             m_stateMachine.OnUpdate(Character, this);
             
-            if (Character.Controller2D.collisions.left || Character.Controller2D.collisions.right) {
-                SetActionDown(InputAction.Button1);
+            if ((Character.Controller2D.collisions.left || Character.Controller2D.collisions.right) && IsTargetSet()) {
+                SetAttackAction();
             }
-            else if (!Character.Controller2D.collisions.left || !Character.Controller2D.collisions.right) {
-                UnsetActionDown(InputAction.Button1);
+            else if ((!Character.Controller2D.collisions.left || !Character.Controller2D.collisions.right) && !IsTargetSet()) {
+                UnsetActionDown(InputAction.Button4);
             }
         }
         
@@ -102,11 +102,6 @@ namespace GameToBeNamed.Character {
             if (!m_target) {
                 return;
             }
-            
-//            if (Character.transform.position.y - 30 > m_target.transform.position.y ||
-//                Character.transform.position.y + 30 < m_target.transform.position.y) {
-//                return;
-//            }
             
             UnsetAction(InputAction.Button12);
             m_spriteVfx.flipX = !(m_target.transform.position.x > Character.transform.position.x);

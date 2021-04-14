@@ -227,14 +227,14 @@ MonoBehaviour:
         IsActionActive: 0
         m_collisionBox: {fileID: 4033627896818107759}
         _hasDeathAnimation: 0
-        m_maxLife: 100
-        m_damageCooldown: 0.2
+        m_maxLife: 200
+        m_damageCooldown: 0
         _hasDamageCollision: 0
         m_damageColision: 0
         m_lifeSplashImage: {fileID: 0}
-        m_dieExplosionSound: {fileID: 8300000, guid: f088892cefe04c7449888c0d8a58229f,
+        m_dieExplosionSound: {fileID: 8300000, guid: 3a1207c6e411bbc41ac0ceeb52a6bf9b,
           type: 3}
-        m_hurtSound: {fileID: 8300000, guid: f088892cefe04c7449888c0d8a58229f, type: 3}
+        m_hurtSound: {fileID: 8300000, guid: 82b94b44186f52a40b39f44e67539fda, type: 3}
         ExplosionEffect: {fileID: 6360145631924320151, guid: 48fd68156fccdbf41a5ddb27358180f4,
           type: 3}
         MoneyBox: {fileID: 663016336894859358, guid: db2d97cc5a1f2d1468ad57d1fe5ead54,
@@ -247,15 +247,6 @@ MonoBehaviour:
           type: 3}
         m_knockbackForce: {x: 0, y: 0}
     00000002:
-      type: {class: PunkRobotInput, ns: GameToBeNamed.Character, asm: CS-Player}
+      type: {class: PlayerInput, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
-        m_stateMachine:
-          id: 0
-          m_states:
-          - id: 3
-        m_wayPoints:
-        - {x: 0, y: 0, z: 0}
-    00000003:
-      type: {class: PatrolState, ns: GameToBeNamed.Character, asm: CS-Player}
-      data:
-        id: 0
+        PlayerID: 0
