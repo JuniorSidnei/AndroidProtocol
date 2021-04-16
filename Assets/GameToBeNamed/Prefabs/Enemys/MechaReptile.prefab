@@ -342,7 +342,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5955829787421557629}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -533.2, y: -3.8, z: 0}
+  m_LocalPosition: {x: -534, y: -1.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5955829786628665576}
@@ -417,9 +417,9 @@ MonoBehaviour:
         JumpForce: {x: 10, y: 110}
         m_lowJumpMultiplier: 3.5
         m_fallMultiplier: 4.5
-        m_downJumpEffect: {fileID: 4541717697892416001, guid: ecc8f19ff25b48c46b44e0258a411c28,
+        m_downJumpEffect: {fileID: 4541717697892416001, guid: 22545408b0d664848938d45eeedcbb4f,
           type: 3}
-        m_upJumpEffect: {fileID: 4541717697892416001, guid: 2f5886722ef11e647913fae8526c0308,
+        m_upJumpEffect: {fileID: 4541717697892416001, guid: 9e916d7900fe18944b16171f40ef7fcb,
           type: 3}
         m_jumpEffectPosition: {fileID: 8502856831483503490}
         m_jumpStartSound: {fileID: 0}
@@ -430,7 +430,7 @@ MonoBehaviour:
         IsActionActive: 0
         m_collisionBox: {fileID: 5955829787421557626}
         _hasDeathAnimation: 0
-        m_maxLife: 800
+        m_maxLife: 300
         m_damageCooldown: 0.5
         _hasDamageCollision: 0
         m_damageColision: 50
@@ -453,7 +453,7 @@ MonoBehaviour:
       type: {class: MobAttackAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
         IsActionActive: 0
-        m_damage: 50
+        m_damage: 80
         m_attackCooldown: 2
         m_attackBox: {fileID: 7255800571885363281}
     00000005:
@@ -467,9 +467,10 @@ MonoBehaviour:
           m_states:
           - id: 6
           - id: 7
+          - id: 8
         m_wayPoints:
-        - {x: -420, y: -3.9, z: 0}
-        - {x: -550, y: -3.9, z: 0}
+        - {x: -201, y: 513, z: 0}
+        - {x: -144, y: 513, z: 0}
         m_triggerProxy: {fileID: 5955829787421557626}
     00000006:
       type: {class: PatrolState, ns: GameToBeNamed.Character, asm: CS-Player}
@@ -479,6 +480,10 @@ MonoBehaviour:
       type: {class: PursuitState, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
         m_lineOfSite: 50
+    00000008:
+      type: {class: AttackState, ns: GameToBeNamed.Character, asm: CS-Player}
+      data:
+        id: 0
 --- !u!61 &5955829787421557624
 BoxCollider2D:
   m_ObjectHideFlags: 0
