@@ -22,14 +22,12 @@ namespace GameToBeNamed.Character {
         //Alteram valor durante o jogo
         private int m_max_health_in_game;
         private int m_current_health_in_game;
-        private int m_money_in_game;
         private int m_rechargeable_batteries_in_game;
         private int m_recharge_amount_value_in_game;
         
         //Valores iniciais
         public void OnBeforeSerialize() {
             Currenthealth = Maxhealth;
-            Money = 0;
             m_rechargeable_batteries_in_game = RechargeableBatteries;
             m_recharge_amount_value_in_game = RechargeAmountValue;
         }
@@ -38,7 +36,6 @@ namespace GameToBeNamed.Character {
 
             m_max_health_in_game = Maxhealth;
             m_current_health_in_game = Currenthealth;
-            m_money_in_game = Money;
         }
 
         public int CurrentHealth {

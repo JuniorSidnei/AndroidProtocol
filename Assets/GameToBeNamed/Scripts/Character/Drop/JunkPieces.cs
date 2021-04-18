@@ -12,13 +12,15 @@ namespace GameToBeNamed.Character {
     public class JunkPieces : MonoBehaviour {
 
         public LayerMask PlayerLayer;
+        public int JunkAmountRangeMin;
+        public int JunkAmountRangeMax;
         private int m_pieceAmount;
         private Rigidbody2D m_rb;
         private void Start() {
 
             m_rb = GetComponent<Rigidbody2D>();
             
-            m_pieceAmount = Random.Range(5, 10);
+            m_pieceAmount = Random.Range(JunkAmountRangeMin, JunkAmountRangeMax);
 
             m_rb.velocity += new Vector2(Random.Range(-30, 30), Random.Range(0, 60));
         }

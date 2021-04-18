@@ -50,6 +50,7 @@ namespace GameToBeNamed.Character {
             GameManager.Instance.GlobalDispatcher.Subscribe<OnCharacterUpdateClassCooldown>(OnCharacterUpdateClassCooldown);
             GameManager.Instance.GlobalDispatcher.Subscribe<OnUpdateAmmunitionAmount>(OnUpdateAmmunitionAmount);
             GameManager.Instance.GlobalDispatcher.Subscribe<OnUpdateRecovery>(OnUpdateRecovery);
+            GameManager.Instance.GlobalDispatcher.Subscribe<OnRecoveryFull>(OnRecoveryFull);
         }
 
         private void OnCharacterUpdateClassCooldown(OnCharacterUpdateClassCooldown ev) {
@@ -119,9 +120,16 @@ namespace GameToBeNamed.Character {
         }
 
         private void OnUpdateRecovery(OnUpdateRecovery ev) {
+           
             for (var i = ev.CurrentAmount; i < m_recoveryIcons.Count; i++) {
                 m_recoveryIcons[i].DOFade(0, 0.1f).SetEase(Ease.InQuad);
             }
+        }
+
+        private void OnRecoveryFull(OnRecoveryFull ev) {
+            for (var i = 0; i < ev.CurrentAmount; i++) {
+                m_recoveryIcons[i].DOFade(1, 0.1f).SetEase(Ease.InQuad);
+            }  
         }
         
         private void OnUpdateAmmunitionAmount(OnUpdateAmmunitionAmount ev) {

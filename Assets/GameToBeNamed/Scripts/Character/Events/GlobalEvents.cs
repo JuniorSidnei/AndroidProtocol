@@ -210,4 +210,14 @@ namespace GameToBeNamed.Utils {
 
         public int CurrentAmount;
     }
+
+    public class OnRecoveryFull {
+        public OnRecoveryFull(int currentAmount) {
+            CurrentAmount = currentAmount;
+        }
+
+        public int CurrentAmount;
+    }
+    
+    public class OnNpcRecovery { }
 }

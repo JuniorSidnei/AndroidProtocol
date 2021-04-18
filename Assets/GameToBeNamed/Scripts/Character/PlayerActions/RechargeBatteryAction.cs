@@ -44,6 +44,10 @@ namespace GameToBeNamed.Character {
             if (m_char.ActionStates.AllNotDefault(m_unallowedStatus).Any()) {
                 return;
             }
+
+            if (m_input.HasActionDown(InputAction.Button8)) {
+                GameManager.Instance.GlobalDispatcher.Emit(new OnNpcRecovery());
+            }
             
             GameManager.Instance.GlobalDispatcher.Emit(new OnUpdateRecovery(characterStatusLife.CurrentBatteries));
             
