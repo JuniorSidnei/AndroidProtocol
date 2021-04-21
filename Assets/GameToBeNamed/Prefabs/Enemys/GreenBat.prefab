@@ -242,7 +242,7 @@ MonoBehaviour:
         m_lifeSplashImage: {fileID: 2292951076772209664}
         m_dieExplosionSound: {fileID: 0}
         m_hurtSound: {fileID: 0}
-        ToxicGasCloud: {fileID: 9106066692627721421, guid: a2fd719ed4858f34d86cec0c080c1773,
+        ToxicGasCloud: {fileID: 5663605786732327233, guid: 52f8f4f14de59e241baec03f20fbd591,
           type: 3}
         MoneyBox: {fileID: 663016336894859358, guid: db2d97cc5a1f2d1468ad57d1fe5ead54,
           type: 3}
@@ -250,8 +250,9 @@ MonoBehaviour:
       type: {class: MobProcessDamageAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:
         IsActionActive: 0
-        m_onHitEffect: {fileID: 0}
-        m_knockbackForce: {x: 0, y: 0}
+        m_onHitEffect: {fileID: 8252051896981874538, guid: de3c69e3409cb734590546c334f1b2a6,
+          type: 3}
+        m_knockbackForce: {x: 20, y: 0}
     00000002:
       type: {class: MoveAction, ns: GameToBeNamed.Character, asm: CS-Player}
       data:

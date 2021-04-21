@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_actions:
   - MoveAction
-  - ToxicMobConstituctionAction
+  - MobToxicConstituctionAction
   - MobProcessDamageAction
